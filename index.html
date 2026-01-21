@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Grace Alele">
+  <meta name="google-site-verification" content="vUeO3cwD3be3PmDm2dfVVdqx_RfFM7uI-MIA0Md9Zbo" />
+  <title>Grace Alele's Website</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="./data/favicon/favicon-32x32.png"> 
+
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #0f0f0f;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: #b0a0a0;
+      --text-tet: #c9b7b7;
+      --text-muted: #705858;
+      --accent: #c41e3a;
+      --accent-bright: #e63950;
+      --accent-glow: rgba(196, 30, 58, 0.15);
+      --accent-deep: #8b1538;
+      --accent-warm: #d4456a;
+      --gold-highlight: #d4a574;
+      --border: #222222;
+      --border-hover: #333333;
+
+      --font-display: 'Playfair Display SC', serif;
+      --font-cursive: 'Pacifico', cursive;
+      --font-nav: 'Cantarell', sans-serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-muz: 'Muzungu', sans-serif;
+
+      --transition-fast: 0.15s ease;
+      --transition-medium: 0.3s ease;
+    }
+
+    *::after, ::before {
+    border-width: 0;
+    border-style: solid;
+    }
+
+    [data-theme="light"] {
+      --bg-dark: #211e1e;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f7f2f2;
+      --bg-card: #ffffff;
+      --bg-card-hover: #faf5f5;
+      --text-primary: #1a0505;
+      --text-secondary: #3d2525;
+      --text-muted: #6b5050;
+      --accent: #9a1428;
+      --accent-bright: #b81830;
+      --accent-glow: rgba(154, 20, 40, 0.12);
+      --accent-deep: #6e0f1e;
+      --accent-warm: #c43858;
+      --gold-highlight: #9a7548;
+      --border: #d4c0c0;
+      --border-hover: #b89898;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+      transition: background var(--transition-medium), color var(--transition-medium);
+    }
+
+    a {
+      color: var(--accent-bright);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+    }
+
+    /* Header */
+    .header {
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      color: var(--text-primary);
+    }
+
+    .logo span {
+      display: inline-block;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s ease,
+        filter 0.3s ease;
+      transition-delay: calc(var(--i) * 0.05s);
+    }
+
+    .logo:hover span {
+      color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 1.8rem;
+      }
+    }
+
+    .header-right {
+      position: absolute;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .cv-link {
+      font-family: var(--font-cursive);
+      font-size: 1rem;
+      color: var(--text-secondary);
+      transition: color var(--transition-fast);
+    }
+
+    .cv-link:hover {
+      color: var(--accent-bright);
+    }
+
+    .goog-logo-link,
+    .goog-te-gadget span {
+      display: none !important;
+    }
+
+    .goog-te-gadget {
+      font-size: 0;
+    }
+
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all var(--transition-fast);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Mobile header - hide CV only, keep toggle */
+    @media (max-width: 768px) {
+      .header {
+        justify-content: center;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 2.8rem;
+        text-align: center;
+      }
+
+      .header-right {
+        position: absolute;
+        right: 0;
+        gap: 1rem;
+      }
+
+      .header-right .cv-link {
+        display: none;
+      }
+
+      .header-right .theme-toggle {
+        display: none;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 2rem 0 4rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    #mine {
+      margin-top: -1rem;
+    }
+ 
+    #mi {
+      margin-top: 1rem;
+    }
+
+    #min {
+      margin-top: -2rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-left {
+        align-items: center;
+      }
+    }
+
+    .profile-image {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter var(--transition-medium);
+      margin-bottom: 1.0rem;
+    }
+
+    .profile-image:hover {
+      filter: grayscale(0%);
+    }
+
+    /* Mobile: larger profile image */
+    @media (max-width: 768px) {
+      .profile-image {
+        width: 240px;
+        height: 240px;
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .icon-link {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: all var(--transition-fast);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .icon-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .mobile-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+
+      /* Show toggle in icon row on mobile */
+      .mobile-toggle {
+        display: flex;
+      }
+    }
+
+    /* Hero Bio - Redesigned */
+    .hero-bio {
+      padding-top: 0.5rem;
+    }
+
+    .hero-bio p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-bio a {
+      color: var(--accent-bright);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-fast);
+    }
+
+    .hero-bio a:hover {
+      border-bottom-color: var(--accent-bright);
+    }
+
+    /* Main Grid */
+    .main-content {
+      padding: 2rem 0 4rem;
+    }
+
+    .organic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 3rem 4rem;
+    }
+
+    @media (max-width: 1024px) {
+      .organic-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-toggle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 3px;
+      transition: all var(--transition-fast);
+      font-family: var(--font-body);
+    }
+
+    .section-toggle:hover {
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .section-toggle i {
+      font-size: 0.65rem;
+      transition: transform var(--transition-fast);
+    }
+
+    .section-toggle.active i {
+      transform: rotate(180deg);
+    }
+
+    /* Left Column */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .about-text {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+    }
+
+    /* Essay Nav */
+    .essay-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .essay-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+      transition: all var(--transition-fast);
+    }
+
+    .essay-nav-item:hover {
+      padding-left: 0.75rem;
+      color: var(--accent-bright);
+    }
+
+    .essay-nav-item i {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      transition: transform var(--transition-fast);
+    }
+
+    .essay-nav-item:hover i {
+      transform: translateX(4px);
+      color: var(--accent);
+    }
+
+    /* Quote */
+    .quote-block {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      padding: 1.25rem 1.5rem;
+      background: var(--accent-glow);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .quote-block::before {
+      content: '"';
+      font-size: 3.5rem;
+      color: var(--accent);
+      opacity: 0.25;
+      position: absolute;
+      top: -0.25rem;
+      left: 0.5rem;
+      font-family: Georgia, serif;
+    }
+
+    /* Personal */
+    .personal-text {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* YouTube */
+    .youtube-placeholder {
+      aspect-ratio: 16/9;
+      background: var(--bg-card);
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      gap: 0.75rem;
+    }
+
+    .youtube-placeholder i {
+      font-size: 2.5rem;
+      color: var(--accent);
+      opacity: 0.4;
+    }
+
+    .youtube-placeholder span {
+      font-size: 0.85rem;
+    }
+
+    .youtube-placeholder a {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-muted);
+    }
+
+    .youtube-placeholder a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Community Service */
+    .community-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .community-item {
+      padding: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all var(--transition-fast);
+    }
+
+    .community-item:hover {
+      border-color: var(--border-hover);
+    }
+
+    .community-item h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .community-item p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .community-item .chat-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+
+    .community-item .chat-button:hover {
+      background: var(--accent-bright);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .community-placeholder {
+      padding: 1rem;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Right Column */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* News */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 1.25rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: all var(--transition-fast);
+    }
+
+    .news-item:hover {
+      background: var(--accent-glow);
+      margin: 0 -0.75rem;
+      padding: 0.85rem 0.75rem;
+      border-radius: 4px;
+      border-color: transparent;
+    }
+
+    .news-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .news-text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .news-text a {
+      color: var(--accent-bright);
+    }
+
+    /* Hidden items (auto-toggle) */
+    .hidden-item {
+      display: none !important;
+    }
+
+    /* Publications */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pub-card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.25rem;
+      padding: 0;
+    }
+
+    /* Image hover effect - original style */
+    .pub-image-container {
+      width: 160px;
+      height: 160px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .pub-image-container .img-after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .pub-image-container:hover .img-after {
+      opacity: 1;
+    }
+
+    .pub-image-container img,
+    .pub-image-container video {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: var(--bg-secondary);
+    }
+
+    /* Mobile: compact layout - image left, title right */
+    @media (max-width: 600px) {
+      .pub-card {
+        grid-template-columns: 160px 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .pub-image-container {
+        width: 160px !important;
+        height: 160px !important;
+      }
+
+      .pub-image-container img,
+      .pub-image-container video {
+        width: 160px !important;
+        height: 160px !important;
+      }
+
+      .pub-authors,
+      .pub-venue,
+      .pub-links {
+        display: none;
+      }
+
+      .pub-title {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+      }
+    }
+
+    .pub-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      margin-bottom: 0.35rem;
+    }
+
+    .pub-authors {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-authors u {
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .pub-venue {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .pub-link {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.45rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-muted);
+      transition: all var(--transition-fast);
+    }
+
+    .pub-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Projects */
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.25rem;
+      padding: 0;
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-venue {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    /* Mobile: compact layout for projects - image left, title right */
+    @media (max-width: 600px) {
+      .project-card {
+        grid-template-columns: 160px 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .project-venue,
+      .project-desc,
+      .project-links {
+        display: none;
+      }
+
+      .project-title {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+      }
+    }
+
+     /* Teaching Section Styles */
+    .teaching-section {
+      padding: 60px 20px;
+    }
+
+    .teaching-section .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--text-primary);
+    }
+
+    .teaching-role, .mentoring-role {
+      margin-bottom: 40px;
+    }
+
+    .role-title {
+      font-size: 1.1rem;
+      color: var(--accent-bright);
+      margin-bottom: 20px;
+      text-align: center;   
+      font-family: Trebuchet MS;
+    }
+
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .course-item {
+      padding: 15px;    
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      border-left: 5px solid var(--accent-bright);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      /*background: var(--bg-dark);*/
+    }
+
+    .course-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: var(--accent-glow); 
+      border-color: transparent;
+      border-left: 4px solid var(--accent-bright);
+    }
+    
+
+    .course-code {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    .course-name {
+      margin: 4px 0;
+      font-weight: bold;
+      color: var(--text-tet);
+      font-size: 0.8rem;
+    }
+
+    .course-description{
+      margin: 6px 0;
+      color: var(--text-secondary);
+      font-size: 0.7rem;
+    }
+
+    .term {
+      color: var(--accent);     
+      font-family: var(--font-muz);
+    }
+
+    .term-span {
+      color: var(--accent);
+      font-size: 0.7rem;
+      border-radius: 4px;
+      padding: 5px 9px; 
+      margin: 2px;
+      background: var(--accent-glow);
+    }
+
+    .course-item-span{
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .course-description p{
+      font-weight: 700px;
+    }
+     
+    .course-span{
+      color: var(--text-secondary);
+      font-size: 0.7rem;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      font-family: var(--font-muz);
+      padding: 3px 10px;
+    }
+
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .teaching-section {
+        padding: 50px 15px;
+      }
+    
+      .role-title {
+        font-size: 1.3rem;        
+        color: var(--text-primary);
+      }
+    
+      .course-name {
+        font-size: 1rem;
+        padding: 6px;
+      }
+    }
+    
+    .mentoring-text{
+      color: var(--text-secondary);
+      line-height: 1.8;
+      justify-self: center;
+      margin-top: 4rem;
+      font-size: 0.95rem;
+    }
+
+
+/* ========== TABLET ========== */
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.75rem;
+    }
+
+    body { font-size: 18px; }
+    .container { max-width: 720px; }
+    .column { float: left; width: 50%;
+  }
+
+  .course-item {
+    padding: 1.25rem;
+  }
+
+  .course-item-span {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+  /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container { max-width: 960px; }
+  .column { width: 33.33%; } /* Three columns */
+}
+
+    /* ========== MOBILE ========== */
+  @media (max-width: 480px) {
+    .teaching-section {
+      padding: 3rem 1rem
+    }
+      .section-title {
+      font-size: 1.6rem;
+    }
+      .role-title {
+      font-size: 1.2rem;
+    }
+    .course-name {
+      font-size: 0.6rem;
+    }
+    .course-description {
+      font-size: 0.88rem;
+    }
+    .course-list {
+      grid-template-columns: 1fr; /* Single column for small screens */
+    }
+  }
+
+    /* Footer */
+    .footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer .copyright-name {
+      font-family: var(--font-display);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <a href="#" class="logo">
+        <span style="--i:0">G</span>
+        <span style="--i:1">r</span>
+        <span style="--i:2">a</span>
+        <span style="--i:3">c</span>
+        <span style="--i:4">e</span>
+        <span style="--i:5">&nbsp;</span>
+        <span style="--i:6">A</span>
+        <span style="--i:7">l</span>
+        <span style="--i:8">e</span>
+        <span style="--i:9">l</span>
+        <span style="--i:10">e</span>
+      </a>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
+
+      <div class="language-switcher">
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </div>
+      <div id="google_translate_element"></div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left" id="mine">
+
+        <img src="./images/kharis_grey.jpeg" alt="Grace Alele" class="profile-image"
+          onmouseover="this.src='./images/kharis_color.jpeg'" onmouseout="this.src='./images/kharis_grey.jpeg'">
+        <a href="./tex/cv.pdf" class="cv-link" id="mi">Curriculum Vitae</a>
+        <div class="social-icons">
+          <a href="https://scholar.google.com/citations?user=hSA_5FIAAAAJ" class="icon-link"
+            aria-label="Google Scholar">
+            <i class="fa-brands fa-google"></i>
+          </a>
+          <a href="https://github.com/gracealele" class="icon-link" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/gracealele" class="icon-link" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="icon-link cryptedmail" data-name="alelegrace" data-domain="gmail" data-tld="com"
+            onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"
+            aria-label="Email">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+          <button class="icon-link mobile-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon" id="theme-icon-mobile"></i>
+          </button>
+        </div>
+      </div>
+      <div class="hero-bio" id="min">
+        <p>
+          I recently completed my bachelor's degree in computer science. Now, I am specializing in 
+          disease discovery and progression. I am a research collaborator at <a href="./pages/mlc.html"> 
+          MLC </a> and <a href="./pages/mlc.html"> Hugging Science</a>, working with 
+          <a href="https://profiles.stanford.edu/shaul-druckmann"> Steven</a>. My work centers on 
+          under-researched reproductive disease, where I apply machine learning and statistical methods 
+          to uncover biological insights.
+        </p>
+
+        <p>
+          Alongside my computational work, I am interested in connecting data-drive discoveries with experimental validation.
+          I am also collaborating with the<a href="./pages/exploratory.html#translation"> CMHS research group</a> at 
+          <a href="https://www.youtube.com/">ABUAD</a> to translate computationally inferred targets into early, non-invasive 
+          diagnostics approaches. I will be sharing my vision and journey on <a href="https://www.youtube.com/">YouTube</a>.
+        </p>  
+        
+        <p>
+          Beyond research, I enjoy exploring creative projects such as <a href="./pages/projects.html#woodworking">
+          woodworking</a> and <a href="./pages/projects.html#footwear"> innovative footwear design</a>. I find that 
+          hands-on work helps me think through problems from differently and it often inform how I approach technical 
+          and scientific challenges.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="organic-grid">
+
+        <!-- Left Column -->
+        <div class="left-column">
+
+          <!-- About -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">About</div>
+            </div>
+            <div class="about-text">        
+              <p>
+                My work is grounded in the belief that meaningful biomedical discovery requires computational methods
+                that engage with biological complexity. I am training toward research in computational biology, 
+                focusing on ML and statistical models for disease discovery and progression under real-world 
+                constraints such as sparse and heterogeneous data. I am interested in interpretable, causally 
+                informed models that generate hypotheses for biological validation.
+              </p>
+              <p>
+                Beyond research, I value teaching and hands-on work, which continue to shape how I think about problem 
+                solving and scientific inquiry.
+              </p>
+            </div>
+          </div>
+                    
+          <!-- Essay -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">Essay</div>
+            </div>
+            <nav class="essay-nav">
+              <a href="./pages/people.html" class="essay-nav-item">
+                <span>People</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="./pages/creed.html" class="essay-nav-item">
+                <span>Creed</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="./pages/ri.html" class="essay-nav-item">
+                <span>Research interest</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </nav>
+          </div>
+
+          <!-- YouTube -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">YouTube</div>
+            </div>
+            <div class="youtube-placeholder">
+              <i class="fa-brands fa-youtube"></i>
+              <span>Videos coming soon</span>
+              <a href="https://www.youtube.com/Kharis_Co"></a>
+            </div>
+          </div>
+
+          <!-- Community Service -->
+          <div class="section" id="community">
+            <div class="section-header">
+              <div class="section-label">Community Service</div>
+            </div>
+            <div class="community-list">
+              <div class="community-item">
+                <h4>30-Minute Chat</h4>
+                <p>I am open to discussing research ideas, exploring collaborations, offering technical advice, or
+                  supporting startups and tech-focused individuals. 
+                  <!--I am also happy to assist with career guidance, PhD
+                  applications, or general advice on graduate life.
+                </p>
+                <p style="margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
+                  100+ past conversations with students, researchers, and founders.
+                  <a href="https://docs.google.com/spreadsheets/d/1ikmivl1df8RAYUwROhA8WkLk6ZvElrWxDOqVrhkE37o/edit?gid=375912192#gid=375912192"
+                    target="_blank">→ See the full list</a> -->
+                </p>
+                <a href="https://calendar.app.google/Psp2JxZjhUF5MsYZ9"
+                  target="_blank" class="chat-button">
+                  <i class="fa-regular fa-calendar"></i>
+                  Book a chat
+                </a>
+              </div>
+
+
+              <!--
+              <div class="community-item">
+                <h4>PhD Application Materials</h4>
+                <p>I am sharing my application materials for those preparing for PhD admissions:
+                  1) <a href="https://drive.google.com/file/d/1dTWt8Nr0I03yQktghfqajP2pjxOn1bRM/view"
+                    target="_blank">Statement of Purpose</a>,
+                  2) <a href="https://drive.google.com/file/d/1czyfhYE7VAkMPMF4Dr4CTZ99CAJNuvGw/view"
+                    target="_blank">Personal Statement</a>,
+                  3) <a
+                    href="https://docs.google.com/document/d/1wxRWZSjVRn-4NN5MH965evxNKBY8rnCdwJ9mMbPcu4w/edit?usp=sharing"
+                    target="_blank">Interview Notes</a>
+                </p>
+              </div>-->
+            </div>
+          </div>
+        
+
+          <!-- Personal -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">Personal</div>
+            </div>
+            <p class="personal-text">
+              These days, I enjoy spending time with my niece and working on small creative projects outside of research. I <a
+              href="./pages/blog.html">log my daily life</a> to keep track of life's beautiful moments I may not want to forget. 
+              I love connecting with new people. I enjoy watching films and reading novels and poems. I really love this quote:
+            </p>
+            <div class="quote-block" style="margin-top: 1rem;">
+              <span>&nbsp;&nbsp;</span>Dance like nobody's watching; Love like you've never been hurt; Work like you don't need money; Live like
+              it's heaven on earth.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+
+          <!-- Highlights -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">Recent Highlights</div>
+              <button class="section-toggle" id="news-toggle" onclick="toggleNews()">
+                <span>more</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="news-list">
+              <div class="news-item">
+                <span class="news-date">Jan 2026</span>
+                <span class="news-text">I am starting a project (Medical imaging Segmentation)</span>
+              </div>
+              <div class="news-item">
+                <span class="news-date">December 2025</span>
+                <span class="news-text">I started volunteering at <a href="https://www.group/epic/">RetinaCare</a>, 
+                  building Africa's first AI-powered closed-loop vision intelligence system</span>
+              </div>
+              <div class="news-item">
+                <span class="news-date">December 2025</span>
+                <span class="news-text">I presented posters at <a href="https://www.group/epic/">ABUAD-CMHS Scientific Conference</a></span>
+              </div>
+              <div class="news-item">
+                <span class="news-date">September 2025</span>
+                <span class="news-text">I am starting as a research assistant at <a href="https://www.group/epic/">Hugging Science</a></span>
+              </div>
+              <div class="news-item">
+                <span class="news-date">May 2025</span>
+                <span class="news-text">Graduated at the top 5% of my class at Ambrose Alli University</span>
+              </div>           
+            </div>
+          </div>
+
+          <!-- Publications -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">Publications</div>
+              <button class="section-toggle" id="pubs-toggle" onclick="togglePubs()">
+                <span>all</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="pub-list">  
+
+              <article class="pub-card">
+                <div class="pub-image-container">
+                  <div class="img-after"><img src="./images/cloud1.png" alt=""></div>
+                  <img src="./images/cloud.png" alt="AI in Cloud Computing">
+                </div>
+                <div class="pub-info">
+                  <h3 class="pub-title">Examining the role of AI and ML for advanced cybersecurity, threat detection and predictive defenses</h3>
+                  <p class="pub-authors">
+                    Okereke, R.O., <u>Alele, G.O.*</u>, Azeez, O.L., Oko-odion, T.U., Samson, I.O., Anosike, C.N., Owan, F.O., Nnamani,C.C.
+                  </p>
+                  <p class="pub-venue">AJSTEA 2024</p>
+                  <div class="pub-links">
+                    <a href="./data/threats.pdf" class="pub-link">paper</a>                    
+                    <a href="https://doi.org/10.58578/AJSTEA.v2i5.3813" class="pub-link">doi</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="pub-card">
+                <div class="pub-image-container">
+                  <div class="img-after">
+                  </div>
+                  <img src="./images/explore.png" alt="AI in Healthcare">
+                </div>
+                <div class="pub-info">
+                  <h3 class="pub-title">Overview of AI applications shaping healthcare outcomes.</h3>
+                  <p class="pub-authors">Akintayo, T. A., Oko-Odion, T. U., Egenuka, R. N., Owoeye, M. C., Kwadwo, 
+                    O. J., Olofin, D. O., Ovabor, J. T., Ibitoye, O. J., <u>Alele, G. O.</u>, Adefemi, O. T., Friday, 
+                    O. D., Ifenatuora, C. I., & Precious, O.                   
+                  </p>
+                  <p class="pub-venue">IJAEM 2024</p>
+                  <div class="pub-links">
+                    <a href="./data/operations.pdf" class="pub-link">paper</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="pub-card">
+                <div class="pub-image-container">
+                  <img src="./images/transform2.png" alt="AI and Data Analytics for Ethical Decision-Making">
+                </div>
+                <div class="pub-info">
+                  <h3 class="pub-title">Study on AI & data analytics for ethical decisions-making</h3>
+                  <p class="pub-authors">Akintayo, T. A., Paul, C., Madumere, C. Q., Nnadiekwe, O. A., Fakokunde, B. D., 
+                    Shittu, S. V., Ogundigba, O. J., Olowu, I. A., Egenuka, R. N., Ugochukwu, U. A., <u>Alele, G. O.</u>, 
+                    Adebesin, A. O., Nnamani, C. C., & Usman, W. O.
+                  </p>
+                  <p class="pub-venue">IJEMT 2024</p>
+                  <div class="pub-links">
+                    <a href="./data/transforming.pdf" class="pub-link">paper</a>
+                    <a href="https://doi.org/10.58578/ijemt.v2i3.3812" class="pub-link">doi</a>
+                  </div>
+                </div>
+              </article>
+             
+            </div>
+          </div>
+
+          <!-- Conferences -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">Conferences</div>
+              <button class="section-toggle" id="pubs-toggle" onclick="togglePubs()">
+                <span>all</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="pub-list">
+
+              <article class="pub-card">
+                <div class="pub-image-container">
+                  <div class="img-after"><img src="./images/footwear.png" alt=""></div>
+                  <img src="./images/footwear1.png" alt="Smart Footwear Design">
+                </div>
+                <div class="pub-info">
+                  <h3 class="pub-title">DEVELOPMENT OF A SMART FOOTWEAR</h3>
+                  <p class="pub-authors">T. Olutosoye, F. Chukwudi, I. Oriji, A. Okofu, <u>G.O. Alele</u></p>
+                  <p class="pub-venue">CMHS 2025</p>
+                  <div class="pub-links">
+                    <a href="./data/foorwear.pdf" class="pub-link">poster</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="pub-card">
+                <div class="pub-image-container">
+                  <div class="img-after"><img src="./images/incubator.png" alt=""></div>
+                  <img src="./images/incubator.png" alt="Infant Incubator Design">
+                </div>
+                <div class="pub-info">
+                  <h3 class="pub-title">AN INFANT INCUBATOR DESIGN FOR INTERMITTENT TO ELECTRICITY</h3>
+                  <p class="pub-authors">Okwuegbulem, A., Chukwudi, F.O., Ephraim, D.E., Abe O.O, <u>Alele, G.O.</u>, 
+                    Olutosoye, T.C., Olumati A.K., Oludayo, K.E.</p>
+                  <p class="pub-venue">CMHS 2025</p>
+                  <div class="pub-links">
+                    <a href="./data/incubator.pdf" class="pub-link">poster</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+      
+          <!-- Projects -->
+          <div class="section">
+            <div class="section-header">
+              <div class="section-label">Projects</div>
+              <button class="section-toggle" id="pubs-toggle" onclick="togglePubs()">
+                <span>all</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+            <div class="project-grid">
+              <div class="project-card">
+                <div class="pub-image-container">
+                  <div class="img-after">
+                    <video width="160" height="160" muted autoplay loop>
+                      <source src="images/sketch_after.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <img src="./images/sketch_before.png" alt="Abstract Sketch to Character">
+                </div>
+                <div class="project-info">
+                  <h4 class="project-title">Deep Learning Approaches for Endometriosis Biomarker 
+                    Discovery from RNA-seq Transcriptomic Profiles</h4>
+                  <p class="project-venue">Spring 2022</p>
+                  <p class="project-desc">Uses deep learning on RNA-seq transcriptomic data to discover biomarkers 
+                    of endometriosis, supporting improved disease characterization and earlier, less invasive diagnosis.</p>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <div class="pub-image-container">
+                  <div class="img-after">
+                    <video width="160" height="160" muted autoplay loop>
+                      <source src="images/pong_after.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <img src="./images/pong_before.png" alt="Playing Atari with DQN">
+                </div>
+                <div class="project-info">
+                  <h4 class="project-title">Explainable Artificial Intelligence for Causal Inference</h4>
+                  <p class="project-venue">Spring 2025 - Fall 2025</p>
+                  <p class="project-desc">Implemented a GNN using protein-protein 
+                    interaction (PPI) data to model causal relationships in inflammatory signaling pathways.</p>
+                  <div class="project-links">
+                    <a href="https://github.com/gracealele/explainable-ai-causal-gnn"
+                      class="pub-link">code</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <div class="pub-image-container">
+                  <div class="img-after">
+                    <video width="160" height="160" muted autoplay loop>
+                      <source src="images/music_after.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <img src="./images/music_before.png" alt="Musical Structure Visualization">
+                </div>
+                <div class="project-info">
+                  <h4 class="project-title">Bayesian Optimization Multimodal</h4>
+                  <p class="project-venue">Winter 2024</p>
+                  <p class="project-desc">This project bridges the gap between computational efficiency and clinical 
+                    accuracy in medical AI. By making hyperparameter tuning 2.5× more efficient.</p>
+                  <div class="project-links">                    
+                    <a href="https://github.com/hyungkwonko/M1522.000500-infovis" class="pub-link">code</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <div class="pub-image-container">
+                  <div class="img-after">
+                    <video width="160" height="160" muted autoplay loop>
+                      <source src="images/solar2.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <img src="./images/solar.png" alt="Blockchain Based Solar Energy Trading Platform">
+                </div>
+                <div class="project-info">
+                  <h4 class="project-title">Blockchain Based Solar Energy Trading Platform</h4>
+                  <p class="project-venue">Spring 2023 - Summer 2023</p>
+                  <p class="project-desc">Presents a decentralized peer-to-peer (P2P) solar energy trading platform using blockchain technology. </p>
+                  <div class="project-links">
+                    <a href="https://github.com/gracealele/Blockchain-Based-Solar-Energy-Trading-Platform" class="pub-link">code</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+    <!-- Teaching Assistant Section -->
+    <section id="teaching" class="teaching-section">
+      <div class="container">
+        <h2 class="section-title">Teaching & Mentoring</h2>
+      
+        <!-- Teaching Assistant Roles -->
+        <div class="teaching-role">
+          <h3 class="role-title" class="section-label">TEACHING ASSISTANT</h3>
+          <div class="course-list">
+            <div class="course-item">  
+              <div class="course-item-span">
+                <span class="course-code">
+                      CSC203 & CSC204
+                </span>
+                <span class="course-span">
+                  Lead Teaching Assistant
+                </span>
+              </div>
+              <p class="course-name">Object Oriented Programming</p>
+              <p class="course-description">
+                Introduction to embedded systems computing platforms and their basic building blocks
+              </p>
+              <span class="term-span">
+                  Fall 2022
+                </span>
+                <span class="term-span">
+                  Fall 2023
+                </span>
+                <span class="term-span">
+                  Fall 2024
+                </span>
+            </div>
+          
+            <div class="course-item">
+              <div class="course-item-span">
+                <span class="course-code">
+                    CSC301
+                </span>
+                <span class="course-span">
+                  Lab Assistant
+                </span>
+              </div>
+              <p class="course-name">Artificial Intelligence</p>
+              <p class="course-description">
+                Introduction to embedded systems computing platforms and their basic building blocks
+              </p>              
+              <div class="term">
+                <span class="term-span">
+                  Winter 2024
+                </span>
+                <span class="term-span">
+                  Winter 2025
+                </span>
+              </div>
+            </div> 
+
+            <div class="course-item">
+              <div class="course-item-span">
+                <span class="course-code">
+                    CSC101
+                </span>
+                <span class="course-span">
+                  Teaching Assistant
+                </span>
+              </div>
+
+              <p class="course-name">Introductory Simulation Methods</p>
+              <p class="course-description">
+                Introduction to embedded systems computing platforms and their basic building blocks
+              </p>
+              <div class="term">
+                <span class="term-span">
+                  Fall 2022
+                </span>
+                <span class="term-span">
+                  Fall 2023
+                </span>
+                <span class="term-span">
+                  Fall 2024
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- (Optional) Student Mentoring -->
+        <div class="mentoring-role">
+          <h3 class="role-title">STUDENT MENTORING</h3>
+          <p class="mentoring-text">Currently building my mentoring portfolio.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>    
+
+<!-- Footer -->
+<footer class="footer">
+  <p><span class="copyright-name">Grace Alele</span> © 2026</p>
+</footer>
+
+
+  
+  <script>
+    // Theme toggle - sync both icons
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      const iconMobile = document.getElementById('theme-icon-mobile');
+
+      if (body.dataset.theme === 'dark') {
+        body.dataset.theme = 'light';
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        if (iconMobile) {
+          iconMobile.classList.remove('fa-moon');
+          iconMobile.classList.add('fa-sun');
+        }
+      } else {
+        body.dataset.theme = 'dark';
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        if (iconMobile) {
+          iconMobile.classList.remove('fa-sun');
+          iconMobile.classList.add('fa-moon');
+        }
+      }
+    }
+
+    // Auto-hide items after a certain count
+    function initToggleSections() {
+      // News: show first 5
+      const newsItems = document.querySelectorAll('.news-list > .news-item');
+      newsItems.forEach((item, index) => {
+        if (index >= 4) {
+          item.classList.add('hidden-item');
+        }
+      });
+
+      // Publications: show first 4
+      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
+      pubCards.forEach((card, index) => {
+        if (index >= 4) {
+          card.classList.add('hidden-item');
+        }
+      });
+    }
+
+    // Toggle news
+    function toggleNews() {
+      const newsItems = document.querySelectorAll('.news-list > .news-item');
+      const toggle = document.getElementById('news-toggle');
+      const isExpanded = toggle.classList.contains('active');
+
+      newsItems.forEach((item, index) => {
+        if (index >= 5) {
+          item.classList.toggle('hidden-item', isExpanded);
+        }
+      });
+
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'more' : 'less';
+    }
+
+    // Toggle publications
+    function togglePubs() {
+      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
+      const toggle = document.getElementById('pubs-toggle');
+      const isExpanded = toggle.classList.contains('active');
+
+      pubCards.forEach((card, index) => {
+        if (index >= 4) {
+          card.classList.toggle('hidden-item', isExpanded);
+        }
+      });
+
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initToggleSections);
+
+    
+    // Google Translate
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,es,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+
+<script
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+
+</body>
+
+</html>
