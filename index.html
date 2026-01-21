@@ -33,10 +33,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./data/favicon/favicon-32x32.png">
   <link rel="icon" type="image/x-icon" href="./data/favicon/favicon-32x32.png"> 
+
   <style>
     :root {
       --bg-primary: #0a0a0a;
@@ -1179,32 +1177,9 @@
       <div class="header-right">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <i class="fa-solid fa-moon" id="theme-icon"></i>
-        </button>    
-      </div>    
-      
-      <!-- Language Switcher -->
-      <div id="language-switcher" class="lang-switcher">
-        <button id="lang-toggle">
-          <img
-            id="active-flag"
-            src="./data/favicon/uk.png"
-            alt="Active language">
         </button>
-
-        <ul id="lang-options" class="lang-options">
-          <li data-lang="en" class="flag"><img src="./data/favicon/uk.png" alt=""></li>
-          <li data-lang="fr" class="flag"><img src="./data/favicon/france.png" alt=""></li>
-          <li data-lang="es" class="flag"><img src="./data/favicon/spain.png" alt=""></li>
-          <li data-lang="zh-Hans" class="flag"><img src="./data/favicon/china.png" alt=""></li>
-          <li data-lang="ar" class="flag"><img src="./data/favicon/uae.png" alt=""></li>
-          <li data-lang="ko" class="flag"><img src="./data/favicon/south-korea.png" alt=""></li>
-        </ul>
       </div>
 
-<<<<<<< HEAD
-      <!-- Google Translate widget (hidden) -->
-      <div id="google_translate_element" style="display:none;"></div>      
-=======
       <div class="language-switcher">
         <select id="language-select">
           <option value="en">English</option>
@@ -1213,8 +1188,7 @@
           <option value="de">Deutsch</option>
         </select>
       </div>
-      <div id="google_translate_element" style="display:none;">></div>
->>>>>>> 44436d37d113d0f74dec036799ecd6bc594e5323
+      <div id="google_translate_element"></div>
     </header>
 
     <!-- Hero -->
@@ -1875,44 +1849,38 @@ document.addEventListener('DOMContentLoaded', () => {
         if (i >= 4) item.classList.add('hidden-item');
       });
 
-    document.querySelectorAll('.pub-list > .pub-card')
-      .forEach((card, i) => {
-        if (i >= 4) card.classList.add('hidden-item');
+      pubCards.forEach((card, index) => {
+        if (index >= 4) {
+          card.classList.toggle('hidden-item', isExpanded);
+        }
       });
+
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initToggleSections);
+
+    
+    // Google Translate
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,es,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      'google_translate_element'
+    );
   }
-
-  initToggleSections();
-
-  document.querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const section = btn.closest('.section');
-      if (!section) return;
-
-      const list = section.querySelector('.toggle-list');
-      if (!list) return;
-
-      list.classList.toggle('hidden');
-      btn.classList.toggle('active');
-    });
-  });
-
-});
-
-
-/* ===== Google Translate Init (required name) ===== */
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'en,fr,es,zh-CN,ar,ko',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
 </script>
 
-<!-- Google Translate script -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  
+<script
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
+
+
 </body>
 <<<<<<< HEAD
 </html>
