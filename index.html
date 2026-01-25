@@ -34,7 +34,13 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="./data/favicon/favicon-32x32.png"> 
-
+  <link rel="alternate" hreflang="en" href="https://yoursite.com/" />
+  <link rel="alternate" hreflang="fr" href="https://yoursite.com/fr/" />
+  <link rel="alternate" hreflang="es" href="https://yoursite.com/es/" />
+  <link rel="alternate" hreflang="ko" href="https://yoursite.com/ko/" />
+  <link rel="alternate" hreflang="zh" href="https://yoursite.com/zh/" />
+  <link rel="alternate" hreflang="ar" href="https://yoursite.com/ar/" />
+  
   <style>
     :root {
       --bg-primary: #0a0a0a;
@@ -63,15 +69,9 @@
       --transition-medium: 0.3s ease;
     }
 
-<<<<<<< HEAD
-    *::after, *::before {
+    *::after, ::before {
     border-width: 0;
     border-style: solid;
-=======
-    *::after, ::before {
-      border-width: 0;
-      border-style: solid;
->>>>>>> 44436d37d113d0f74dec036799ecd6bc594e5323
     }
 
     [data-theme="light"] {
@@ -1180,15 +1180,14 @@
         </button>
       </div>
 
-      <div class="language-switcher">
-        <select id="language-select">
-          <option value="en">English</option>
-          <option value="fr">Français</option>
-          <option value="es">Español</option>
-          <option value="de">Deutsch</option>
-        </select>
-      </div>
-      <div id="google_translate_element"></div>
+      <nav class="language-switcher">
+        <a href="./data/favicon/spain-svgrepo-com.png" class="active"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
+        <a href="./data/favicon/south-korea-svgrepo-com (1).png"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
+        <a href="./data/favicon/china-svgrepo-com.png" class="active"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
+        <a href="./data/favicon/united-arab-emirates-svgrepo-com.png"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
+        <a href="./data/favicon/united-kingdom-svgrepo-com.png"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
+      </nav>
+
     </header>
 
     <!-- Hero -->
@@ -1228,16 +1227,17 @@
         </p>
 
         <p>
-          Alongside my computational work, I am interested in connecting data-drive discoveries with experimental validation, and I'm
-          collaborating with the<a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at 
-          <a href="https://www.abuad.edu.ng/">ABUAD</a> to translate computationally inferred targets into early, non-invasive 
-          diagnostics approaches. With time, I will be sharing my vision and journey on <a href="https://www.youtube.com/channel/UCBO61qsQW36yxhaOsmR2OPA">YouTube</a>.
-        </p>
+          Alongside my computational work, I am interested in connecting data-drive discoveries with experimental validation.
+          I am also collaborating with the<a href="./pages/exploratory.html#translation"> CMHS research group</a> at 
+          <a href="https://www.youtube.com/">ABUAD</a> to translate computationally inferred targets into early, non-invasive 
+          diagnostics approaches. I will be sharing my vision and journey on <a href="https://www.youtube.com/">YouTube</a>.
+        </p>  
         
         <p>
-          Beyond research, I enjoy exploring creative projects such as <a href="woodworking.html"> woodworking</a> and 
-          <a href="./footwear.html"> innovative footwear design</a>. I find that hands-on crafts helps me think through 
-          problems differently and often inform how I approach technical and scientific challenges.
+          Beyond research, I enjoy exploring creative projects such as <a href="./pages/projects.html#woodworking">
+          woodworking</a> and <a href="./pages/projects.html#footwear"> innovative footwear design</a>. I find that 
+          hands-on work helps me think through problems from differently and it often inform how I approach technical 
+          and scientific challenges.
         </p>
       </div>
     </section>
@@ -1732,122 +1732,81 @@
       <p class="mentoring-text">Currently building my mentoring portfolio.</p>
     </div>
   </div>
-</section>
+</section>    
 
 <!-- Footer -->
 <footer class="footer">
   <p><span class="copyright-name">Grace Alele</span> © 2026</p>
 </footer>
-  
- <script>
-  document.addEventListener('DOMContentLoaded', () => {
 
-  /* ===== Theme Toggle ===== */
-  const body = document.body;
-  const themeIcons = [
-    document.getElementById('theme-icon'),
-    document.getElementById('theme-icon-mobile')
-  ];
-
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) body.dataset.theme = savedTheme;
-
-  function updateThemeIcons() {
-    themeIcons.forEach(icon => {
-      if (!icon) return;
-      icon.className =
-        body.dataset.theme === 'dark'
-          ? 'fa-solid fa-moon'
-          : 'fa-solid fa-sun';
-    });
-  }
-
-  window.toggleTheme = () => {
-    body.dataset.theme =
-      body.dataset.theme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', body.dataset.theme);
-    updateThemeIcons();
-  };
-
-  updateThemeIcons();
-
-
-/* ===== LANGUAGE SWITCHER ===== */
-document.addEventListener('DOMContentLoaded', () => {
-  const langToggle = document.getElementById('lang-toggle');
-  const langOptions = document.getElementById('lang-options');
-  const activeFlag = document.getElementById('active-flag');
-
-  if (!langToggle || !langOptions || !activeFlag) return;
-
-  // Map language → flag image
-  const langFlagMap = {
-    en: './data/favicon/uk.png',
-    fr: './data/favicon/france.png',
-    es: './data/favicon/spain.png',
-    'zh-CN': './data/favicon/china.png',
-    ar: './data/favicon/uae.png',
-    ko: './data/favicon/south-korea.png'
-  };
 
   
-  function applyLanguage(lang) {
-    const interval = setInterval(() => {
-      const select = document.querySelector(
-        '#google_translate_element select'
-      );
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-        clearInterval(interval);
+  <script>
+    // Theme toggle - sync both icons
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      const iconMobile = document.getElementById('theme-icon-mobile');
+
+      if (body.dataset.theme === 'dark') {
+        body.dataset.theme = 'light';
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        if (iconMobile) {
+          iconMobile.classList.remove('fa-moon');
+          iconMobile.classList.add('fa-sun');
+        }
+      } else {
+        body.dataset.theme = 'dark';
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        if (iconMobile) {
+          iconMobile.classList.remove('fa-sun');
+          iconMobile.classList.add('fa-moon');
+        }
       }
-    }, 100);
-  }
+    }
 
-  // Toggle dropdown
-  langToggle.addEventListener('click', e => {
-    e.stopPropagation();
-    langOptions.style.display =
-      langOptions.style.display === 'block' ? 'none' : 'block';
-  });
-
-  // Click language
-  langOptions.querySelectorAll('li').forEach(item => {
-    item.addEventListener('click', e => {
-      e.stopPropagation();
-
-      const lang = item.dataset.lang;
-
-      // Update active flag
-      activeFlag.src = langFlagMap[lang];
-
-      // Save preference
-      localStorage.setItem('language', lang);
-
-      applyLanguage(lang);
-      langOptions.style.display = 'none';
-    });
-  });
-
-  // Close dropdown on outside click
-  document.addEventListener('click', () => {
-    langOptions.style.display = 'none';
-  });
-
-  // Restore saved language flag
-  const savedLang = localStorage.getItem('language');
-  if (savedLang && langFlagMap[savedLang]) {
-    activeFlag.src = langFlagMap[savedLang];
-    applyLanguage(savedLang);
-  }
-});
-
-  /* ===== Toggle Sections ===== */
-  function initToggleSections() {
-    document.querySelectorAll('.news-list > .news-item')
-      .forEach((item, i) => {
-        if (i >= 4) item.classList.add('hidden-item');
+    // Auto-hide items after a certain count
+    function initToggleSections() {
+      // News: show first 5
+      const newsItems = document.querySelectorAll('.news-list > .news-item');
+      newsItems.forEach((item, index) => {
+        if (index >= 4) {
+          item.classList.add('hidden-item');
+        }
       });
+
+      // Publications: show first 4
+      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
+      pubCards.forEach((card, index) => {
+        if (index >= 4) {
+          card.classList.add('hidden-item');
+        }
+      });
+    }
+
+    // Toggle news
+    function toggleNews() {
+      const newsItems = document.querySelectorAll('.news-list > .news-item');
+      const toggle = document.getElementById('news-toggle');
+      const isExpanded = toggle.classList.contains('active');
+
+      newsItems.forEach((item, index) => {
+        if (index >= 5) {
+          item.classList.toggle('hidden-item', isExpanded);
+        }
+      });
+
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'more' : 'less';
+    }
+
+    // Toggle publications
+    function togglePubs() {
+      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
+      const toggle = document.getElementById('pubs-toggle');
+      const isExpanded = toggle.classList.contains('active');
 
       pubCards.forEach((card, index) => {
         if (index >= 4) {
@@ -1862,29 +1821,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', initToggleSections);
 
+
+    // Simple page translation (example using a mock API endpoint)
+    async function translatePage(targetLang) {
+      const text = document.body.innerText;
     
-    // Google Translate
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'en',
-        includedLanguages: 'en,fr,es,de',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      },
-      'google_translate_element'
-    );
-  }
-</script>
+      const response = await fetch("/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, targetLang })
+      });
+    
+      const data = await response.json();
+      document.body.innerText = data.translatedText;
+    }
 
-<script
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-
-
+    document.getElementById("lang").addEventListener("change", e => {
+      translatePage(e.target.value);
+    });
+  </script>
 </body>
-<<<<<<< HEAD
-</html>
-=======
 
 </html>
 >>>>>>> 44436d37d113d0f74dec036799ecd6bc594e5323

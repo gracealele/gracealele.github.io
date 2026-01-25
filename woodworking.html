@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basics -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace Alele | Data Science & Computational Biology</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Grace Alele is a data scientist and computational biology researcher working at the intersection of Data Science, Machine Learning, Artificial Intelligence, disease discovery, disease prevention, early diagnosis, data analysis, and women's reproductive health. Based in the United states and Nigeria.">
+  <meta name="keywords" content="Grace Alele, Computer Science Graduate, Data Scientist, Early Researcher, Robotics Enthusiast, Research Publications, Research Contributor">
+
+  <meta name="author" content="Grace Alele">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (Social Sharing) -->
+  <meta property="og:title" content="Grace Alele | Data Science & AI for Medicine">
+  <meta property="og:description" content="Visit the Research-focused portfolio of Grace Alele – showcasing AI tools, Research projects, and published article exploring machine learning, computational biology, and endometriosis research.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gracealele.github.io">
+  <meta property="og:image" content="https://gracealele.github.io/data/profile.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Verification -->
+  <meta name="google-site-verification" content="vUeO3cwD3be3PmDm2dfVVdqx_RfFM7uI-MIA0Md9Zbo" />
+
+  <!-- Fonts (performance-optimized) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./data/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="./data/favicon/favicon-32x32.png"> 
+
+<style>
+/* ===== VARIABLES ===== */
+:root {
+  --primary-color: #c41e3a;
+  --accent: #9a1428;
+  --primary-light: #222222;
+  --bg-card: #141414;
+  --bg-secondary: #0f0f0f;
+  --bg-card-hover: #1a1a1a;
+  --bg-header: #1c1f2b;
+  --bg-nav: #1e2235;
+  --text-tet: #c9b7b7;
+  --text-primary: #1a0505;
+  --text-secondary: #e3d6d6;
+  --text-muted: #705858;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+  --border: #222222;
+  --border-hover: #333333;
+  --font-display: 'Playfair Display SC', serif;
+  --font-cursive: 'Pacifico', cursive;
+  --font-nav: 'Cantarell', sans-serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --font-muz: 'Muzungu', sans-serif;
+  --transition-fast: 0.15s ease;
+  --transition-medium: 0.3s ease;
+  --accent-bright: #ca001e;
+
+  --bg-primary: #0a0a0a;
+    --bg-secondary: #0f0f0f;
+    --bg-card: #141414;
+    --bg-card-hover: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #b0a0a0;
+    --accent: #c41e3a;
+    --accent-glow: rgba(196, 30, 58, 0.15);
+    --accent-deep: #8b1538;
+    --accent-warm: #d4456a;
+}
+    
+/* Light Theme Variables */
+.light-theme {
+  --bg-dark: #f7f9fc;
+  --bg-card: #ffffff;
+  --bg-header: #f0f4f8;
+  --bg-nav: #ffffff;
+  --text-light: #333;
+  --text-muted: #6b7280;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== GLOBAL STYLES ===== */
+*::after, *::before {
+    border-width: 0;
+    border-style: solid;
+  }
+  
+  [data-theme="light"] {
+  --bg-dark: #0a0a0a;
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #0f0f0f;
+    --bg-card: #000;
+    --bg-card-hover: #1e2235;
+    --text-primary: #1a0505;
+    --text-secondary: #945e5e;
+    --text-muted: #6b5050;
+    --primary-color: #c41e3a;
+    --accent-bright: #ca001e;
+    --accent-glow: rgba(154, 20, 40, 0.12);
+    --accent-deep: #6e0f1e;
+    --accent-warm: #c43858;
+    --border: #222222;
+    --border-hover: #333333;
+    --bg-header: #f0f4f8;
+    --bg-nav: #1e2235;
+    --text-light: #fdfcfc;    
+    --text-tet: #000000;
+  }
+  
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+  
+   html {
+    scroll-behavior: smooth;
+  }
+  
+   body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+    transition: background var(--transition-medium), color var(--transition-medium);
+  }
+  
+   a {
+    color: var(--accent-bright);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  a:hover {
+    color: var(--text-primary);
+  }
+   
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.1rem;
+  }   
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text-tet);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all var(--transition-fast);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent-bright);
+      color: var(--accent-bright);
+    }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.25rem;
+    }
+  }
+
+  /* Header */
+  .header {
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .header-right {
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+  }
+
+  /* Fixed container in the top-right corner */
+  .lang-switcher {
+    position: fixed;
+    max-width: calc(100vw - 2rem);
+    z-index: 1000;
+    font-family: var(--font-body);
+    bottom: 2rem;     /* 👈 anchor to bottom */
+    right: 2rem;
+  }
+
+  .lang-switcher button {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+   .lang-options {
+    list-style: none;
+    margin: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: none;
+    padding-top: 0.2rem;
+  }
+
+  /* dropdown opens upward since it's at the bottom */
+  #lang-options {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    right: 0;
+    display: none;
+   }
+
+  .lang-options li {
+    padding: 0.3rem 0.3rem 0 .3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+   }
+
+  .lang-options li:hover {
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+
+  #lang-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  /* Smooth transition for glow */
+  #lang-toggle img{
+    height: auto;
+    width: 30px;  
+    cursor: pointer;    
+    transition: transform 0.5s ease, filter 0.5s ease;
+    transform-origin: center; /* rotate around center */
+  }
+
+  /* Active state: glow and slight pulse */
+  #lang-toggle.active img {
+    transform: scale(1.1); /* slight grow for pulse */
+    animation: pulse 1s infinite alternate;      
+    transform: rotate(270deg);
+    filter: hue-rotate(200deg);
+  }
+   
+  /* Pulse animation */
+  @keyframes pulse {
+    0% {
+     transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1.15);
+    }
+  }
+   
+  .flag img{
+    height: 30px;
+    width: 30px;
+    padding: 2px;
+  }
+
+/* ===== SECTION HEADERS ===== */
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  color: var(--text-light);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--text-light);
+}
+
+input {
+	display: none;
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 35px;
+	position: relative;
+	margin: 40px 0;
+}
+
+h1::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height:3px;
+	background-color: var(--primary-color);
+	bottom: -10px;
+	left: 50%;
+	transform: translatex(-50%);
+	animation: animate 4s linear infinite;
+}
+
+@keyframes animate 	{
+	0%{
+		width: 100px;
+	}
+	50%{
+		width: 200px;
+	}
+	100%{
+		width: 100px;
+	}
+}
+
+.top-content	{
+	width: 90%;
+	margin: 0 auto 20px auto;
+	display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	}
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .gallery-container { padding-bottom: 4rem; }
+  section { padding: 5rem 0; }
+  .top-content { flex-direction: column; gap: 15px; }
+}
+
+@media screen and (max-width: 576px) {
+  h1 { font-size: 28px; }
+  .top-content h3 { font-size: 16px; line-height: 36px; padding: 0 15px; }
+  label { font-size: 16px; line-height: 36px; margin: 0 10px; }
+}
+
+h3	{
+	height: 100%;
+	background-color: var(--accent);
+	line-height: 40px;
+	padding: 0 20px;
+	color: var(--text-tet);
+  text-transform: uppercase;
+  font-weight: 550;
+  font-family: Trebuchet MS;
+	}
+  
+
+label{
+	display: inline-block;
+	height: 100%;
+	margin: 0 20px;
+	line-height:40px;
+	font-size: 18px;
+  color: var(--text-muted);
+	cursor: pointer;
+	transition: color .5s
+}
+
+label:hover {
+  color: var(--primary-color);
+}
+
+.photo-gallery {
+  width: 90%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* auto adjust */
+  gap: 20px;
+}
+
+
+.pic {
+	position: relative;
+	border-radius: 5px;
+	cursor: pointer;
+  transition: .5s; 
+  overflow: hidden; /* important */
+}
+
+.pic img,
+.pic video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* 🔥 keeps aspect ratio */
+  border-radius: 5px;
+  transition: transform 0.5s ease;
+}
+
+
+.pic:hover video,  
+.pic:hover img{
+  transform: scale(1.05);
+}
+
+.pic::before{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--text-light);
+	font-size: 22px;
+  font-weight: 500;
+  opacity: 0;
+  transition: .3s;
+  transition-delay: .2s;
+  z-index: 1;
+} 
+
+.pic:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  border-radius: 5px ;
+  background-color: rgba(0,0,0,.4);
+  transition: .3s;
+}
+
+.pic:hover::after{
+  height: 100%;
+}
+
+.pic:hover::before {
+  margin-top:0;
+  opacity:1;
+}
+
+.pic.video::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-light);
+  font-size: 22px;
+  font-weight: bold;
+  opacity: 0;
+  transition: .3s;
+  z-index: 1;
+}
+
+.pic.video:hover::before {
+  opacity: 1;
+}
+
+#check1:checked ~ .container.gallery-container .photo-gallery .pic {
+  display: block;
+}
+
+#check3:checked ~ .container.gallery-container .photo-gallery {
+  grid-template-columns: repeat(auto-fit, 220px);
+  justify-content: center;
+}
+
+#check2:checked ~ .container.gallery-container .photo-gallery .pic,
+#check3:checked ~ .container.gallery-container .photo-gallery .pic,
+#check4:checked ~ .container.gallery-container .photo-gallery .pic {
+  display: none;
+
+}
+
+#check2:checked ~ .container.gallery-container .photo-gallery .family,
+#check3:checked ~ .container.gallery-container .photo-gallery .child,
+#check4:checked ~ .container.gallery-container .photo-gallery .place {
+  display: block;
+
+}
+
+/* Overlay container */
+.overlay-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.overlay-container img,
+.overlay-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay content */
+.overlay-container .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-container:hover .overlay-content {
+  opacity: 1; /* show overlay on hover */
+}
+
+.overlay-container .overlay-content img,
+.overlay-container .overlay-content video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+/* Lightbox styles */
+.lightbox {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+
+}
+
+.lightbox video.lightbox-video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lightbox-close:hover {
+  color: var(--primary-color);
+}
+
+/* Footer */
+.footer {
+  padding: 3rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.footer .copyright-name {
+  font-family: var(--font-display);
+  color: var(--text-tet);
+  font-size: 0.85rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+.gallery-container {
+  margin-bottom: 6rem; /* adds space before footer */
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-container {
+    padding-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  section {
+    padding: 5rem 0;
+  }
+ }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.scroll-fade, .scroll-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.in-view.scroll-fade {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.in-view.scroll-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+</style>
+</head>
+
+<body data-theme="dark">
+  <!-- Header -->
+  <header class="header">
+    <!-- Navigation -->
+    <div class="header-right">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+      </button>    
+    </div>
+    
+    <!-- Language Switcher -->
+    <div id="language-switcher" class="lang-switcher">
+      <button id="lang-toggle">
+        <img
+          id="active-flag"
+          src="./data/favicon/uk.png"
+          alt="Active language">
+      </button>
+  
+      <ul id="lang-options" class="lang-options">
+        <li data-lang="en" class="flag"><img src="./data/favicon/uk.png" alt=""></li>
+        <li data-lang="fr" class="flag"><img src="./data/favicon/france.png" alt=""></li>
+        <li data-lang="es" class="flag"><img src="./data/favicon/spain.png" alt=""></li>
+        <li data-lang="zh-CN" class="flag"><img src="./data/favicon/china.png" alt=""></li>
+        <li data-lang="ar" class="flag"><img src="./data/favicon/uae.png" alt=""></li>
+        <li data-lang="ko" class="flag"><img src="./data/favicon/south-korea.png" alt=""></li>
+      </ul>
+    </div>
+
+    <!-- Google Translate widget (hidden) -->
+    <div id="google_translate_element" style="display:none;"></div>      
+  </header>
+
+
+  <input type="radio" name="photos" id="check1" checked>
+  <input type="radio" name="photos" id="check2">
+  <input type="radio" name="photos" id="check3">
+  <input type="radio" name="photos" id="check4">  
+
+  <div class="container gallery-container">
+    <div class="section-header scroll-up">
+      <h1>Woodworking Project Gallery</h1>
+    </div>
+
+    <div class="top-content">
+      <h3>Some of my recent work</h3>
+      <label for="check1">All Photos</label>
+      <label for="check2">The Making</label>
+      <label for="check4">Project</label>
+      <label for="check3">Sketch</label>
+    </div>
+    <div class="photo-gallery">
+
+      <!-- Overlay image example -->
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/0.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/making/8.jpeg">
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/1.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/6.jpeg" alt="Overlay 2">
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/3.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <video src="./images/woodworking/making/7.mp4" autoplay muted loop></video>
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/4.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/22.jpeg">
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/7.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/making/4.jpeg">
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/13.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/12.jpeg">
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/18.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/21.jpeg">
+        </div>
+      </div>
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/16.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/making/5.jpeg">
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/15.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/making/9.jpeg">
+        </div>
+      </div>
+
+      <div class="overlay-container pic place">
+        <img src="./images/woodworking/20.jpeg" alt="Base Image">
+        <div class="overlay-content">
+          <img src="./images/woodworking/making/0.jpeg">
+        </div>
+      </div>
+
+      <!-- Add more images/videos like before -->
+      <div class="pic family">
+        <img src="./images/woodworking/making/6.jpeg" alt="Family Image">
+      </div>
+      <div class="pic family">
+        <img src="./images/woodworking/making/2.jpeg">
+      </div>
+      <div class="pic place">
+        <img src="./images/woodworking/24.jpeg">
+      </div> 
+      <div class="pic family">
+        <img src="./images/woodworking/making/9.jpeg">
+      </div>
+        <div class="pic family">
+        <img src="./images/woodworking/making/3.jpeg">
+      </div>
+      <div class="pic place">
+        <img src="./images/woodworking/11.jpeg">
+      </div>
+      <div class="pic place">
+        <img src="./images/woodworking/14.jpeg">
+      </div>
+      <div class="pic family">
+        <video src="./images/woodworking/making/1.mp4" autoplay muted loop></video>
+      </div>
+      <div class="pic child">
+        <img src="./images/woodworking/sketch/0.jpeg">
+      </div>
+      <div class="pic child">
+        <video src="./images/woodworking/sketch/1.mp4" autoplay muted loop></video>
+      </div>
+      <div class="pic place">
+        <img src="./images/woodworking/10.jpeg">
+      </div>    
+      <div class="pic place">
+        <img src="./images/woodworking/23.jpeg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="">
+  </div>
+
+
+    <!-- Footer -->
+  <footer class="footer">
+    <p><span class="copyright-name">Grace Alele</span> © 2026</p>
+  </footer>
+
+  <script>
+    /* ===== Theme Toggle ===== */
+    const body = document.body;
+    const themeIcons = document.getElementById('theme-icon');
+    
+    //Restore saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) body.dataset.theme = savedTheme;
+     
+    function updateThemeIcons() {
+      themeIcons.className = 
+        body.dataset.theme === 'dark'
+          ? 'fa-solid fa-sun'
+          : 'fa-solid fa-moon';
+    }
+    
+    function toggleTheme () {
+      body.dataset.theme =
+        body.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', body.dataset.theme);
+      updateThemeIcons();
+    } 
+    // Initialize icon on load
+    updateThemeIcon();
+  
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,fr,es,zh-Hans,ar,ko',
+          //layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        },
+        'google_translate_element'
+      );
+    }
+
+    // Language dropdown
+    const langToggle = document.getElementById('lang-toggle');
+    const langOptions = document.getElementById('lang-options');
+    const activeFlag = document.getElementById('active-flag');
+
+    // Map language → flag image
+    const langFlagMap = {
+      en: './data/favicon/uk.png',
+      fr: './data/favicon/france.png',
+      es: './data/favicon/spain.png',
+      'zh-Hans': './data/favicon/china.png',
+      ar: './data/favicon/uae.png',
+      ko: './data/favicon/south-korea.png'
+    };
+
+    // Toggle dropdown
+    langToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      langOptions.style.display = langOptions.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Click language
+    langOptions.querySelectorAll('li').forEach(item => {
+      item.addEventListener('click', e => {
+        e.stopPropagation();    
+        const lang = item.dataset.lang;
+      
+        // Update active flag
+        activeFlag.src = langFlagMap[lang];
+      
+        // Save preference
+        localStorage.setItem('language', lang);
+      
+        // Trigger Google Translate
+        const interval = setInterval(() => {        
+          const select = document.querySelector('#google_translate_element select');
+          if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+            clearInterval(interval);
+          }      
+        }, 100);
+        langOptions.style.display = 'none';
+      });
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', () => {
+      langOptions.style.display = 'none';
+    });
+
+    // Restore saved language flag
+    const savedLang = localStorage.getItem('language');
+    if (savedLang && langFlagMap[savedLang]) {
+      activeFlag.src = langFlagMap[savedLang];
+    }
+  
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.photo-gallery .pic').forEach(pic => {
+      const media = pic.querySelector('img') || pic.querySelector('video');
+      media.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+
+          if (media.tagName === 'IMG') {
+            lightboxImg.style.display = 'block';
+            lightboxImg.src = media.src;
+            if (lightbox.querySelector('video')) lightbox.querySelector('video').style.display = 'none';
+          } else if (media.tagName === 'VIDEO') {
+            let lbVideo = lightbox.querySelector('video');
+            if (!lbVideo) {
+              lbVideo = document.createElement('video');
+              lbVideo.controls = true;
+              lbVideo.classList.add('lightbox-video');
+              lightbox.appendChild(lbVideo);
+            }
+            lbVideo.src = media.src;
+            lbVideo.style.display = 'block';
+            lbVideo.play();
+            lightboxImg.style.display = 'none';
+          }
+        });
+      });
+
+      lightboxClose.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        const lbVideo = lightbox.querySelector('.lightbox-video');
+      if (lbVideo) lbVideo.pause();
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = 'none';
+          const lbVideo = lightbox.querySelector('.lightbox-video');
+          if (lbVideo) lbVideo.pause();
+        }
+      });
+
+    /* ===== Google Translate Init (required name) ===== */
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,es,zh-CN,ar,ko',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+
+  <!-- Google Translate script -->
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>
+  </body>
+</html>
