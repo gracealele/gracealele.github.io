@@ -46,8 +46,8 @@
     }
 
     *::after, ::before {
-    border-width: 0;
-    border-style: solid;
+      border-width: 0;
+      border-style: solid;
     }
 
     [data-theme="light"] {
@@ -77,9 +77,22 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
+    /* ===== HIDE GOOGLE TRANSLATE BANNER & UI ===== */
+    .goog-te-banner-frame,
+    .goog-te-gadget,
+    .goog-te-gadget-simple,
+    .goog-te-menu-value,
+    .goog-logo-link,
+    .goog-te-balloon-frame {
+      display: none !important;
+    }
+
+/* Prevent layout shift */
     body {
+      top: 0 !important;
       font-family: var(--font-body);
       background: var(--bg-primary);
       color: var(--text-primary);
@@ -1093,7 +1106,7 @@
           <option value="de">Deutsch</option>
         </select>
       </div>
-      <div id="google_translate_element"></div>
+      <div id="google_translate_element" style="display:none;">></div>
     </header>
 
     <!-- Hero -->
