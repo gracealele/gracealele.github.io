@@ -33,14 +33,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="icon" type="image/x-icon" href="./data/favicon/favicon-32x32.png"> 
-  <link rel="alternate" hreflang="en" href="https://yoursite.com/" />
-  <link rel="alternate" hreflang="fr" href="https://yoursite.com/fr/" />
-  <link rel="alternate" hreflang="es" href="https://yoursite.com/es/" />
-  <link rel="alternate" hreflang="ko" href="https://yoursite.com/ko/" />
-  <link rel="alternate" hreflang="zh" href="https://yoursite.com/zh/" />
-  <link rel="alternate" hreflang="ar" href="https://yoursite.com/ar/" />
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./data/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="./data/favicon/favicon-32x32.png"> 
   <style>
     :root {
       --bg-primary: #0a0a0a;
@@ -69,7 +65,7 @@
       --transition-medium: 0.3s ease;
     }
 
-    *::after, ::before {
+    *::after, *::before {
     border-width: 0;
     border-style: solid;
     }
@@ -100,22 +96,9 @@
 
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
 
-    /* ===== HIDE GOOGLE TRANSLATE BANNER & UI ===== */
-    .goog-te-banner-frame,
-    .goog-te-gadget,
-    .goog-te-gadget-simple,
-    .goog-te-menu-value,
-    .goog-logo-link,
-    .goog-te-balloon-frame {
-      display: none !important;
-    }
-
-/* Prevent layout shift */
     body {
-      top: 0 !important;
       font-family: var(--font-body);
       background: var(--bg-primary);
       color: var(--text-primary);
@@ -1177,17 +1160,30 @@
       <div class="header-right">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>    
+      </div>    
+      
+      <!-- Language Switcher -->
+      <div id="language-switcher" class="lang-switcher">
+        <button id="lang-toggle">
+          <img
+            id="active-flag"
+            src="./data/favicon/uk.png"
+            alt="Active language">
         </button>
+
+        <ul id="lang-options" class="lang-options">
+          <li data-lang="en" class="flag"><img src="./data/favicon/uk.png" alt=""></li>
+          <li data-lang="fr" class="flag"><img src="./data/favicon/france.png" alt=""></li>
+          <li data-lang="es" class="flag"><img src="./data/favicon/spain.png" alt=""></li>
+          <li data-lang="zh-Hans" class="flag"><img src="./data/favicon/china.png" alt=""></li>
+          <li data-lang="ar" class="flag"><img src="./data/favicon/uae.png" alt=""></li>
+          <li data-lang="ko" class="flag"><img src="./data/favicon/south-korea.png" alt=""></li>
+        </ul>
       </div>
 
-      <nav class="language-switcher">
-        <a href="./data/favicon/spain-svgrepo-com.png" class="active"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
-        <a href="./data/favicon/south-korea-svgrepo-com (1).png"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
-        <a href="./data/favicon/china-svgrepo-com.png" class="active"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
-        <a href="./data/favicon/united-arab-emirates-svgrepo-com.png"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
-        <a href="./data/favicon/united-kingdom-svgrepo-com.png"><i class="fa-solid fa-moon" id="theme-icon"></i></a>
-      </nav>
-
+      <!-- Google Translate widget (hidden) -->
+      <div id="google_translate_element" style="display:none;"></div>      
     </header>
 
     <!-- Hero -->
@@ -1771,7 +1767,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   updateThemeIcons();
-});
+
 
 const langToggle = document.getElementById('lang-toggle');
 const langOptions = document.getElementById('lang-options');
@@ -1782,7 +1778,7 @@ const langFlagMap = {
   en: './data/favicon/uk.png',
   fr: './data/favicon/france.png',
   es: './data/favicon/spain.png',
-  'zh-CN': './data/favicon/china.png',
+  'zh-Hans': './data/favicon/china.png',
   ar: './data/favicon/uae.png',
   ko: './data/favicon/south-korea.png'
 };
@@ -1840,39 +1836,43 @@ if (savedLang && langFlagMap[savedLang]) {
         if (i >= 4) item.classList.add('hidden-item');
       });
 
-      pubCards.forEach((card, index) => {
-        if (index >= 4) {
-          card.classList.toggle('hidden-item', isExpanded);
-        }
+    document.querySelectorAll('.pub-list > .pub-card')
+      .forEach((card, i) => {
+        if (i >= 4) card.classList.add('hidden-item');
       });
+  }
 
-      toggle.classList.toggle('active');
-      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
-    }
+  initToggleSections();
 
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', initToggleSections);
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.closest('.section');
+      if (!section) return;
 
+      const list = section.querySelector('.toggle-list');
+      if (!list) return;
 
-    // Simple page translation (example using a mock API endpoint)
-    async function translatePage(targetLang) {
-      const text = document.body.innerText;
-    
-      const response = await fetch("/translate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, targetLang })
-      });
-    
-      const data = await response.json();
-      document.body.innerText = data.translatedText;
-    }
-
-    document.getElementById("lang").addEventListener("change", e => {
-      translatePage(e.target.value);
+      list.classList.toggle('hidden');
+      btn.classList.toggle('active');
     });
-  </script>
-</body>
+  });
 
+});
+
+
+/* ===== Google Translate Init (required name) ===== */
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,fr,es,zh-Hans,ar,ko',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<!-- Google Translate script -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  
+</script>
+</body>
 </html>
->>>>>>> 44436d37d113d0f74dec036799ecd6bc594e5323
