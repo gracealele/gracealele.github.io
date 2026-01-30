@@ -631,7 +631,7 @@
 
     .news-item {
       display: grid;
-      grid-template-columns: 90px 1fr;
+      grid-template-columns: 85px 1fr;
       gap: 1.25rem;
       padding: 0.85rem 0;
       border-bottom: 1px solid var(--border);
@@ -666,6 +666,10 @@
       display: none; /*!important;*/
     }
     
+    /*.hidden-item.show-item {
+      display: block;
+    }*/
+
     /* === PUBLICATIONS, CONFERENCES & PROJECTS ===*/
     .pub-list,
     .con-list,
@@ -732,11 +736,12 @@
       flex-direction: column;
     }
     
-    .project-info h4,
-    .pub-info h4,
-    .con-info h4 {
+    .project-title,
+    .pub-title,
+    .con-title {
       font-weight: 600;
       font-size: 0.9rem;
+      line-height: 1.45;
       margin-bottom: 0.35rem;
     }
 
@@ -745,11 +750,8 @@
     .con-authors {
       font-size: 0.8rem;
       color: var(--text-secondary);
-      margin-bottom: 0.45rem;
-    }
-
-    .project-desc {
-      line-height: 1.4;
+      margin-bottom: 0.25rem;
+      line-height: 1.5;
     }
 
     .pub-authors u,
@@ -763,7 +765,7 @@
     .con-venue {
       font-size: 0.75rem;
       color: var(--accent);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
     }
 
     .project-links,
@@ -1174,9 +1176,9 @@
       .project-links {
         font-size: 0.6rem;
       }
-      .pub-info h4,
-      .con-info h4,
-      .project-info h4 {
+      .pub-title,
+      .con-title,
+      .project-title {
         margin-bottom: 0;
         font-size: 0.7rem;
       }    
@@ -1472,22 +1474,22 @@
             <div class="news-list">
               <div class="news-item">
                 <span class="news-date">Jan. 2026</span>
-                <span class="news-text">Starting a project (Medical imaging Segmentation)</span>
+                <span class="news-text">Starting a project (Medical imaging Segmentation) at MLC</span>
               </div>
               <div class="news-item">
                 <span class="news-date">Dec. 2025</span>
                 <span class="news-text">
-                  Volunteering at <a href="https://www.group/epic/">RetinaCare</a>, 
-                  to build AI-powered vision system
+                  Started volunteering at <a href="https://www.group/epic/">RetinaCare</a>, to
+                  build Africa's AI-powered vision system
                 </span>
               </div>
               <div class="news-item">
                 <span class="news-date">Dec. 2025</span>
-                <span class="news-text">Presented two posters at <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/">ABUAD-CMHS Scientific Conference</a></span>
+                <span class="news-text">Presented posters at <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/">ABUAD-CMHS Scientific Conference</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">Sept. 2025</span>
-                <span class="news-text">Starting as a research assistant at <a href="https://huggingface.co/science">Hugging Science</a></span>
+                <span class="news-text">I am starting as a research assistant at <a href="https://huggingface.co/science">Hugging Science</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">May 2025</span>
@@ -1861,22 +1863,19 @@
    
   <script defer>
     /* ===== Toggle Sections Init ===== */
+    function initToggleSections() {
+      document.querySelectorAll('.news-list > .news-item')
+        .forEach((item, i) => i >= 3 && item.classList.add('hidden-item'));
     
-    /* ===== Bind Buttons =====
-    function toggleNews() {
-      toggleSection('.news-list', '.news-item', 'news-toggle', 3, 'more');
+      document.querySelectorAll('.pub-list > .pub-card')
+        .forEach((card, i) => i >= 3 && card.classList.add('hidden-item'));
+    
+      document.querySelectorAll('.con-list > .con-card')
+        .forEach((card, i) => i >= 3 && card.classList.add('hidden-item'));
+    
+      document.querySelectorAll('.project-grid > .project-card')
+        .forEach((card, i) => i >= 3 && card.classList.add('hidden-item'));
     }
-    function togglePublications() {
-      toggleSection('.pub-list', '.pub-card', 'pubs-toggle', 3, 'all');
-    }
-    function toggleConferences() {
-      toggleSection('.con-list', '.con-card', 'con-toggle', 3, 'all');
-    }
-    function toggleProjects() {
-      toggleSection('.project-grid', '.project-card', 'projects-toggle', 3, 'all');
-    }    
-    document.addEventListener('DOMContentLoaded', initToggleSections);
-    */
 
     /* ===== TOGGLES ===== */
     function toggleSection(listSelector, itemSelector, toggleId, cutoff, moreText = 'all') {
@@ -1884,8 +1883,8 @@
       const toggle = document.getElementById(toggleId);
       const expanded = toggle.classList.contains('active');
     
-      items.forEach((item, index) => {
-        if (index >= cutoff) {
+      items.forEach((item, i) => {
+        if (i >= cutoff) {
           item.classList.toggle('hidden-item', expanded);
         }
       });
@@ -1899,34 +1898,34 @@
     const toggle = document.getElementById('pubs-toggle');
     const isExpanded = toggle.classList.contains('active');
 
-    items.forEach((card, index) => {
-      if (index >= 3) card.classList.toggle('hidden-item', isExpanded);
+    items.forEach((card, i) => {
+      if (i >= 4) card.classList.toggle('hidden-item', isExpanded);
     });
 
     toggle.classList.toggle('active');
     toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
-    }
+}
 
     function toggleConferences() {
       const items = document.querySelectorAll('.con-list > .con-card');
       const toggle = document.getElementById('con-toggle');
       const isExpanded = toggle.classList.contains('active');
     
-      items.forEach((card, index) => {
-        if (index >= 2) card.classList.toggle('hidden-item', isExpanded);
+      items.forEach((card, i) => {
+        if (i >= 3) card.classList.toggle('hidden-item', isExpanded);
       });
     
       toggle.classList.toggle('active');
       toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
     }
-
+    
     function toggleProjects() {
       const items = document.querySelectorAll('.project-grid > .project-card');
       const toggle = document.getElementById('projects-toggle');
       const isExpanded = toggle.classList.contains('active');
     
-      items.forEach((card, index) => {
-        if (index >= 3) card.classList.toggle('hidden-item', isExpanded);
+      items.forEach((card, i) => {
+        if (i >= 3) card.classList.toggle('hidden-item', isExpanded);
       });
     
       toggle.classList.toggle('active');
