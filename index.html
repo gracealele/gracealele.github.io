@@ -35,8 +35,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./data/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/x-icon" href="./data/favicon/favicon-32x32.png"> 
+  <link rel="icon" type="image/png" href="./data/favicon/favicon.ico">
   <style>
     :root {
       --bg-primary: #0a0a0a;
@@ -66,8 +65,8 @@
     }
 
     *::after, *::before {
-    border-width: 0;
-    border-style: solid;
+      border-width: 0;
+      border-style: solid;
     }
 
     [data-theme="light"] {
@@ -124,12 +123,6 @@
       padding: 0 1.1rem;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1.25rem;
-      }
-    }
-
     /* Header */
     .header {
       padding: 1.5rem 0;
@@ -156,11 +149,6 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-
-    /*.lang-switcher button:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }*/
 
     .lang-options {
       list-style: none;
@@ -216,19 +204,7 @@
       filter: hue-rotate(200deg);
     }
     
-    /* Pulse animation */
-    @keyframes pulse {
-      0% {
-        transform: scale(1.05);
-        box-shadow: 0 0 10px 3px rgba(0, 150, 255, 0.5);
-      }
-      100% {
-        transform: scale(1.15);
-        box-shadow: 0 0 20px 8px rgba(0, 150, 255, 0.8);
-      }
-    }
-    
-     .flag img{
+    .flag img{
       height: 30px;
       width: 30px;
       padding: 2px;
@@ -254,12 +230,6 @@
     .logo:hover span {
       color: var(--accent);
       transform: translateY(-4px);
-    }
-
-    @media (max-width: 600px) {
-      .logo {
-        font-size: 1.8rem;
-      }
     }
 
     .header-right {
@@ -301,34 +271,7 @@
       color: var(--accent);
     }
 
-    /* Mobile header - hide CV only, keep toggle */
-    @media (max-width: 768px) {
-      .header {
-        justify-content: center;
-        position: relative;
-      }
-
-      .logo {
-        font-size: 2.8rem;
-        text-align: center;
-      }
-
-      .header-right {
-        position: absolute;
-        right: 0;
-        gap: 1rem;
-      }
-
-      .header-right .cv-link {
-        display: none;
-      }
-
-      .header-right .theme-toggle {
-        display: none;
-      }
-    }
-
-    /* Hero */
+    /* === HERO === */
     .hero {
       padding: 2rem 0 4rem;
       display: grid;
@@ -348,25 +291,12 @@
     #min {
       margin-top: -2rem;
     }
-
-      @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
+  
     .hero-left {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero-left {
-        align-items: center;
-      }
     }
 
     .profile-image {
@@ -376,19 +306,11 @@
       object-fit: cover;
       filter: grayscale(100%);
       transition: filter var(--transition-medium);
-      margin-bottom: 1.0rem;
+      margin-bottom: 1.5rem;
     }
 
     .profile-image:hover {
       filter: grayscale(0%);
-    }
-
-    /* Mobile: larger profile image */
-    @media (max-width: 768px) {
-      .profile-image {
-        width: 240px;
-        height: 240px;
-      }
     }
 
     .social-icons {
@@ -419,18 +341,7 @@
       transform: translateY(-2px);
     }
 
-    .mobile-toggle {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      /* Show toggle in icon row on mobile */
-      .mobile-toggle {
-        display: flex;
-      }
-    }
-
-    /* Hero Bio - Redesigned */
+    /*=== HERO BIO - REDESIGNED ===*/
     .hero-bio {
       padding-top: 0.5rem;
     }
@@ -456,7 +367,7 @@
       border-bottom-color: var(--accent-bright);
     }
 
-    /* Main Grid */
+    /* === MAIN GRID === */
     .main-content {
       padding: 2rem 0 4rem;
     }
@@ -467,14 +378,7 @@
       gap: 3rem 4rem;
     }
 
-    @media (max-width: 1024px) {
-      .organic-grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-    }
-
-    /* Section Styling */
+    /*=== SECTIONS STYLING ===*/
     .section {
       margin-bottom: 3rem;
     }
@@ -519,14 +423,9 @@
       font-family: var(--font-body);
     }
 
-
     .section-toggle.active i {
-  transform: rotate(180deg);
-}
-
-.hidden {
-  display: none !important;
-}
+      transform: rotate(180deg);
+    }
 
     .section-toggle:hover {
       color: var(--accent);
@@ -542,7 +441,7 @@
       transform: rotate(180deg);
     }
 
-    /* Left Column */
+    /* === LEFT COLUMN === */
     .left-column {
       display: flex;
       flex-direction: column;
@@ -558,7 +457,7 @@
       margin-bottom: 1rem;
     }
 
-    /* Essay Nav */
+    /* === ESSAY NAV === */
     .essay-nav {
       display: flex;
       flex-direction: column;
@@ -591,7 +490,7 @@
       color: var(--accent);
     }
 
-    /* Quote */
+    /* === QUOTES === */
     .quote-block {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.15rem;
@@ -614,13 +513,13 @@
       font-family: Georgia, serif;
     }
 
-    /* Personal */
+    /* === PERSONAL === */
     .personal-text {
       color: var(--text-secondary);
       line-height: 1.8;
     }
 
-    /* YouTube */
+    /* === YOUTUBE === */
     .youtube-placeholder {
       aspect-ratio: 16/9;
       background: var(--bg-card);
@@ -657,7 +556,7 @@
       color: var(--accent);
     }
 
-    /* Community Service */
+    /* === COMMUNITY SERVICES === */
     .community-list {
       display: flex;
       flex-direction: column;
@@ -732,7 +631,7 @@
 
     .news-item {
       display: grid;
-      grid-template-columns: 85px 1fr;
+      grid-template-columns: 90px 1fr;
       gap: 1.25rem;
       padding: 0.85rem 0;
       border-bottom: 1px solid var(--border);
@@ -764,32 +663,40 @@
 
     /* Hidden items (auto-toggle) */
     .hidden-item {
-      display: none !important;
+      display: none; /*!important;*/
     }
-
-    /* Publications */
-    .pub-list {
+    
+    /* === PUBLICATIONS, CONFERENCES & PROJECTS ===*/
+    .pub-list,
+    .con-list,
+    .project-grid {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
-
-    .pub-card {
+    
+    .project-card,
+    .pub-card,
+    .con-card {
       display: grid;
       grid-template-columns: 160px 1fr;
       gap: 1.25rem;
       padding: 0;
     }
-
+    
     /* Image hover effect - original style */
-    .pub-image-container {
+    .pub-image-container,
+    .con-image-container,
+    .project-image-container {
       width: 160px;
       height: 160px;
       position: relative;
       flex-shrink: 0;
     }
 
-    .pub-image-container .img-after {
+    .pub-image-container .img-after,
+    .con-image-container .img-after,
+    .project-image-container .img-after {
       position: absolute;
       top: 0;
       left: 0;
@@ -799,12 +706,18 @@
       transition: opacity 0.2s ease-in-out;
     }
 
-    .pub-image-container:hover .img-after {
+    .pub-image-container:hover .img-after,
+    .con-image-container:hover .img-after,
+    .project-image-container:hover .img-after {
       opacity: 1;
     }
 
     .pub-image-container img,
-    .pub-image-container video {
+    .pub-image-container video,
+    .con-image-container img,
+    .con-image-container video,    
+    .project-image-container img,
+    .project-image-container video  {
       width: 160px;
       height: 160px;
       object-fit: cover;
@@ -812,74 +725,59 @@
       background: var(--bg-secondary);
     }
 
-    /* Mobile: compact layout - image left, title right */
-    @media (max-width: 600px) {
-      .pub-card {
-        grid-template-columns: 160px 1fr;
-        gap: 1rem;
-        align-items: center;
-      }
-
-      .pub-image-container {
-        width: 160px !important;
-        height: 160px !important;
-      }
-
-      .pub-image-container img,
-      .pub-image-container video {
-        width: 160px !important;
-        height: 160px !important;
-      }
-
-      .pub-authors,
-      .pub-venue,
-      .pub-links {
-        display: none;
-      }
-
-      .pub-title {
-        margin-bottom: 0;
-        font-size: 0.85rem;
-      }
-    }
-
-    .pub-info {
+    .project-info,
+    .pub-info,
+    .con-info {
       display: flex;
       flex-direction: column;
     }
-
-    .pub-title {
+    
+    .project-info h4,
+    .pub-info h4,
+    .con-info h4 {
       font-weight: 600;
       font-size: 0.9rem;
-      line-height: 1.45;
       margin-bottom: 0.35rem;
     }
 
-    .pub-authors {
+    .project-desc,
+    .pub-authors,
+    .con-authors {
       font-size: 0.8rem;
       color: var(--text-secondary);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.45rem;
     }
 
-    .pub-authors u {
+    .project-desc {
+      line-height: 1.4;
+    }
+
+    .pub-authors u,
+    .con-authors u {
       text-decoration: none;
       color: var(--text-primary);
     }
 
-    .pub-venue {
+    .project-venue,
+    .pub-venue,
+    .con-venue {
       font-size: 0.75rem;
       color: var(--accent);
       margin-bottom: 0.6rem;
     }
 
-    .pub-links {
+    .project-links,
+    .pub-links,
+    .con-links {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
       margin-top: auto;
     }
-
-    .pub-link {
+    
+    .pub-link,
+    .con-link,
+    .project-link {
       font-size: 0.7rem;
       padding: 0.2rem 0.45rem;
       background: var(--bg-secondary);
@@ -889,78 +787,14 @@
       transition: all var(--transition-fast);
     }
 
-    .pub-link:hover {
+    .pub-link:hover,
+    .con-link:hover,
+    .project-link:hover {
       border-color: var(--accent);
       color: var(--accent);
     }
-
-    /* Projects */
-    .project-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 1.25rem;
-      padding: 0;
-    }
-
-    .project-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-title {
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .project-venue {
-      font-size: 0.75rem;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .project-desc {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.6rem;
-      line-height: 1.5;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 0.4rem;
-      margin-top: auto;
-    }
-
-    /* Mobile: compact layout for projects - image left, title right */
-    @media (max-width: 600px) {
-      .project-card {
-        grid-template-columns: 160px 1fr;
-        gap: 1rem;
-        align-items: center;
-      }
-
-      .project-venue,
-      .project-desc,
-      .project-links {
-        display: none;
-      }
-
-      .project-title {
-        margin-bottom: 0;
-        font-size: 0.85rem;
-      }
-    }
-
-     /* Teaching Section Styles */
-
-
+    
+    /* ===TEACHING SECTION STYLES=== */
     .teaching-section {
       padding: 60px 20px;
     }
@@ -968,8 +802,32 @@
     .teaching-section .section-title {
       font-size: 2rem;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 5rem;
       color: var(--text-primary);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .section-title {
+      position: relative;
+      opacity: 1; /* visible by default */
+      transform: none;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2.5px;
+      background: var(--accent);
+      margin: 6px auto 0;
+      transition: width 0.6s ease;
+      will-change: background-position;
+    } 
+
+    /* Animate ONLY when visible */
+    .in-view.section-title::after {
+      animation: pulseLine 1.9s ease-in-out infinite alternate;
+      animation-delay: 0.3s;
     }
 
     .teaching-role, .mentoring-role {
@@ -1029,7 +887,6 @@
 
     .term {
       color: var(--accent);     
-
     }
 
     .term-span {
@@ -1054,49 +911,278 @@
       background: var(--bg-secondary);
       border: 1px solid var(--border);
       color: var(--accent);
-    }
-    
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .teaching-section {        
-        padding: 50px 15px;
-      }
-    
-      .role-title {
-        font-size: 1.3rem;        
-        color: var(--text-primary);
-      }
-    
-      .course-name {
-        font-size: 0.8rem;
-        padding: 6px;
-      }
-    }
-    
- /* ==== SMALL MOBILE ==== */
-  @media (max-width: 480px) {
-    .teaching-section {
-      padding: 40px 10px;
-    }
-      .section-title {
-      font-size:1.1rem;
-    }
-
-      .role-title {
-      font-size: 1rem;
-    }
-    
-    .course-list {
-      grid-template-columns: 1fr; /* Single column for small screens */
-    }
-  }
-
+    }  
+   
     .mentoring-text{
       color: var(--text-secondary);
       line-height: 1.8;
       justify-self: center;
       margin-top: 4rem;
       font-size: 0.95rem;
+    }
+
+    /* Pulse animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+      }
+      to { 
+        opacity: 1; 
+      }
+    }
+
+    @keyframes pulseLine {
+      0% {
+        width: 60px;
+        opacity: 0.6;
+      }
+      100% {
+        width: 200px;
+        opacity: 1;
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .section-title::after {
+        animation: none !important;
+        background-position: 50% 0;
+      }
+    }
+
+    /* Mobile header - hide CV only, keep toggle */      
+    @media (max-width: 1024px) {
+      .organic-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem; /*2rem*/
+      }    
+      .toggle-btn span{ 
+        font-size: 16px; 
+      } 
+    }    
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-left {
+        align-items: center;
+      }    
+      .toggle-btn span{ 
+        font-size: 12px; 
+      } 
+    }
+
+    @media (max-width: 768px) {    
+      /*body { font-size: 16px; 
+        padding: 0 15px; }*/  
+      .container {
+        padding: 0 1.25rem;
+      }
+      /*header, 
+      .section, 
+      .teaching-section { 
+        padding: 20px 0; 
+        }*/
+      .header {
+        justify-content: center;
+        position: relative;
+      }
+      .scroll-up, 
+      .scroll-fade { 
+        margin: 10px 0; 
+      }
+      .toggle-list, 
+      .news-list, 
+      .pub-list, 
+      .con-list, 
+      .project-grid, 
+      .course-list { 
+        flex-direction: column; 
+        gap: 15px;
+      }
+      img, 
+      video { 
+      max-width: 100%; 
+      height: auto; 
+      }
+      .toggle-btn span{ 
+        font-size: 12px; 
+      } 
+      .header-right {
+        position: absolute;
+        right: 0;
+        gap: 1rem;
+      }
+      .header-right .cv-link,
+      .header-right .theme-toggle {
+        display: none;
+      }  
+      .logo {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .profile-image {
+        width: 240px;
+        height: 240px;
+      }
+      .social-icons { 
+        justify-content: center; 
+      }
+      .lang-switcher { 
+        bottom: 1.5rem; 
+        right: 1.5rem; 
+      }
+      #lang-toggle img { 
+        width: 36px; 
+        height: 36px; 
+      }
+      #lang-options { 
+        bottom: calc(100% + 0.3rem); 
+        right: 0; 
+        min-width: 120px; 
+      }
+      .lang-options li { 
+        padding: 0.5rem 0.6rem; 
+      }
+      .hero-bio p { 
+        font-size: 0.95rem;
+      }
+      .pub-card,
+      .con-card,
+      .project-card {
+        grid-template-columns: 160px 1fr;
+        gap: 1rem;
+        align-items: center;
+      }
+      .pub-title,
+      .con-title,
+      .project-title {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+      }
+      .teaching-section {        
+        padding: 50px 15px;
+      }    
+      .section-title { 
+        font-size: 1.5rem; 
+      }
+      .role-title {
+        font-size: 1.3rem;        
+        color: var(--accent-bright);
+      }
+      .course-list { 
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+      }
+      .course-name {
+        font-size: 0.8rem;
+      }
+      .mentoring-text {
+        font-size: 0.9rem; 
+        margin-top: 2rem;
+      }
+    }
+    
+    /* Mobile: compact layout for projects - image left, title right */
+    @media (max-width: 600px) {          
+      .logo {
+        font-size: 1.8rem;
+      }
+      .pub-card,
+      .con-card,
+      .project-card {
+        grid-template-columns: 160px 1fr; /*in *140px*/
+        gap: 1rem; /*140px*/
+        align-items: center; /*140px*/
+      }      
+      .pub-image-container img,
+      .pub-image-container video {
+        width: 160px !important;
+        height: 160px !important;
+      }
+      .pub-authors,
+      .pub-venue,
+      .pub-links,
+      .con-authors,
+      .con-venue,
+      .con-links,
+      .project-desc,
+      .project-venue,
+      .project-links {
+        font-size: 0.6rem;
+      }
+      .pub-title,
+      .con-title,
+      .project-title {
+        font-size: 0.8;
+        margin-bottom: 0;
+      }    
+      .course-name {
+        font-size: 0.75rem;
+      }
+      .role-title {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 1.2rem; 
+      }
+      .hero-bio p {
+        font-size: 0.9rem; 
+      }    
+      .toggle-btn span{ 
+        font-size: 0.7rem;
+      }
+    }
+
+    /* ==== SMALL MOBILE ==== */
+    @media (max-width: 480px) {
+      .teaching-section {
+        padding: 40px 10px;
+      }
+      .section-title {
+        font-size:1.1rem;
+      }
+      .role-title {
+        font-size: 1rem;
+        color: var(--accent-bright);
+      }  
+      .course-list {
+        grid-template-columns: 1fr; /* Single column for small screens */
+      }
+      .hero-bio p { font-size: 0.85rem; 
+      }               
+      .pub-authors,
+      .pub-venue,
+      .pub-links,
+      .con-authors,
+      .con-venue,
+      .con-links,
+      .project-desc,
+      .project-venue,
+      .project-links {
+        font-size: 0.6rem;
+      }
+      .pub-info h4,
+      .con-info h4,
+      .project-info h4 {
+        margin-bottom: 0;
+        font-size: 0.7rem;
+      }    
+      .mentoring-text {
+        font-size: 0.75rem; 
+      }
     }
 
     /* Footer */
@@ -1135,12 +1221,25 @@
     ::-webkit-scrollbar-thumb:hover {
       background: var(--text-muted);
     }
+
+    .scroll-fade, .scroll-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-fast);
+    }
+
+    .in-view.scroll-fade {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .in-view.scroll-up {
+      animation: fadeInUp 0.8s ease forwards;
+    }
   </style>
 </head>
 
 <body data-theme="dark">
   <div class="container">
-
     <!-- Header -->
     <header class="header">
       <a href="#" class="logo">
@@ -1176,7 +1275,7 @@
           <li data-lang="en" class="flag"><img src="./data/favicon/uk.png" alt=""></li>
           <li data-lang="fr" class="flag"><img src="./data/favicon/france.png" alt=""></li>
           <li data-lang="es" class="flag"><img src="./data/favicon/spain.png" alt=""></li>
-          <li data-lang="zh-Hans" class="flag"><img src="./data/favicon/china.png" alt=""></li>
+          <li data-lang="zh-CN" class="flag"><img src="./data/favicon/china.png" alt=""></li>
           <li data-lang="ar" class="flag"><img src="./data/favicon/uae.png" alt=""></li>
           <li data-lang="ko" class="flag"><img src="./data/favicon/south-korea.png" alt=""></li>
         </ul>
@@ -1191,7 +1290,7 @@
       <div class="hero-left" id="mine">
         <img src="./images/kharis_grey.jpeg" alt="Grace Alele" class="profile-image"
           onmouseover="this.src='./images/kharis_color.jpeg'" onmouseout="this.src='./images/kharis_grey.jpeg'">
-        <a href="./tex/cv.pdf" class="cv-link" id="mi">Curriculum Vitae</a>
+        <a href="./data/cv.pdf" class="cv-link" id="mi">Curriculum Vitae</a>
         <div class="social-icons">
           <a href="https://scholar.google.com/citations?user=hSA_5FIAAAAJ" class="icon-link"
             aria-label="Google Scholar">
@@ -1208,7 +1307,7 @@
             aria-label="Email">
             <i class="fa-regular fa-envelope"></i>
           </a>
-          <button class="icon-link mobile-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <button class="icon-link" onclick="toggleTheme()" aria-label="Toggle theme">
             <i class="fa-solid fa-moon" id="theme-icon-mobile"></i>
           </button>
         </div>
@@ -1372,23 +1471,23 @@
             </div>
             <div class="news-list">
               <div class="news-item">
-                <span class="news-date">Jan 2026</span>
-                <span class="news-text">I am starting a project (Medical imaging Segmentation)</span>
+                <span class="news-date">Jan. 2026</span>
+                <span class="news-text">Starting a project (Medical imaging Segmentation)</span>
               </div>
               <div class="news-item">
-                <span class="news-date">December 2025</span>
+                <span class="news-date">Dec. 2025</span>
                 <span class="news-text">
-                  I started volunteering at <a href="https://www.group/epic/">RetinaCare</a>, 
-                  building Africa's first AI-powered closed-loop vision intelligence system
+                  Volunteering at <a href="https://www.group/epic/">RetinaCare</a>, 
+                  to build AI-powered vision system
                 </span>
               </div>
               <div class="news-item">
-                <span class="news-date">December 2025</span>
-                <span class="news-text">I presented posters at <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/">ABUAD-CMHS Scientific Conference</a></span>
+                <span class="news-date">Dec. 2025</span>
+                <span class="news-text">Presented two posters at <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/">ABUAD-CMHS Scientific Conference</a></span>
               </div>
               <div class="news-item">
-                <span class="news-date">September 2025</span>
-                <span class="news-text">I am starting as a research assistant at <a href="https://huggingface.co/science">Hugging Science</a></span>
+                <span class="news-date">Sept. 2025</span>
+                <span class="news-text">Starting as a research assistant at <a href="https://huggingface.co/science">Hugging Science</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">May 2025</span>
@@ -1401,12 +1500,12 @@
           <div class="section">
             <div class="section-header">
               <div class="section-label">Publications</div>
-              <button class="section-toggle toggle-btn">
+              <button class="section-toggle toggle-btn" id="pubs-toggle">
                 <span>all</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
             </div>
-            <div class="pub-list toggle-list">  
+            <div class="pub-list">  
               <article class="pub-card">
                 <div class="pub-image-container">
                   <div class="img-after"><img src="./images/cloud1.png" alt=""></div>
@@ -1469,44 +1568,43 @@
           <div class="section">
             <div class="section-header">
               <div class="section-label">Conferences</div>
-              <button class="section-toggle toggle-btn">
+              <button class="section-toggle toggle-btn" id="con-toggle">
                 <span>all</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
             </div>
-            <div class="pub-list toggle-list">
-
-              <article class="pub-card">
-                <div class="pub-image-container">
+            <div class="con-list">
+              <article class="con-card">
+                <div class="con-image-container">
                   <div class="img-after"><img src="./images/footwear.png" alt=""></div>
                   <img src="./images/footwear1.png" alt="Smart Footwear Design">
                 </div>
-                <div class="pub-info">
-                  <h3 class="pub-title">DEVELOPMENT OF A SMART FOOTWEAR</h3>
-                  <p class="pub-authors">
+                <div class="con-info">
+                  <h3 class="con-title">DEVELOPMENT OF A SMART FOOTWEAR</h3>
+                  <p class="con-authors">
                     T. Olutosoye, F. Chukwudi, I. Oriji, A. Okofu, <u>G.O. Alele</u>
                   </p>
-                  <p class="pub-venue">CMHS 2025</p>
-                  <div class="pub-links">
-                    <a href="./data/foorwear.pdf" class="pub-link">poster</a>
+                  <p class="con-venue">CMHS 2025</p>
+                  <div class="con-links">
+                    <a href="./data/foorwear.pdf" class="con-link">poster</a>
                   </div>
                 </div>
               </article>
 
-              <article class="pub-card">
-                <div class="pub-image-container">
+              <article class="con-card">
+                <div class="con-image-container">
                   <div class="img-after"><img src="./images/incubator.png" alt=""></div>
                   <img src="./images/incubator.png" alt="Infant Incubator Design">
                 </div>
-                <div class="pub-info">
-                  <h3 class="pub-title">AN INFANT INCUBATOR DESIGN FOR INTERMITTENT TO ELECTRICITY</h3>
-                  <p class="pub-authors">
+                <div class="con-info">
+                  <h3 class="con-title">AN INFANT INCUBATOR DESIGN FOR INTERMITTENT TO ELECTRICITY</h3>
+                  <p class="con-authors">
                     Okwuegbulem, A., Chukwudi, F.O., Ephraim, D.E., Abe O.O, <u>Alele, G.O.</u>, 
                     Olutosoye, T.C., Olumati A.K., Oludayo, K.E.
                   </p>
-                  <p class="pub-venue">CMHS 2025</p>
-                  <div class="pub-links">
-                    <a href="./data/incubator.pdf" class="pub-link">poster</a>
+                  <p class="con-venue">CMHS 2025</p>
+                  <div class="con-links">
+                    <a href="./data/incubator.pdf" class="con-link">poster</a>
                   </div>
                 </div>
               </article>
@@ -1517,16 +1615,14 @@
           <div class="section">
             <div class="section-header">
               <div class="section-label">Projects</div>
-              <button class="section-toggle toggle-btn">
+              <button class="section-toggle toggle-btn" id="project-toggle">
                 <span>all</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
-            </div>
-            
-            <div class="project-grid toggle-list">
-              
+            </div>            
+            <div class="project-grid">              
               <div class="project-card">
-                <div class="pub-image-container">
+                <div class="project-image-container">
                   <div class="img-after">                  
                     <img src="./images/diabimmune.png" alt="">
                   </div>
@@ -1534,10 +1630,10 @@
                 </div>
                 <div class="project-info">
                   <h4 class="project-title">AI for Food Allergy</h4>
-                  <p class="project-venue">Fall 2025 - Present</p>
                   <p class="project-desc">
                     An AI-driven analysis of the Diabimmune longitudinal cohort to investigate how early-life gut microbiome and environmental factors influence food allergy development in infants..
                   </p>
+                  <p class="project-venue">Fall 2025 - Present</p>
                   <div class="project-links">
                     <a href="https://figshare.com/articles/dataset/Model_and_Data_for_diabimmune_example/30429055?file=58993825" class="pub-link">data source</a>                    
                     <a href="https://colab.research.google.com/drive/1JOnMf60TNrJ7OoaYk3RcElyPC1-bfpRS?usp=sharing#scrollTo=nQln9IZjFaEM" class="pub-link">code</a>                  
@@ -1546,7 +1642,7 @@
               </div>
 
               <div class="project-card">
-                <div class="pub-image-container">
+                <div class="project-image-container">
                   <div class="img-after">
                     <video width="160" height="160" muted autoplay loop>
                       <source src="images/sketch_after.mp4" type="video/mp4">
@@ -1555,12 +1651,12 @@
                   <img src="./.png" alt="Deep Learning for Endometriosis Biomarker discovery">
                 </div>
                 <div class="project-info">
-                  <h4 class="project-title">Deep Learning Approaches for Endometriosis Biomarker Discovery from RNA-seq Transcriptomic Profiles</h4>
-                  <p class="project-venue">Spring 2022</p>
+                  <h4 class="project-title">Deep Learning for Endometriosis Biomarker Discovery</h4>
                   <p class="project-desc">
                     Uses deep learning on RNA-seq transcriptomic data to discover biomarkers 
                     of endometriosis, supporting improved disease characterization and earlier, less invasive diagnosis.
                   </p>
+                  <p class="project-venue">Spring 2022</p>
                   <div class="project-links">
                     <a href="" class="pub-link">code</a>
                   </div>
@@ -1568,7 +1664,7 @@
               </div>            
 
               <div class="project-card">
-                <div class="pub-image-container">
+                <div class="project-image-container">
                   <div class="img-after">
                     <video width="160" height="160" muted autoplay loop>
                       <source src="mp4" type="video/mp4">
@@ -1578,11 +1674,11 @@
                 </div>
                 <div class="project-info">
                   <h4 class="project-title">Explainable Artificial Intelligence for Causal Inference</h4>
-                  <p class="project-venue">Spring 2025 - Fall 2025</p>
                   <p class="project-desc">
                     Implemented a GNN using protein-protein 
                     interaction (PPI) data to model causal relationships in inflammatory signaling pathways.
                   </p>
+                  <p class="project-venue">Spring 2025 - Fall 2025</p>
                   <div class="project-links">
                     <a href="https://github.com/gracealele/explainable-ai-causal-gnn" class="pub-link">code</a>
                   </div>
@@ -1590,7 +1686,7 @@
               </div>
 
               <div class="project-card">
-                <div class="pub-image-container">
+                <div class="project-image-container">
                   <div class="img-after">
                     <video width="160" height="160" muted autoplay loop>
                       <source src="" type="video/mp4">
@@ -1600,11 +1696,11 @@
                 </div>
                 <div class="project-info">
                   <h4 class="project-title">Bayesian Optimization Multimodal</h4>
-                  <p class="project-venue">Winter 2024</p>
                   <p class="project-desc">
                     This project bridges the gap between computational efficiency and clinical 
                     accuracy in medical AI. By making hyperparameter tuning 2.5× more efficient.
                   </p>
+                  <p class="project-venue">Winter 2024</p>
                   <div class="project-links">                    
                     <a href="https://github.com/gracealele/bayesian_optimization_multimodal" class="pub-link">code</a>
                   </div>
@@ -1612,7 +1708,7 @@
               </div>
               
               <div class="project-card">
-                <div class="pub-image-container">
+                <div class="project-image-container">
                   <div class="img-after">
                     <video width="160" height="160" muted autoplay loop>
                       <source src="images/solar2.mp4" type="video/mp4">
@@ -1622,261 +1718,368 @@
                 </div>
                 <div class="project-info">
                   <h4 class="project-title">Blockchain Based Solar Energy Trading Platform</h4>
-                  <p class="project-venue">Spring 2023 - Summer 2023</p>
                   <p class="project-desc">Presents a decentralized peer-to-peer (P2P) solar energy trading platform using blockchain technology. </p>
+                  <p class="project-venue">Spring 2023 - Summer 2023</p>
                   <div class="project-links">
                     <a href="https://github.com/gracealele/Blockchain-Based-Solar-Energy-Trading-Platform" class="pub-link">code</a>
                   </div>
                 </div>
               </div>
+
+              <div class="project-card">
+                <div class="project-image-container">
+                  <div class="img-after">
+                    <video width="160" height="160" muted autoplay loop>
+                      <source src="./images/tedx0.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <img src="./images/tedx.jpeg" alt="Ekpoma TEDx Conference Website">
+                </div>
+                <div class="project-info">
+                  <h4 class="project-title">Ekpoma TEDx Conference Website</h4>
+                  <p class="project-desc">
+                    This website showcases speakers, event themes, schedules, 
+                    and registration details, with a focus on accessibility, 
+                    performance, and clean UI/UX.
+                  </p>
+                  <p class="project-venue">Summer 2023</p>
+                  <div class="project-links">                    
+                    <a href="https://github.com/gracealele/bayesian_optimization_multimodal" class="pub-link">code</a>
+                  </div>
+                </div>
+              </div>              
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>  
+    </main>
 
     <!-- Teaching Assistant Section -->
-<section id="teaching" class="teaching-section">
-  <div class="container">
-    <h2 class="section-title">Teaching &amp; Mentoring</h2>
-  
-    <!-- Teaching Assistant Roles -->
-    <div class="teaching-role">
-      <h3 class="role-title">TEACHING ASSISTANT</h3>
-      <div class="course-list">                
-        <div class="course-item">
-          <div class="course-item-span">
-            <span class="course-code">
-                CSC204
-            </span>
-            <span class="course-span">
-              Lead Teaching Assistant
-            </span>
-          </div>
+    <section id="teaching" class="teaching-section">
+      <div class="container">
 
-          <p class="course-name">Object Oriented Programming</p>
-          <p class="course-description">
-            Introduction to embedded systems computing platforms and their basic building blocks
-          </p>
-          <div class="term">
-            <span class="term-span">
-              Fall 2022
-            </span>
-            <span class="term-span">
-              Fall 2023
-            </span>
-            <span class="term-span">
-              Fall 2024
-            </span>
-          </div>
-        </div>
-        
+        <h2 class="section-title scroll-up">Teaching &amp; Mentoring</h2>
       
-        <div class="course-item">
-          <div class="course-item-span">
-            <span class="course-code">
-                CSC301
-            </span>
-            <span class="course-span">
-              Lab Assistant
-            </span>
-          </div>
-          <p class="course-name">Artificial Intelligence</p>
-          <p class="course-description">
-            Introduction to embedded systems computing platforms and their basic building blocks
-          </p>              
-          <div class="term">
-            <span class="term-span">
-              Winter 2024
-            </span>
-            <span class="term-span">
-              Winter 2025
-            </span>
-          </div>
-        </div> 
+        <!-- Teaching Assistant Roles -->
+        <div class="teaching-role">
+          <h3 class="role-title">TEACHING ASSISTANT</h3>
+          <div class="course-list">
 
-        <div class="course-item">
-          <div class="course-item-span">
-            <span class="course-code">
-                CSC101
-            </span>
-            <span class="course-span">
-              Teaching Assistant
-            </span>
-          </div>
+            <div class="course-item">
+              <div class="course-item-span">
+                <span class="course-code">
+                    CSC101
+                </span>
+                <span class="course-span">
+                  Teaching Assistant
+                </span>
+              </div>
+            
+              <p class="course-name">Introductory Simulation Methods</p>
+              <p class="course-description">
+                Introduction to embedded systems computing platforms and their basic building blocks
+              </p>
+              <div class="term">
+                <span class="term-span">
+                  Fall 2022
+                </span>
+                <span class="term-span">
+                  Fall 2023
+                </span>
+                <span class="term-span">
+                  Fall 2024
+                </span>
+              </div>
+            </div>
 
-          <p class="course-name">Introductory Simulation Methods</p>
-          <p class="course-description">
-            Introduction to embedded systems computing platforms and their basic building blocks
-          </p>
-          <div class="term">
-            <span class="term-span">
-              Fall 2022
-            </span>
-            <span class="term-span">
-              Fall 2023
-            </span>
-            <span class="term-span">
-              Fall 2024
-            </span>
+            <div class="course-item">
+              <div class="course-item-span">
+                <span class="course-code">
+                    CSC204
+                </span>
+                <span class="course-span">
+                  Lead Teaching Assistant
+                </span>
+              </div>
+            
+              <p class="course-name">Object Oriented Programming</p>
+              <p class="course-description">
+                Introduction to embedded systems computing platforms and their basic building blocks
+              </p>
+              <div class="term">
+                <span class="term-span">
+                  Fall 2022
+                </span>
+                <span class="term-span">
+                  Fall 2023
+                </span>
+                <span class="term-span">
+                  Fall 2024
+                </span>
+              </div>
+            </div>        
+          
+            <div class="course-item">
+              <div class="course-item-span">
+                <span class="course-code">
+                    CSC301
+                </span>
+                <span class="course-span">
+                  Lab Assistant
+                </span>
+              </div>
+              <p class="course-name">Artificial Intelligence</p>
+              <p class="course-description">
+                Introduction to embedded systems computing platforms and their basic building blocks
+              </p>              
+              <div class="term">
+                <span class="term-span">
+                  Winter 2024
+                </span>
+                <span class="term-span">
+                  Winter 2025
+                </span>
+              </div>
+            </div>           
+                      
           </div>
         </div>
-
+      
+        <!-- (Optional) Student Mentoring -->
+        <div class="mentoring-role">
+          <h3 class="role-title">STUDENT MENTORING</h3>
+          <p class="mentoring-text">Currently building my mentoring portfolio.</p>
+        </div>
       </div>
-    </div>
-  
-    <!-- (Optional) Student Mentoring -->
-    <div class="mentoring-role">
-      <h3 class="role-title">STUDENT MENTORING</h3>
-      <p class="mentoring-text">Currently building my mentoring portfolio.</p>
-    </div>
+    </section>
   </div>
-</section>
-  
 
-<!-- Footer -->
-<footer class="footer">
-  <p><span class="copyright-name">Grace Alele</span> © 2026</p>
-</footer>
-
-  
- <script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* ===== Theme Toggle ===== */
-  const body = document.body;
-  const themeIcons = [
-    document.getElementById('theme-icon'),
-    document.getElementById('theme-icon-mobile')
-  ];
-
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) body.dataset.theme = savedTheme;
-
-  function updateThemeIcons() {
-    themeIcons.forEach(icon => {
-      if (!icon) return;
-      icon.className =
-        body.dataset.theme === 'dark'
-          ? 'fa-solid fa-moon'
-          : 'fa-solid fa-sun';
-    });
-  }
-
-  window.toggleTheme = () => {
-    body.dataset.theme =
-      body.dataset.theme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', body.dataset.theme);
-    updateThemeIcons();
-  };
-
-  updateThemeIcons();
-
-
-const langToggle = document.getElementById('lang-toggle');
-const langOptions = document.getElementById('lang-options');
-const activeFlag = document.getElementById('active-flag');
-
-// Map language → flag image
-const langFlagMap = {
-  en: './data/favicon/uk.png',
-  fr: './data/favicon/france.png',
-  es: './data/favicon/spain.png',
-  'zh-Hans': './data/favicon/china.png',
-  ar: './data/favicon/uae.png',
-  ko: './data/favicon/south-korea.png'
-};
-
-// Toggle dropdown
-langToggle.addEventListener('click', e => {
-  e.stopPropagation();
-  langOptions.style.display =
-    langOptions.style.display === 'block' ? 'none' : 'block';
-});
-
-// Click language
-langOptions.querySelectorAll('li').forEach(item => {
-  item.addEventListener('click', e => {
-    e.stopPropagation();
-
-    const lang = item.dataset.lang;
-
-    // Update active flag
-    if (langFlagMap[lang]) {
-      activeFlag.src = langFlagMap[lang];
+  <!-- Footer -->
+  <footer class="footer">
+    <p><span class="copyright-name">Grace Alele</span> © 2026</p>
+  </footer>
+   
+  <script defer>
+    /* ===== Toggle Sections Init ===== */
+    
+    /* ===== Bind Buttons =====
+    function toggleNews() {
+      toggleSection('.news-list', '.news-item', 'news-toggle', 3, 'more');
     }
-
-    // Save preference
-    localStorage.setItem('language', lang);
-
-    // Trigger Google Translate
-    const select =
-      document.querySelector('#google_translate_element select');
-    if (select) {
-      select.value = lang;
-      select.dispatchEvent(new Event('change'));
+    function togglePublications() {
+      toggleSection('.pub-list', '.pub-card', 'pubs-toggle', 3, 'all');
     }
+    function toggleConferences() {
+      toggleSection('.con-list', '.con-card', 'con-toggle', 3, 'all');
+    }
+    function toggleProjects() {
+      toggleSection('.project-grid', '.project-card', 'projects-toggle', 3, 'all');
+    }    
+    document.addEventListener('DOMContentLoaded', initToggleSections);
+    */
 
-    langOptions.style.display = 'none';
-  });
-});
-
-// Close dropdown on outside click
-document.addEventListener('click', () => {
-  langOptions.style.display = 'none';
-});
-
-// Restore saved language flag
-const savedLang = localStorage.getItem('language');
-if (savedLang && langFlagMap[savedLang]) {
-  activeFlag.src = langFlagMap[savedLang];
-}
-
-
-  /* ===== Toggle Sections ===== */
-  function initToggleSections() {
-    document.querySelectorAll('.news-list > .news-item')
-      .forEach((item, i) => {
-        if (i >= 4) item.classList.add('hidden-item');
+    /* ===== TOGGLES ===== */
+    function toggleSection(listSelector, itemSelector, toggleId, cutoff, moreText = 'all') {
+      const items = document.querySelectorAll(`${listSelector} > ${itemSelector}`);
+      const toggle = document.getElementById(toggleId);
+      const expanded = toggle.classList.contains('active');
+    
+      items.forEach((item, index) => {
+        if (index >= cutoff) {
+          item.classList.toggle('hidden-item', expanded);
+        }
       });
 
-    document.querySelectorAll('.pub-list > .pub-card')
-      .forEach((card, i) => {
-        if (i >= 4) card.classList.add('hidden-item');
-      });
-  }
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = expanded ? moreText : 'less';
+    }
 
-  initToggleSections();
+    function togglePublications() {
+    const items = document.querySelectorAll('.pub-list > .pub-card');
+    const toggle = document.getElementById('pubs-toggle');
+    const isExpanded = toggle.classList.contains('active');
 
-  document.querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const section = btn.closest('.section');
-      if (!section) return;
-
-      const list = section.querySelector('.toggle-list');
-      if (!list) return;
-
-      list.classList.toggle('hidden');
-      btn.classList.toggle('active');
+    items.forEach((card, index) => {
+      if (index >= 3) card.classList.toggle('hidden-item', isExpanded);
     });
-  });
 
-});
+    toggle.classList.toggle('active');
+    toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+    }
+
+    function toggleConferences() {
+      const items = document.querySelectorAll('.con-list > .con-card');
+      const toggle = document.getElementById('con-toggle');
+      const isExpanded = toggle.classList.contains('active');
+    
+      items.forEach((card, index) => {
+        if (index >= 2) card.classList.toggle('hidden-item', isExpanded);
+      });
+    
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+    }
+
+    function toggleProjects() {
+      const items = document.querySelectorAll('.project-grid > .project-card');
+      const toggle = document.getElementById('projects-toggle');
+      const isExpanded = toggle.classList.contains('active');
+    
+      items.forEach((card, index) => {
+        if (index >= 3) card.classList.toggle('hidden-item', isExpanded);
+      });
+    
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+    }
 
 
-/* ===== Google Translate Init (required name) ===== */
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'en,fr,es,zh-Hans,ar,ko',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
+    /* ===== Bind Buttons ===== */
+    function toggleNews() {
+      toggleSection('.news-list', '.news-item', 'news-toggle', 3, 'more');
+    }
+    function togglePublications() {
+      toggleSection('.pub-list', '.pub-card', 'pubs-toggle', 3, 'all');
+    }
+    function toggleConferences() {
+      toggleSection('.con-list', '.con-card', 'con-toggle', 3, 'all');
+    }
+    function toggleProjects() {
+      toggleSection('.project-grid', '.project-card', 'projects-toggle', 3, 'all');
+    }    
+    document.addEventListener('DOMContentLoaded', initToggleSections);
 
-<!-- Google Translate script -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  
-</script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      //Scroll Function
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target); // animate once
+            }
+          });
+        }, 
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        }
+      );
+
+      document.querySelectorAll('.scroll-up, .scroll-fade')
+        .forEach(el => {
+        observer.observe(el);
+
+        // 🔑 SAFETY NET: if already visible, show it
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('in-view');
+          observer.unobserve(el);
+        }      
+        document.querySelectorAll('.section-title.scroll-up').forEach(el => {
+          el.classList.add('in-view');
+        });
+      });
+    });     
+
+    /* ===== Theme Toggle ===== */
+    const body = document.body;
+    const themeIcons = [
+      document.getElementById('theme-icon'),
+      document.getElementById('theme-icon-mobile')
+    ];
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) body.dataset.theme = savedTheme;
+    function updateThemeIcons() {
+      themeIcons.forEach(icon => {
+        if (!icon) return;
+        icon.className =
+          body.dataset.theme === 'dark'
+            ? 'fa-solid fa-moon'
+            : 'fa-solid fa-sun';
+      });
+    }
+
+    window.toggleTheme = () => {
+      body.dataset.theme =
+        body.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', body.dataset.theme);
+      updateThemeIcons();
+    };  updateThemeIcons();
+
+    const langToggle = document.getElementById('lang-toggle');
+    const langOptions = document.getElementById('lang-options');
+    const activeFlag = document.getElementById('active-flag');
+
+    // Map language → flag image
+    const langFlagMap = {
+      en: './data/favicon/uk.png',
+      fr: './data/favicon/france.png',
+      es: './data/favicon/spain.png',
+      'zh-CN': './data/favicon/china.png',
+      ar: './data/favicon/uae.png',
+      ko: './data/favicon/south-korea.png'
+    };
+
+    // Toggle dropdown
+    langToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      langOptions.style.display =
+        langOptions.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Click language
+    langOptions.querySelectorAll('li').forEach(item => {
+      item.addEventListener('click', e => {
+        e.stopPropagation();
+        const lang = item.dataset.lang;
+
+        // Update active flag
+        if (langFlagMap[lang]) {
+          activeFlag.src = langFlagMap[lang];
+        }
+
+        // Save preference
+        localStorage.setItem('language', lang);
+
+        // Trigger Google Translate
+        const select =
+          document.querySelector('#google_translate_element select');
+        if (select) {
+          select.value = lang;
+          select.dispatchEvent(new Event('change'));
+        }
+        langOptions.style.display = 'none';
+      });
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', () => {
+      langOptions.style.display = 'none';
+    });
+
+    // Restore saved language flag
+    const savedLang = localStorage.getItem('language');
+    if (savedLang && langFlagMap[savedLang]) {
+      activeFlag.src = langFlagMap[savedLang];
+    }
+
+
+    /* ===== Google Translate Init (required name) ===== */
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,es,zh-CN,ar,ko',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    };
+  </script>
+
+  <!-- Google Translate script -->
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+
+  </script>
 </body>
 </html>
