@@ -421,23 +421,21 @@
       border-radius: 3px;
       transition: all var(--transition-fast);
       font-family: var(--font-body);
-    }
-
-    .section-toggle.active i {
-      transform: rotate(180deg);
-    }
+      /*   font: inherit; */
+    } 
 
     .section-toggle:hover {
       color: var(--accent);
       background: var(--accent-glow);
     }
-
     .section-toggle i {
       font-size: 0.65rem;
       transition: transform var(--transition-fast);
-    }
-
+    }    
     .section-toggle.active i {
+      transform: rotate(180deg);
+    }
+    .section-toggle.open i {
       transform: rotate(180deg);
     }
 
@@ -687,7 +685,11 @@
       gap: 1.25rem;
       padding: 0;
     }
-    
+
+    /* Project toggle behavior */
+    .project-card.hidden {
+      display: none;
+    }
     /* Image hover effect - original style */
     .pub-image-container,
     .con-image-container,
@@ -1318,7 +1320,7 @@
         <p>
           I recently completed my bachelor's degree in computer science. Now, I am specializing in 
           disease discovery and progression. I am a research collaborator at <a href="https://mlcollective.org/"> 
-          MLC </a> and <a href="https://huggingface.co/science"> Hugging Science</a>. My work centers on 
+          MLC </a> and <a href="https://huggingface.co/science"> HuggingFace Science</a>. My work centers on 
           under-researched reproductive disease, where I apply machine learning and statistical methods 
           to uncover biological insights.
         </p>
@@ -1489,7 +1491,7 @@
               </div>
               <div class="news-item">
                 <span class="news-date">Sept. 2025</span>
-                <span class="news-text">I am starting as a research assistant at <a href="https://huggingface.co/science">Hugging Science</a></span>
+                <span class="news-text">I am starting as a research assistant at <a href="https://huggingface.co/science">HuggingFace Science</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">May 2025</span>
@@ -1904,7 +1906,7 @@
 
     toggle.classList.toggle('active');
     toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
-}
+  }
 
     function toggleConferences() {
       const items = document.querySelectorAll('.con-list > .con-card');
@@ -1931,7 +1933,36 @@
       toggle.classList.toggle('active');
       toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
     }
+    
+    /*
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("project-toggle");
+    const toggleText = toggleBtn.querySelector("span");
+    const projectCards = document.querySelectorAll(".project-card");
 
+    const HIDDEN_COUNT = 3;
+    let expanded = false;
+
+    // Hide last 3 projects by default
+    projectCards.forEach((card, index) => {
+      if (index >= projectCards.length - HIDDEN_COUNT) {
+        card.classList.add("hidden");
+      }
+    });
+
+    toggleBtn.addEventListener("click", () => {
+      expanded = !expanded;
+
+      projectCards.forEach((card, index) => {
+        if (index >= projectCards.length - HIDDEN_COUNT) {
+          card.classList.toggle("hidden", !expanded);
+        }
+      });
+
+      toggleText.textContent = expanded ? "less" : "all";
+      toggleBtn.classList.toggle("open", expanded);
+    });
+  });*/
 
     /* ===== Bind Buttons ===== */
     function toggleNews() {
