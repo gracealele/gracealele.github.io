@@ -189,7 +189,7 @@
     /* Smooth transition for glow */
     #lang-toggle img{
       height: auto;
-      width: 30px;  
+      width: 35px;  
       cursor: pointer;    
       transition: transform 0.5s ease, filter 0.5s ease;
       transform-origin: center; /* rotate around center */
@@ -1049,16 +1049,16 @@
         right: 1.5rem; 
       }
       #lang-toggle img { 
-        width: 36px; 
-        height: 36px; 
+        width: 30px; 
+        height: 30px; 
       }
       #lang-options { 
         bottom: calc(100% + 0.3rem); 
         right: 0; 
-        min-width: 120px; 
+        min-width: 40px; 
       }
       .lang-options li { 
-        padding: 0.5rem 0.6rem; 
+        padding: 0.3rem 0.3rem 0 .3rem;
       }
       .hero-bio p { 
         font-size: 0.95rem;
@@ -1149,6 +1149,25 @@
         font-size: 0.7rem;
       }
     }
+/* Default: desktop view */
+.theme-toggle--mobile {
+  display: none;
+}
+
+.theme-toggle--desktop {
+  display: inline-flex;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .theme-toggle--mobile {
+    display: inline-flex;
+  }
+
+  .theme-toggle--desktop {
+    display: none;
+  }
+}
 
     /* ==== SMALL MOBILE ==== */
     @media (max-width: 480px) {
@@ -1326,16 +1345,16 @@
         </p>
 
         <p>
-          Alongside my computational work, I am interested in connecting data-drive discoveries with experimental validation, and I'm
-          collaborating with the<a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at 
+          Alongside my computational work, my interest in connecting data-driven discoveries with experimental validation lead me to
+          collaborate with the<a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at 
           <a href="https://www.abuad.edu.ng/">ABUAD</a> to translate computationally inferred targets into early, non-invasive 
-          diagnostics approaches. I will also be sharing my vision and journey on <a href="https://www.youtube.com/channel/UCBO61qsQW36yxhaOsmR2OPA">YouTube</a>.
+          diagnostics approaches. I will be sharing my vision and journey on <a href="https://www.youtube.com/channel/UCBO61qsQW36yxhaOsmR2OPA">YouTube</a>.
         </p>
         
         <p>
           Beyond research, I enjoy exploring creative projects such as <a href="woodworking.html"> woodworking</a> and 
           <a href="./footwear.html"> innovative footwear design</a>. I find that hands-on work helps me think through 
-          problems from differently and it often inform how I approach technical and scientific challenges.
+          problems differently and it often inform how I approach technical and scientific challenges.
         </p>
       </div>
     </section>
@@ -1361,8 +1380,8 @@
                 informed models that generate hypotheses for biological validation.
               </p>
               <p>
-                Beyond research, I value teaching and hands-on work, which continue to shape how I think about problem 
-                solving and scientific inquiry.
+                I value teaching and community engagement and I Currently work as a Coding and Robotics Instructor to primary and secondary school
+                students through <a href="https://edupoint.org.ng/"> EduPoint Ltd.</a>.
               </p>
             </div>
           </div>
