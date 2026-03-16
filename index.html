@@ -235,7 +235,7 @@
     .header-right {
       position: absolute;
       right: 0;
-      #display: flex;
+      /*display: flex;*/
       align-items: center;
       gap: 1.5rem;
     }
@@ -304,13 +304,18 @@
       height: 220px;
       border-radius: 50%;
       object-fit: cover;
-      filter: grayscale(100%);
-      transition: filter var(--transition-medium);
+      filter: grayscale(0%) brightness(0.9);
+      transition: filter all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       margin-bottom: 1.5rem;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
     .profile-image:hover {
-      filter: grayscale(0%);
+      filter: grayscale(100%) brightness(1.02) saturate(1.05);
+      transform: scale(1.01) rotate(5deg);
+      box-shadow:
+        0 0 20px rgba(100, 180, 255, 0.2),
+        0 0 60px rgba(100, 180, 255, 0.15);
     }
 
     .social-icons {
@@ -1879,7 +1884,7 @@
   </footer>
    
   <script defer>
-    /* ===== Toggle Sections Init ===== */
+    /* ===== Toggle Sections Init ===== /
     function initToggleSections() {
       document.querySelectorAll('.news-list > .news-item')
         .forEach((item, i) => i >= 3 && item.classList.add('hidden-item'));
@@ -1894,7 +1899,7 @@
         .forEach((card, i) => i >= 3 && card.classList.add('hidden-item'));
     }
 
-    /* ===== TOGGLES ===== */
+    /* ===== TOGGLES ===== /
     function toggleSection(listSelector, itemSelector, toggleId, cutoff, moreText = 'all') {
       const items = document.querySelectorAll(`${listSelector} > ${itemSelector}`);
       const toggle = document.getElementById(toggleId);
@@ -1979,7 +1984,7 @@
     });
   });*/
 
-    /* ===== Bind Buttons ===== */
+    /* ===== Bind Buttons ===== /
     function toggleNews() {
       toggleSection('.news-list', '.news-item', 'news-toggle', 3, 'more');
     }
@@ -2028,7 +2033,7 @@
       });
     });     
 
-    /* ===== Theme Toggle ===== */
+    /* ===== Theme Toggle ===== /
     const body = document.body;
     const themeIcons = [
       document.getElementById('theme-icon'),
@@ -2112,7 +2117,7 @@
     }
 
 
-    /* ===== Google Translate Init (required name) ===== */
+    /* ===== Google Translate Init (required name) ===== /
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
@@ -2120,11 +2125,91 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     };
+    */
+
+    // Theme toggle - sync both icons
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      const iconMobile = document.getElementById('theme-icon-mobile');
+
+      if (body.dataset.theme === 'dark') {
+        body.dataset.theme = 'light';
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        if (iconMobile) {
+          iconMobile.classList.remove('fa-moon');
+          iconMobile.classList.add('fa-sun');
+        }
+      } else {
+        body.dataset.theme = 'dark';
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        if (iconMobile) {
+          iconMobile.classList.remove('fa-sun');
+          iconMobile.classList.add('fa-moon');
+        }
+      }
+    }
+
+    // Auto-hide items after a certain count
+    function initToggleSections() {
+      // News: show first 5
+      const newsItems = document.querySelectorAll('.news-list > .news-item');
+      newsItems.forEach((item, index) => {
+        if (index >= 5) {
+          item.classList.add('hidden-item');
+        }
+      });
+
+      // Publications: show first 4
+      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
+      pubCards.forEach((card, index) => {
+        if (index >= 4) {
+          card.classList.add('hidden-item');
+        }
+      });
+    }
+
+    // Toggle news
+    function toggleNews() {
+      const newsItems = document.querySelectorAll('.news-list > .news-item');
+      const toggle = document.getElementById('news-toggle');
+      const isExpanded = toggle.classList.contains('active');
+
+      newsItems.forEach((item, index) => {
+        if (index >= 5) {
+          item.classList.toggle('hidden-item', isExpanded);
+        }
+      });
+
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'more' : 'less';
+    }
+
+    // Toggle publications
+    function togglePubs() {
+      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
+      const toggle = document.getElementById('pubs-toggle');
+      const isExpanded = toggle.classList.contains('active');
+
+      pubCards.forEach((card, index) => {
+        if (index >= 4) {
+          card.classList.toggle('hidden-item', isExpanded);
+        }
+      });
+
+      toggle.classList.toggle('active');
+      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initToggleSections);
   </script>
 
   <!-- Google Translate script -->
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-
-  </script>
+  </script> -->
 </body>
+  
 </html>
