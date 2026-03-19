@@ -132,7 +132,7 @@
       position: relative;
     }
 
-    /* Fixed container in the top-right corner */
+    /*Fixed container in the top-right corner */
     .lang-switcher {
       position: fixed;
       z-index: 1000;
@@ -280,16 +280,8 @@
       align-items: start;
     }
 
-    #mine {
-      margin-top: -1rem;
-    }
- 
-    #mi {
-      margin-top: 1rem;
-    }
-
     #min {
-      margin-top: -2rem;
+      margin-top: 1.2rem;
     }
   
     .hero-left {
@@ -305,17 +297,18 @@
       border-radius: 50%;
       object-fit: cover;
       filter: grayscale(0%) brightness(0.9);
-      transition: filter all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      margin-bottom: 1.5rem;
+      transition:  transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+        filter 0.3s ease;
+      margin-bottom: 1.0rem;
       box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
     .profile-image:hover {
-      filter: grayscale(100%) brightness(1.02) saturate(1.05);
-      transform: scale(1.01) rotate(5deg);
+      filter: grayscale(0%) brightness(1.02) saturate(1.05);
+      transform: scale(1.05) rotate(6deg);
       box-shadow:
-        0 0 20px rgba(100, 180, 255, 0.2),
-        0 0 60px rgba(100, 180, 255, 0.15);
+        0 0 20px rgba(255, 103, 103, 0.2),
+        0 0 60px rgba(255, 4, 4, 0.15);
     }
 
     .social-icons {
@@ -388,6 +381,10 @@
       margin-bottom: 3rem;
     }
 
+    .section:last-child{
+      margin-bottom: 0;
+    }
+    
     .section-header {
       display: flex;
       align-items: center;
@@ -460,6 +457,26 @@
       margin-bottom: 1rem;
     }
 
+    
+    /* Hidden paragraphs */
+    .extra {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+ 
+    .extra.visible {
+      display: block;
+      opacity: 1;
+    }
+ 
+    /* Continue reading button */
+    #toggle-btn {
+      padding-left: 0;
+      background: none;
+      border: none;
+    }
+
     /* === ESSAY NAV === */
     .essay-nav {
       display: flex;
@@ -496,10 +513,10 @@
     /* === QUOTES === */
     .quote-block {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.02rem;
       font-style: italic;
       color: var(--text-secondary);
-      padding: 1.25rem 1.5rem;
+      padding: 1.15rem 1.35rem 1.15rem 2.1rem;
       background: var(--accent-glow);
       border-radius: 4px;
       position: relative;
@@ -511,9 +528,16 @@
       color: var(--accent);
       opacity: 0.25;
       position: absolute;
-      top: -0.25rem;
-      left: 0.5rem;
+      top: -0.45rem;
+      left: 1rem;
       font-family: Georgia, serif;
+    }
+
+    .quote{
+      display: flex;
+      color: var(--text-muted);
+      letter-spacing: 0.08rem;
+      margin-left: 7.7rem;
     }
 
     /* === PERSONAL === */
@@ -666,12 +690,8 @@
 
     /* Hidden items (auto-toggle) */
     .hidden-item {
-      display: none; /*!important;*/
+      display: none !important;
     }
-    
-    /*.hidden-item.show-item {
-      display: block;
-    }*/
 
     /* === PUBLICATIONS, CONFERENCES & PROJECTS ===*/
     .pub-list,
@@ -702,7 +722,6 @@
       width: 160px;
       height: 160px;
       position: relative;
-      flex-shrink: 0;
     }
 
     .pub-image-container .img-after,
@@ -734,6 +753,7 @@
       object-fit: cover;
       border-radius: 4px;
       background: var(--bg-secondary);
+      /*border: 0.5px solid var(--text-secondary);*/
     }
 
     .project-info,
@@ -804,11 +824,6 @@
     }
     
     /* ===TEACHING SECTION STYLES=== */    
-    .teaching-section {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
     .teaching-section .section-title {
       font-size: 2rem;
       text-align: center;
@@ -840,31 +855,28 @@
       animation-delay: 0.3s;
     }
 
-    .teaching-role, .mentoring-role {
-      margin-bottom: 40px;
+    .teaching-role {
+      margin: 1.5rem 0 1.5rem 0;
     }
 
-    .role-title {
-      font-size: 1.1rem;
-      color: var(--accent-bright);
-      margin-bottom: 20px;
-      text-align: center;   
-      font-family: Trebuchet MS;
+    .teach {
+      margin-top: 5rem;
     }
 
     .course-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      gap: 1.5rem;
     }
 
     .course-item {
       padding: 15px;    
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
-      border-left: 4px solid var(--accent-bright);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 12px rgba(152, 131, 131, 0.1);
+      border-left: 4px solid var(--accent);
+      transition: transform 0.3s ease, box-shadow 0.2s ease;
+      box-shadow: 0 5px 10px rgba(255, 103, 103, 0.1);
+      
     }
     
     .course-item:hover {
@@ -994,17 +1006,11 @@
       } 
     }
 
-    @media (max-width: 768px) {    
-      /*body { font-size: 16px; 
-        padding: 0 15px; }*/  
+    @media (max-width: 768px) {     
       .container {
         padding: 0 1.25rem;
       }
-      /*header, 
-      .section, 
-      .teaching-section { 
-        padding: 20px 0; 
-        }*/
+      
       .header {
         justify-content: center;
         position: relative;
@@ -1050,6 +1056,7 @@
       .social-icons { 
         justify-content: center; 
       }
+      
       .lang-switcher { 
         bottom: 1.5rem; 
         right: 1.5rem; 
@@ -1065,6 +1072,9 @@
       }
       .lang-options li { 
         padding: 0.3rem 0.3rem 0 .3rem;
+      }
+      .lang-options li:first-child{
+        padding: 0;
       }
       .hero-bio p { 
         font-size: 0.95rem;
@@ -1082,15 +1092,8 @@
         font-size: 0.85rem;
         margin-bottom: 0;
       }
-      .teaching-section {        
-        padding: 50px 15px;
-      }    
       .section-title { 
         font-size: 1.5rem; 
-      }
-      .role-title {
-        font-size: 1.3rem;        
-        color: var(--accent-bright);
       }
       .course-list { 
         grid-template-columns: 1fr; 
@@ -1142,9 +1145,6 @@
       .course-name {
         font-size: 0.75rem;
       }
-      .role-title {
-        font-size: 1.1rem;
-      }
       .section-title {
         font-size: 1.2rem; 
       }
@@ -1158,16 +1158,13 @@
 
     /* ==== SMALL MOBILE ==== */
     @media (max-width: 480px) {
-      .teaching-section {
+      /*.teaching-section {
         padding: 40px 10px;
-      }
+      }*/
       .section-title {
         font-size:1.1rem;
       }
-      .role-title {
-        font-size: 1rem;
-        color: var(--accent-bright);
-      }  
+      
       .course-list {
         grid-template-columns: 1fr; /* Single column for small screens */
       }
@@ -1248,7 +1245,7 @@
   </style>
 </head>
 
-<body data-theme="dark">
+<body data-theme="light">
   <div class="container">
     <!-- Header -->
     <header class="header">
@@ -1268,11 +1265,11 @@
       
       <div class="header-right">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i class="fa-solid fa-moon" id="theme-icon"></i>
+          <i class="fa-solid fa-sun" id="theme-icon"></i>
         </button>    
       </div>    
       
-      <!-- Language Switcher 
+      <!-- Language Switcher --
       <div id="language-switcher" class="lang-switcher">
         <button id="lang-toggle">
           <img
@@ -1289,18 +1286,18 @@
           <li data-lang="ar" class="flag"><img src="./data/favicon/uae.png" alt=""></li>
           <li data-lang="ko" class="flag"><img src="./data/favicon/south-korea.png" alt=""></li>
         </ul>
-      </div>-->
+      </div>
 
-      <!-- Google Translate widget (hidden) -->
-      <div id="google_translate_element" style="display:none;"></div>      
+      <!-- Google Translate widget (hidden) --
+      <div id="google_translate_element" style="display:none;"></div> -->
     </header>
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-left" id="mine">
+      <div class="hero-left">
         <img src="./images/kharis_grey.jpeg" alt="Grace Alele" class="profile-image"
           onmouseover="this.src='./images/kharis_color.jpeg'" onmouseout="this.src='./images/kharis_grey.jpeg'">
-        <a href="./data/cv.pdf" class="cv-link" id="mi">Curriculum Vitae</a>
+        <a href="./data/cv.pdf" class="cv-link">Curriculum Vitae</a>
         <div class="social-icons">
           <a href="https://scholar.google.com/citations?user=hSA_5FIAAAAJ" class="icon-link"
             aria-label="Google Scholar">
@@ -1317,27 +1314,18 @@
             aria-label="Email">
             <i class="fa-regular fa-envelope"></i>
           </a>
-          <button class="icon-link" onclick="toggleTheme()" aria-label="Toggle theme">
-            <i class="fa-solid fa-moon" id="theme-icon-mobile"></i>
-          </button>
+          
         </div>
       </div>
       <div class="hero-bio" id="min">
         <p>
-          I recently completed my bachelor's degree in computer science. Now, I am specializing in 
-          disease discovery and progression. I am a research collaborator at <a href="https://mlcollective.org/"> 
-          MLC </a> and <a href="https://huggingface.co/science"> HuggingFace Science</a>. My work centers on 
-          under-researched reproductive disease, where I apply machine learning and statistical methods 
-          to uncover biological insights. Alongside my computational work, my interest in connecting data-driven discoveries with experimental validation lead me to
-          collaborate with the<a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at 
-          <a href="https://www.abuad.edu.ng/">ABUAD</a> to translate computationally inferred targets into early, non-invasive 
-          diagnostics approaches. I will be sharing my vision and journey on <a href="https://www.youtube.com/channel/UCBO61qsQW36yxhaOsmR2OPA">YouTube</a>.
+          I am a clinical AI researcher focused on three intersecting problems: making medical AI safe and interpretable, building 
+          diagnostic tools for under-resourced settings, and closing the geographic fairness gap in biomedical machine learning.
         </p>
-        
         <p>
-          Beyond research, I enjoy exploring creative projects such as <a href="woodworking.html"> woodworking</a> and 
-          <a href="./footwear.html"> innovative footwear design</a>. I find that hands-on work helps me think through 
-          problems differently and it often inform how I approach technical and scientific challenges.
+          My current work includes developing an uncertainty-aware multimodal transformer for early endometriosis detection, and 
+          auditing confidence calibration in clinical LLMs under geographic distribution shift — a paper currently under review at 
+          <a href="https://aclanthology.org/">ACL.</a>
         </p>
       </div>
     </section>
@@ -1354,16 +1342,43 @@
             <div class="section-header">
               <div class="section-label">About</div>
             </div>
-            <div class="about-text">        
+            <div class="about-text">
+              <!-- Always visible -->
               <p>
-                My work is grounded in developing computational methods that engage with biological complexity. I am training in computational biology, 
-                focusing on ML and statistical models for disease discovery under real-world constraints such as sparse, heterogeneous data. 
-                I am interested in interpretable, causally informed models for biological hypothesis generation.
+                I hold a BSc in Computer Science (CGPA 3.81/5.0, Top 5%, Ambrose Alli University) and am an independent researcher at 
+                the <a href="https://mlcollective.org/">Machine Learning Collective (MLC)</a> and a research collaborator at <a href=
+                "https://huggingface.co/science"> HuggingFace Science</a>, where I co-led model development for longitudinal 
+                microbiome analysis. My translational work bridges computation and clinical practice through collaboration 
+                with the <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at 
+                <a href="https://www.abuad.edu.ng/">ABUAD</a>
               </p>
-              <p>
-                I value teaching and community engagement and currently work as a Coding and Robotics Instructor for primary and secondary school
-                students at <a href="https://edupoint.org.ng/"> EduPoint Ltd.</a>
-              </p>
+            
+              <!-- Hidden by default -->
+              <div id="extra-content">
+                <p class="extra">
+                  I am also investigating representation bias in African clinical datasets, building infrastructure to evaluate how classical 
+                  models and LLMs perform across populations they were never trained on. I am currently seeking a PhD position to deepen this work at scale.
+                </p>
+
+                <p class="extra">
+                  I care deeply about teaching and community. I currently work as a Coding and Robotics Instructor for primary 
+                  and secondary school students through <a href="https://edupoint.org.ng/">EduPoint Ltd.</a> and have taught AI 
+                  and data structures at university level, because I believe every student deserves early, 
+                  quality access to the kind of computational thinking that took me years to find.
+                </p>
+
+                <p class="extra">
+                  I also enjoy exploring creative projects such as <a href="woodworking.html"> woodworking</a> and 
+                  <a href="./footwear.html"> innovative footwear design</a>. Hands-on making helps me think through 
+                  problems differently and often informs how I approach technical and scientific challenges.
+                </p>
+              </div>
+              
+              <button class="section-toggle toggle-btn" id="toggle-btn" onclick="toggleContent()">
+                continue reading 
+                <span></span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
             </div>
           </div>
                     
@@ -1450,13 +1465,14 @@
               <div class="section-label">Personal</div>
             </div>
             <p class="personal-text">
-              These days, I enjoy spending time with my niece and working on small creative projects outside of research. I <a
-              href="./pages/blog.html">log my daily life</a> to keep track of life's beautiful moments I may not want to forget. 
-              I love connecting with new people. I enjoy watching films and reading novels and poems. I really love this quote:
+              These days, I enjoy spending time with my little niece and handcrafting. I <a href="./pages/blog.html">keep a daily log
+              </a> to capture life's beautiful moments I do not want to forget. I love connecting with new people and having 
+              abstract conversation. I also enjoy watching films and reading novels and poems. I really love this quote:
             </p>
             <div class="quote-block" style="margin-top: 1rem;">
-              <span>&nbsp;&nbsp;</span>Dance like nobody's watching; Love like you've never been hurt; Work like you don't need 
-              money; Live like it's heaven on earth.
+              <span></span>Dance like nobody's watching; Love like you've never been hurt; Work like you don't need 
+              money; Live like it's heaven on earth. 
+              <div class="quote"> — attributed to Mark Twain</div>
             </div>
           </div>
         </div>
@@ -1468,7 +1484,7 @@
           <div class="section">
             <div class="section-header">
               <div class="section-label">Recent Highlights</div>
-              <button class="section-toggle" id="news-toggle" onclick="toggleNews()">
+              <button class="section-toggle toggle-btn" id="news-toggle" onclick="toggleNews()">
                 <span>more</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
@@ -1496,7 +1512,11 @@
               <div class="news-item">
                 <span class="news-date">May 2025</span>
                 <span class="news-text">Graduated at the top 5% of my class at Ambrose Alli University</span>
-              </div>           
+              </div>
+              <div class="news-item">
+                <span class="news-date">Feb 2025</span>
+                <span class="news-text">Final paper written, BSc. in-view</span>
+              </div>       
             </div>
           </div>
 
@@ -1504,7 +1524,7 @@
           <div class="section">
             <div class="section-header">
               <div class="section-label">Publications</div>
-              <button class="section-toggle toggle-btn" id="pubs-toggle">
+              <button class="section-toggle toggle-btn" id="pubs-toggle" onclick="togglePubs()">
                 <span>all</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
@@ -1512,8 +1532,8 @@
             <div class="pub-list">
               <article class="pub-card">
                 <div class="pub-image-container">
-                  <div class="img-after"><img src="./images/cloud1.png" alt=""></div>
-                  <img src="./images/cloud.png" alt="AI in Cloud Computing">
+                  <div class="img-after"><img src="./images/LLM2.png" alt=""></div>
+                  <img src="./images/LLM.png" alt="Selective Risk Inflation under Geographic Distribution Shift in Small Medical LLMs">
                 </div>
                 <div class="pub-info">
                   <h3 class="pub-title">Selective Risk Inflation under Geographic Distribution Shift in Small Medical LLMs.</h3>
@@ -1521,7 +1541,7 @@
                   <p class="pub-venue">ACL 2026</p>
                   <div class="pub-links">
                     <a href="./data/threats.pdf" class="pub-link">In-view</a>                    
-                    <--!a href="https://doi.org/10.58578/AJSTEA.v2i5.3813" class="pub-link">doi/a>-->
+                    <!--<a href="https://doi.org/10.58578/AJSTEA.v2i5.3813" class="pub-link">doi/a>-->
                   </div>
                 </div>
               </article>
@@ -1588,7 +1608,7 @@
           <div class="section">
             <div class="section-header">
               <div class="section-label">Conferences</div>
-              <button class="section-toggle toggle-btn" id="con-toggle">
+              <button class="section-toggle toggle-btn" id="con-toggle" onclick="toggleCon()">
                 <span>all</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
@@ -1635,7 +1655,7 @@
           <div class="section">
             <div class="section-header">
               <div class="section-label">Projects</div>
-              <button class="section-toggle toggle-btn" id="project-toggle">
+              <button class="section-toggle toggle-btn" id="project-toggle" onclick="toggleProject()">
                 <span>all</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
@@ -1651,7 +1671,7 @@
                 <div class="project-info">
                   <h4 class="project-title">AI for Food Allergy</h4>
                   <p class="project-desc">
-                    An AI-driven analysis of the Diabimmune longitudinal cohort to investigate how early-life gut microbiome and environmental factors influence food allergy development in infants..
+                    An AI-driven analysis of the Diabimmune longitudinal cohort to investigate how early-life gut microbiome and environmental factors influence food allergy development in infants.
                   </p>
                   <p class="project-venue">Fall 2025 - Present</p>
                   <div class="project-links">
@@ -1665,16 +1685,15 @@
                 <div class="project-image-container">
                   <div class="img-after">
                     <video width="160" height="160" muted autoplay loop>
-                      <source src="mp4" type="video/mp4">
+                      <source src="./images/XAI.mp4" type="video/mp4">
                     </video>
                   </div>
-                  <img src="" alt="Explainable AI for Causal Inference">
+                  <img src="./images/XAI.png" alt="Explainable AI for Causal Inference">
                 </div>
                 <div class="project-info">
                   <h4 class="project-title">Explainable Artificial Intelligence for Causal Inference</h4>
                   <p class="project-desc">
-                    Implemented a GNN using protein-protein 
-                    interaction (PPI) data to model causal relationships in inflammatory signaling pathways.
+                    Implemented a GNN using protein-protein interaction (PPI) data to model causal relationships in inflammatory signaling pathways.
                   </p>
                   <p class="project-venue">Spring 2025 - Fall 2025</p>
                   <div class="project-links">
@@ -1687,17 +1706,17 @@
                 <div class="project-image-container">
                   <div class="img-after">
                     <video width="160" height="160" muted autoplay loop>
-                      <source src="images/sketch_after.mp4" type="video/mp4">
+                      <source src="./images/Neu2.mp4" type="video/mp4">
                     </video>
                   </div>
-                  <img src="./.png" alt="Deep Learning for Endometriosis Biomarker discovery">
+                  <img src="./images/Neu1.jpeg" alt="NeuroRepro-Seq">
                 </div>
                 <div class="project-info">
-                  <h4 class="project-title">NeuroRepro-Seq: A Lightweight Transcriptomic Pipeline for Molecular Subtype Discovery in Postpartum Psychosis
-                  <p class="project-desc">
-                    Built a scalable transcriptomic workflow to analyze gene expression data and explore molecular heterogeneity in postpartum psychosis.
+                  <h4 class="project-title">NeuroRepro-Seq</h4>
+                  <p class="project-desc">             
+                    Built a lightweight scalable transcriptomic workflow to analyze gene expression data and explore molecular heterogeneity in postpartum psychosis.
                   </p>
-                  <p class="project-venue">Spring 2022</p>
+                  <p class="project-venue">Spring 2025</p>
                   <div class="project-links">
                     <a href="https://github.com/gracealele/NeuroRepro-Seq" class="pub-link">code</a>
                   </div>
@@ -1708,10 +1727,10 @@
                 <div class="project-image-container">
                   <div class="img-after">
                     <video width="160" height="160" muted autoplay loop>
-                      <source src="" type="video/mp4">
+                      <source src="./images/BOvid.mp4" type="video/mp4">
                     </video>
                   </div>
-                  <img src="" alt="BO Multimodal model">
+                  <img src="./images/BO.png" alt="BO Multimodal model">
                 </div>
                 <div class="project-info">
                   <h4 class="project-title">Bayesian Optimization Multimodal</h4>
@@ -1772,41 +1791,38 @@
         </div>
       </div>  
     </main>
-  </div>
 
-  <!-- Teaching Assistant Section -->
-    <section id="teaching" class="teaching-section main-content">
-      <div class="container">
-
-        <h2 class="section-title scroll-up">Teaching &amp; Mentoring</h2>
+    <!-- Teaching Assistant Section -->
+    <section class="teaching-section main-content">
+      <h2 class="section-title scroll-up">Teaching &amp; Mentoring</h2>
       
-        <!-- Teaching Assistant Roles -->
-        <div class="teaching-role">
-          <h3 class="role-title">TEACHING ASSISTANT</h3>
-          <div class="course-list">
+      <!-- Teaching Assistant Roles -->
+      <div>
+        <h3 class="section-label teaching-role">TEACHING ASSISTANT</h3>
+        <div class="course-list">
 
-            <div class="course-item">
-              <div class="course-item-span">
-                <span class="course-code">
-                    CSC308
-                </span>
-                <span class="course-span">
+          <div class="course-item">
+            <div class="course-item-span">
+              <span class="course-code">
+                CSC308
+              </span>
+              <span class="course-span">
                   Teaching Assistant
-                </span>
-              </div>
-            
-              <p class="course-name">Operations Research</p>
-              <p class="course-description">
-                Guided undergraduate students in optimization methods, mathematical modeling, and quantitative decision-making techniques.
-              </p>
-              <div class="term">
-                <span class="term-span">
-                  Fall 2025
-                </span>
-              </div>
-            </div>       
+              </span>
+            </div>
           
-            <div class="course-item">
+            <p class="course-name">Operations Research</p>
+            <p class="course-description">
+                Guided undergraduate students in optimization methods, mathematical modeling, and quantitative decision-making techniques.
+            </p>
+            <div class="term">
+              <span class="term-span">
+                Fall 2025
+              </span>
+            </div>
+          </div>       
+        
+          <div class="course-item">
               <div class="course-item-span">
                 <span class="course-code">
                     CSC305
@@ -1828,9 +1844,9 @@
                   Winter 2025
                 </span>
               </div>
-            </div>
-            
-            <div class="course-item">
+          </div>
+          
+          <div class="course-item">
               <div class="course-item-span">
                 <span class="course-code">
                     CSC211
@@ -1855,350 +1871,286 @@
                   Fall 2025
                 </span>
               </div>
-            </div> 
-          </div>
-        </div>
-      
-        <!-- (Optional) Student Mentoring -->
-        <div class="mentoring-role">
-          <h3 class="role-title">STUDENT MENTORING</h3>
-          <p class="mentoring-text">Currently building my mentoring portfolio.</p>
+          </div> 
         </div>
       </div>
-    </section>
+    
+      <!-- (Optional) Student Mentoring -->
+      <div class="teaching-role teach">
+          <h3 class="section-label">STUDENT MENTORING</h3>
+          <p class="mentoring-text">Currently building my mentoring portfolio.</p>
+      </div>
+  </section>
+  </div>
     
   <!-- Footer -->
   <footer class="footer">
     <p><span class="copyright-name">Grace Alele</span> © 2026</p>
   </footer>
    
-  <script defer>
-    /* ===== Toggle Sections Init ===== /
-    function initToggleSections() {
-      document.querySelectorAll('.news-list > .news-item')
-        .forEach((item, i) => i >= 3 && item.classList.add('hidden-item'));
-    
-      document.querySelectorAll('.pub-list > .pub-card')
-        .forEach((card, i) => i >= 3 && card.classList.add('hidden-item'));
-    
-      document.querySelectorAll('.con-list > .con-card')
-        .forEach((card, i) => i >= 3 && card.classList.add('hidden-item'));
-    
-      document.querySelectorAll('.project-grid > .project-card')
-        .forEach((card, i) => i >= 3 && card.classList.add('hidden-item'));
-    }
+<script>
+  // ===== INIT EVERYTHING =====
+document.addEventListener('DOMContentLoaded', () => {
+  initToggleSections();
+  initScrollAnimations();
+  initTheme();
+  initLanguageSelector();
+});
 
-    /* ===== TOGGLES ===== /
-    function toggleSection(listSelector, itemSelector, toggleId, cutoff, moreText = 'all') {
-      const items = document.querySelectorAll(`${listSelector} > ${itemSelector}`);
-      const toggle = document.getElementById(toggleId);
-      const expanded = toggle.classList.contains('active');
-    
-      items.forEach((item, i) => {
-        if (i >= cutoff) {
-          item.classList.toggle('hidden-item', expanded);
-        }
-      });
+// ===== THEME TOGGLE =====
+function toggleTheme() {
+  const body = document.body;
+  
+  if (!body.dataset.theme) body.dataset.theme = 'light';
+  updateThemeIcons(body.dataset.theme);
+  }
+  function updateThemeIcons(theme){
+    const icon = document.getElementById('theme-icon');
+    const iconMobile = document.getElementById('theme-icon-mobile');
+    const isDark = theme === 'dark';
 
-      toggle.classList.toggle('active');
-      toggle.querySelector('span').textContent = expanded ? moreText : 'less';
-    }
+    [icon, iconMobile].forEach(i =>{
+        if (!i) return;
+        i.classList.toggle('fa-moon', isDark);
+        i.classList.toggle('fa-sun', !isDark);
+    })
+   
+  }
+  
+  function toggleTheme() {
+    const body = document.body;
+    const newTheme = body.dataset.theme === 'dark' ? 'light' : 'dark';
+    body.dataset.theme = newTheme;
+    updateThemeIcons(newTheme);
+  }
+ 
+/*/ ===== THEME TOGGLE =====
+function initTheme() {
+  const body = document.body;
+  const icons = [
+    document.getElementById('theme-icon'),
+    document.getElementById('theme-icon-mobile')
+  ];
 
-    function togglePublications() {
-    const items = document.querySelectorAll('.pub-list > .pub-card');
-    const toggle = document.getElementById('pubs-toggle');
-    const isExpanded = toggle.classList.contains('active');
+  const saved = localStorage.getItem('theme');
+  if (saved) body.dataset.theme = saved;
 
-    items.forEach((card, i) => {
-      if (i >= 4) card.classList.toggle('hidden-item', isExpanded);
+  function updateIcons() {
+    icons.forEach(icon => {
+      if (!icon) return;
+      icon.className = body.dataset.theme === 'dark'
+        ? 'fa-solid fa-moon'
+        : 'fa-solid fa-sun';
     });
-
-    toggle.classList.toggle('active');
-    toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
   }
 
-    function toggleConferences() {
-      const items = document.querySelectorAll('.con-list > .con-card');
-      const toggle = document.getElementById('con-toggle');
-      const isExpanded = toggle.classList.contains('active');
-    
-      items.forEach((card, i) => {
-        if (i >= 3) card.classList.toggle('hidden-item', isExpanded);
-      });
-    
-      toggle.classList.toggle('active');
-      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
-    }
-    
-    function toggleProjects() {
-      const items = document.querySelectorAll('.project-grid > .project-card');
-      const toggle = document.getElementById('projects-toggle');
-      const isExpanded = toggle.classList.contains('active');
-    
-      items.forEach((card, i) => {
-        if (i >= 3) card.classList.toggle('hidden-item', isExpanded);
-      });
-    
-      toggle.classList.toggle('active');
-      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
-    }
-    
-    /*
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("project-toggle");
-    const toggleText = toggleBtn.querySelector("span");
-    const projectCards = document.querySelectorAll(".project-card");
+  window.toggleTheme = () => {
+    body.dataset.theme = body.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', body.dataset.theme);
+    updateIcons();
+  };
 
-    const HIDDEN_COUNT = 3;
-    let expanded = false;
+  updateIcons();
+}*/
 
-    // Hide last 3 projects by default
-    projectCards.forEach((card, index) => {
-      if (index >= projectCards.length - HIDDEN_COUNT) {
-        card.classList.add("hidden");
-      }
-    });
+// ===== LANGUAGE SELECTOR =====
+function initLanguageSelector() {
+  const toggle = document.getElementById('lang-toggle');
+  const options = document.getElementById('lang-options');
+  const flag = document.getElementById('active-flag');
 
-    toggleBtn.addEventListener("click", () => {
-      expanded = !expanded;
+  const map = {
+    en: './data/favicon/uk.png',
+    fr: './data/favicon/france.png',
+    es: './data/favicon/spain.png',
+    'zh-CN': './data/favicon/china.png',
+    ar: './data/favicon/uae.png',
+    ko: './data/favicon/south-korea.png'
+  };
 
-      projectCards.forEach((card, index) => {
-        if (index >= projectCards.length - HIDDEN_COUNT) {
-          card.classList.toggle("hidden", !expanded);
-        }
-      });
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    options.style.display = options.style.display === 'block' ? 'none' : 'block';
+  });
 
-      toggleText.textContent = expanded ? "less" : "all";
-      toggleBtn.classList.toggle("open", expanded);
-    });
-  });*/
-
-    /* ===== Bind Buttons ===== /
-    function toggleNews() {
-      toggleSection('.news-list', '.news-item', 'news-toggle', 3, 'more');
-    }
-    function togglePublications() {
-      toggleSection('.pub-list', '.pub-card', 'pubs-toggle', 3, 'all');
-    }
-    function toggleConferences() {
-      toggleSection('.con-list', '.con-card', 'con-toggle', 3, 'all');
-    }
-    function toggleProjects() {
-      toggleSection('.project-grid', '.project-card', 'projects-toggle', 3, 'all');
-    }    
-    document.addEventListener('DOMContentLoaded', initToggleSections);
-
-
-    document.addEventListener("DOMContentLoaded", () => {
-      //Scroll Function
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target); // animate once
-            }
-          });
-        }, 
-        {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px"
-        }
-      );
-
-      document.querySelectorAll('.scroll-up, .scroll-fade')
-        .forEach(el => {
-        observer.observe(el);
-
-        // 🔑 SAFETY NET: if already visible, show it
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          el.classList.add('in-view');
-          observer.unobserve(el);
-        }      
-        document.querySelectorAll('.section-title.scroll-up').forEach(el => {
-          el.classList.add('in-view');
-        });
-      });
-    });     
-
-    /* ===== Theme Toggle ===== /
-    const body = document.body;
-    const themeIcons = [
-      document.getElementById('theme-icon'),
-      document.getElementById('theme-icon-mobile')
-    ];
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) body.dataset.theme = savedTheme;
-    function updateThemeIcons() {
-      themeIcons.forEach(icon => {
-        if (!icon) return;
-        icon.className =
-          body.dataset.theme === 'dark'
-            ? 'fa-solid fa-moon'
-            : 'fa-solid fa-sun';
-      });
-    }
-
-    window.toggleTheme = () => {
-      body.dataset.theme =
-        body.dataset.theme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', body.dataset.theme);
-      updateThemeIcons();
-    };  updateThemeIcons();
-
-    const langToggle = document.getElementById('lang-toggle');
-    const langOptions = document.getElementById('lang-options');
-    const activeFlag = document.getElementById('active-flag');
-
-    // Map language → flag image
-    const langFlagMap = {
-      en: './data/favicon/uk.png',
-      fr: './data/favicon/france.png',
-      es: './data/favicon/spain.png',
-      'zh-CN': './data/favicon/china.png',
-      ar: './data/favicon/uae.png',
-      ko: './data/favicon/south-korea.png'
-    };
-
-    // Toggle dropdown
-    langToggle.addEventListener('click', e => {
+  options.querySelectorAll('li').forEach(item => {
+    item.addEventListener('click', e => {
       e.stopPropagation();
-      langOptions.style.display =
-        langOptions.style.display === 'block' ? 'none' : 'block';
-    });
+      const lang = item.dataset.lang;
 
-    // Click language
-    langOptions.querySelectorAll('li').forEach(item => {
-      item.addEventListener('click', e => {
-        e.stopPropagation();
-        const lang = item.dataset.lang;
+      if (map[lang]) flag.src = map[lang];
+      localStorage.setItem('language', lang);
 
-        // Update active flag
-        if (langFlagMap[lang]) {
-          activeFlag.src = langFlagMap[lang];
-        }
-
-        // Save preference
-        localStorage.setItem('language', lang);
-
-        // Trigger Google Translate
-        const select =
-          document.querySelector('#google_translate_element select');
-        if (select) {
-          select.value = lang;
-          select.dispatchEvent(new Event('change'));
-        }
-        langOptions.style.display = 'none';
-      });
-    });
-
-    // Close dropdown on outside click
-    document.addEventListener('click', () => {
-      langOptions.style.display = 'none';
-    });
-
-    // Restore saved language flag
-    const savedLang = localStorage.getItem('language');
-    if (savedLang && langFlagMap[savedLang]) {
-      activeFlag.src = langFlagMap[savedLang];
-    }
-
-
-    /* ===== Google Translate Init (required name) ===== /
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,fr,es,zh-CN,ar,ko',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    };
-    */
-
-    // Theme toggle - sync both icons
-    function toggleTheme() {
-      const body = document.body;
-      const icon = document.getElementById('theme-icon');
-      const iconMobile = document.getElementById('theme-icon-mobile');
-
-      if (body.dataset.theme === 'dark') {
-        body.dataset.theme = 'light';
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        if (iconMobile) {
-          iconMobile.classList.remove('fa-moon');
-          iconMobile.classList.add('fa-sun');
-        }
-      } else {
-        body.dataset.theme = 'dark';
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        if (iconMobile) {
-          iconMobile.classList.remove('fa-sun');
-          iconMobile.classList.add('fa-moon');
-        }
+      const select = document.querySelector('#google_translate_element select');
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
       }
+
+      options.style.display = 'none';
+    });
+  });
+
+  document.addEventListener('click', () => {
+    options.style.display = 'none';
+  });
+
+  const saved = localStorage.getItem('language');
+  if (saved && map[saved]) flag.src = map[saved];
+}
+
+
+// ===== SCROLL ANIMATION =====
+function initScrollAnimations() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  
+  {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  });
+
+  document.querySelectorAll('.scroll-up, .scroll-fade').forEach(el => {
+    observer.observe(el);
+
+    // Safety fallback
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      el.classList.add('in-view');
+      observer.unobserve(el);
     }
+  });
 
-    // Auto-hide items after a certain count
-    function initToggleSections() {
-      // News: show first 5
-      const newsItems = document.querySelectorAll('.news-list > .news-item');
-      newsItems.forEach((item, index) => {
-        if (index >= 5) {
-          item.classList.add('hidden-item');
-        }
-      });
+  document.querySelectorAll('.section-title.scroll-up')
+    .forEach(el => el.classList.add('in-view'));
+}
 
-      // Publications: show first 4
-      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
-      pubCards.forEach((card, index) => {
-        if (index >= 4) {
-          card.classList.add('hidden-item');
-        }
-      });
-    }
 
-    // Toggle news
-    function toggleNews() {
-      const newsItems = document.querySelectorAll('.news-list > .news-item');
-      const toggle = document.getElementById('news-toggle');
-      const isExpanded = toggle.classList.contains('active');
+// ===== HIDE PARAGRAPHS =====
+function toggleContent() {
+  const btn = document.getElementById('toggle-btn');
+  const extras = document.querySelectorAll('.extra');
+  const isOpen = btn.classList.contains('open');
+ 
+  if (!isOpen) {
+    // Show all hidden paragraphs
+    extras.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.display = 'block';
+        requestAnimationFrame(() => { el.style.opacity = '1'; });
+        el.classList.add('visible');
+      }, i * 80);
+    });
+    btn.classList.add('open');
+    btn.childNodes[0].textContent = 'Show less ';
+  } 
+  
+  else {
+    // Hide all
+    extras.forEach(el => {
+      el.style.opacity = '0';
+      setTimeout(() => {
+        el.style.display = 'none';
+        el.classList.remove('visible');
+      }, 400);
+    });
+    btn.classList.remove('open');
+    btn.childNodes[0].textContent = 'continue reading ';
+  }
+}
 
-      newsItems.forEach((item, index) => {
-        if (index >= 5) {
-          item.classList.toggle('hidden-item', isExpanded);
-        }
-      });
 
-      toggle.classList.toggle('active');
-      toggle.querySelector('span').textContent = isExpanded ? 'more' : 'less';
-    }
+// // ===== HIDE ITEMS =====
+function initToggleSections() {
+  
+  // News: Show First 5 Items
+  document.querySelectorAll('.news-list > .news-item').forEach((item, index) => {
+    if (index >= 5) item.classList.add('hidden-item');
+  });
 
-    // Toggle publications
-    function togglePubs() {
-      const pubCards = document.querySelectorAll('.pub-list > .pub-card');
-      const toggle = document.getElementById('pubs-toggle');
-      const isExpanded = toggle.classList.contains('active');
+  // Publications: Show First 3 Items
+  document.querySelectorAll('.pub-list > .pub-card').forEach((card, index) => {
+    if (index >= 3) card.classList.add('hidden-item');
+  });
 
-      pubCards.forEach((card, index) => {
-        if (index >= 4) {
-          card.classList.toggle('hidden-item', isExpanded);
-        }
-      });
+  // Conference: Show Only The First Item
+  document.querySelectorAll('.con-list > .con-card').forEach((card, index) => {
+    if (index >= 1) card.classList.add('hidden-item');
+  });
 
-      toggle.classList.toggle('active');
-      toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
-    }
+  // Project: Show First 2 Items
+  document.querySelectorAll('.project-grid > .project-card').forEach((card, index) => {
+    if (index >= 2) card.classList.add('hidden-item');
+  });
+}
 
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', initToggleSections);
-  </script>
+// Toggle news
+function toggleNews() {
+  const newsItems = document.querySelectorAll('.news-list > .news-item');
+  const toggle = document.getElementById('news-toggle');
+  const isExpanded = toggle.classList.contains('active');
 
-  <!-- Google Translate script -->
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script> 
+  newsItems.forEach((item, index) => {
+    if (index >= 5) item.classList.toggle('hidden-item', isExpanded);
+  });
+
+  toggle.classList.toggle('active');
+  toggle.querySelector('span').textContent = isExpanded ? 'more' : 'less';
+}
+
+// Toggle publications
+function togglePubs() {
+  const pubCards = document.querySelectorAll('.pub-list > .pub-card');
+  const toggle = document.getElementById('pubs-toggle');
+  const isExpanded = toggle.classList.contains('active');
+
+  pubCards.forEach((card, index) => {
+    if (index >= 3) card.classList.toggle('hidden-item', isExpanded);
+  });
+
+  toggle.classList.toggle('active');
+  toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+}
+
+// Toggle Conferences
+function toggleCon() {
+  const conCards = document.querySelectorAll('.con-list > .con-card');
+  const toggle = document.getElementById('con-toggle');
+  const isExpanded = toggle.classList.contains('active');
+
+  conCards.forEach((card, index) => {
+    if (index >= 1) card.classList.toggle('hidden-item', isExpanded);
+  });
+
+  toggle.classList.toggle('active');
+  toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+}
+
+// Toggle Project
+function toggleProject() {
+  const projectCards = document.querySelectorAll('.project-grid > .project-card');
+  const toggle = document.getElementById('project-toggle');
+  const isExpanded = toggle.classList.contains('active');
+
+  projectCards.forEach((card, index) => {
+    if (index >= 2) card.classList.toggle('hidden-item', isExpanded);
+  });
+
+  toggle.classList.toggle('active');
+  toggle.querySelector('span').textContent = isExpanded ? 'all' : 'less';
+}
+
+
+</script>
+
+<!-- Google Translate script -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script> 
 </body>
   
 </html>
