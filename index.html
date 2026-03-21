@@ -1095,6 +1095,9 @@
       .section-title { 
         font-size: 1.5rem; 
       }
+      .section-title.scroll-up { 
+        font-size: 1.5rem; 
+      }
       .course-list { 
         grid-template-columns: 1fr; 
         gap: 15px; 
@@ -1148,6 +1151,9 @@
       .section-title {
         font-size: 1.2rem; 
       }
+      .section-title.scroll-up {
+        font-size: 1.2rem; 
+      }
       .hero-bio p {
         font-size: 0.9rem; 
       }    
@@ -1162,6 +1168,10 @@
         padding: 40px 10px;
       }*/
       .section-title {
+        font-size:1.1rem;
+      }
+      
+       .section-title.scroll-up {
         font-size:1.1rem;
       }
       
@@ -1314,7 +1324,9 @@
             aria-label="Email">
             <i class="fa-regular fa-envelope"></i>
           </a>
-          
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i class="fa-solid fa-sun" id="theme-icon"></i>
+          </button>    
         </div>
       </div>
       <div class="hero-bio" id="min">
