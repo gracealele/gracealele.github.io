@@ -36,6 +36,14 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./data/favicon/favicon.ico">
+  
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  
   <style>
     :root {
       --bg-primary: #0a0a0a;
