@@ -1324,7 +1324,7 @@
   </style>
 </head>
 
-<body>
+<body data-theme="light">
   <div class="container">
     <!-- Header -->
     <header class="header">
@@ -1980,11 +1980,6 @@
   </footer>
    
 <script>
-
-(function() {
-      const saved = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', saved);
-    })();
 
   // ===== INIT EVERYTHING =====
 document.addEventListener('DOMContentLoaded', () => {
