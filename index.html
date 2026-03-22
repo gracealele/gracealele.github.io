@@ -1269,11 +1269,11 @@
       text-align: center;
       border-top: 1px solid var(--border);
     }
-
+   letter-spacing: 0.05em;
+   
     .footer p {
       color: var(--text-muted);
       font-size: 0.8rem;
-      letter-spacing: 0.05em;
     }
 
     .footer .copyright-name {
@@ -1621,7 +1621,7 @@
               
               <article class="pub-card">
                 <div class="pub-image-container">
-                  <div class="img-after"><img src="./images/Cloud1.png" alt=""></div>
+                  <div class="img-after"><img src="./images/cloud1.png" alt=""></div>
                   <img src="./images/Cloud.png" alt="AI in Cloud Computing">
                 </div>
                 <div class="pub-info">
@@ -1999,6 +1999,12 @@ function toggleTheme() {
     })
    
   }
+
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'light';
+  document.body.dataset.theme = saved;
+  updateThemeIcons(saved);
+}
   
   function toggleTheme() {
     const body = document.body;
