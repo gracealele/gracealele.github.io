@@ -79,13 +79,19 @@
   --rule: #d9d2c8;
   --green: #3a7a5c;
   --amber: #b8820a;
+  --text-secondary: #b0a0a0;
   --mono: 'DM Mono', monospace;
   --serif: 'DM Serif Display', serif;
   --sans: 'Instrument Sans', sans-serif;
+  --font-display: 'Playfair Display SC', serif;
+  --font-cursive: 'Pacifico', cursive;
+  --font-nav: 'Cantarell', sans-serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;  
 }
 
-html { 
-  scroll-behavior: smooth; 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -101,49 +107,101 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
-      width: 100%;
-
-  
+    width: 100%;
+    box-sizing: border-box; /* ← ensures padding is included in width calculation */  
 }
 /* HEADER */
+
 header {
-  border-bottom: 1px solid var(--rule);
-  padding: 2rem 0 0;
   background: var(--bg);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+
 .header-inner {
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0 2rem;
+  border-bottom: 1px solid var(--rule);
 }
 
 .breadcrumb {
   font-family: var(--mono);
   font-size: 0.72rem;
-  color: var(--muted);
+  color: var(--ink);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0; /* stops it from shrinking when nav links crowd it */
 }
 
-.breadcrumb a {
-  color: var(--muted);
-  text-decoration: none;
+.breadcrumb:hover { 
+  color: var(--accent); 
 }
-
-.breadcrumb a:hover { color: var(--accent); }
-.breadcrumb span { margin: 0 0.5rem; }
 
 nav {
   display: flex;
+  align-items: center;
   gap: 0;
-  border-top: 1px solid var(--rule);
 }
 
-nav a {
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  margin-left: auto;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animate to X when open */
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: auto; /* pushes it to the right end of the nav */
+  padding: 0.75rem 0.75rem 0.65rem;
+  transition: color 0.2s;
+}
+
+.back-link:hover { 
+  color: var(--accent); 
+}
+
+nav a {  
+  display: inline-flex;
+  align-items: center;
   font-family: var(--mono);
   font-size: 0.75rem;
   letter-spacing: 0.06em;
@@ -153,10 +211,23 @@ nav a {
   padding: 0.75rem 1.2rem 0.65rem;
   border-right: 1px solid var(--rule);
   transition: color 0.2s, background 0.2s;
+  height: 55px; /* single fixed-height bar */
+
 }
 
-nav a:first-child { padding-left: 0; border-left: none; }
-nav a:hover { color: var(--accent); background: var(--accent-soft); }
+nav a:first-child { 
+  border-left: none; 
+}
+
+
+nav a:last-child { 
+  border-right: none; 
+}
+
+nav a:hover { 
+  color: var(--accent); 
+  background: var(--accent-soft); 
+}
 
 /* HERO */
 .hero {
@@ -183,7 +254,6 @@ h1 {
   font-size: clamp(2rem, 4vw, 2.8rem);
   line-height: 1.2;
   font-weight: 400;
-  max-width: 620px;
   margin-bottom: 1.5rem;
 }
 
@@ -192,11 +262,14 @@ h1 em {
   color: var(--accent);
 }
 
+
 .hero-meta {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
+  width: 100%;                    /* ← fills full width */
+  justify-content: space-between; /* ← spreads items across */
 }
 
 .meta-item {
@@ -220,7 +293,6 @@ h1 em {
 }
 
 .hero-desc {
-  max-width: 560px;
   color: var(--muted);
   font-size: 0.95rem;
 }
@@ -282,7 +354,6 @@ h2 {
 p {
   color: var(--muted);
   margin-bottom: 1rem;
-  max-width: 620px;
   font-size: 0.95rem;
 }
 
@@ -575,114 +646,273 @@ p {
 /* FOOTER */
 footer {
   border-top: 1px solid var(--rule);
-  padding: 2rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: gap;
-  gap: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-footer span {
-  font-family: var(--mono);
+footer .copyright-name {
+  font-family: var(--font-display);
   font-size: 0.72rem;
+  color: var(--ink);
+}
+
+   
+.footer p {
   color: var(--muted);
+  font-size: 0.8rem;
 }
 
-footer a {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-footer a:hover { text-decoration: underline; }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
-  .related-grid { 
-    grid-template-columns: 1fr; 
+/* ===== 900px — nav starts to crowd ===== */
+@media (max-width: 900px) {
+  nav a {
+    font-size: 0.7rem;
+    padding: 0.75rem 0.9rem 0.65rem;
   }
-  .timeline-row { 
-    grid-template-columns: 1fr; 
+
+  .breadcrumb {
+    font-size: 0.65rem;
   }
-  .tl-date { 
-    border-right: none; 
-    border-bottom: 1px solid var(--rule); 
+
+  .hero {
+    padding: 3.5rem 1.5rem 2.5rem;
   }
-  nav a { 
-    font-size: 0.65rem; 
-    padding: 0.75rem 0.8rem 0.65rem; 
+
+  .related-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  h1 { 
-    font-size: 1.8rem; 
+}
+
+/* ===== 768px — collapse nav, stack hero-meta ===== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 0.75rem 1.5rem;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .breadcrumb {
+    padding: 0.5rem 0;
   }
 
   nav {
+    width: 100%;
     overflow-x: auto;
-    white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    border-top: 1px solid var(--rule);
   }
+
+  nav a {
+    font-size: 0.65rem;
+    padding: 0.6rem 0.9rem;
+  }
+
   .hero {
-    padding: 2.5rem 1.25rem 2rem;
+    padding: 3rem 1.5rem 2rem;
   }
-  main {
-    padding: 2rem 1.5rem;  /* ← gives breathing room on all sides */
-    width: 100%;           /* ← takes full available width up to max-width */ 
+
+  .hero-meta {
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .timeline-row {
+    grid-template-columns: 120px 1fr;
+  }
+}
+
+/* ===== 600px — single column, tighter spacing ===== */
+@media (max-width: 600px) {
+  .page-wrapper {
+    padding: 0 1.25rem;
   }
   
-
   .header-inner {
-  padding: 1.5rem;
-}
+    flex-direction: row;        /* keep breadcrumb + button on one line */
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+    padding: 0.85rem 1.25rem;
+    gap: 0;
+  }
+
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tl-date {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 0.6rem 1rem;
+  }
+
+  .tl-milestone {
+    padding: 0.6rem 1rem;
+  }
+
   .arch-step {
     grid-template-columns: 2.5rem 1fr;
     gap: 1rem;
   }
-  footer { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    padding: 1.5rem 1.25rem; 
+
+  section {
+    padding: 2.5rem 0;
+  }
+
+  .data-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-toggle {
+    display: flex; /* show hamburger */
+  }
+
+
+  nav {
+    display: none;              /* hidden by default */
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid var(--rule);
+    background: var(--bg);
+  }
+
+  nav.open {
+    display: flex;              /* shown when toggled */
+  }
+
+  nav a {
+    padding: 0.85rem 0;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.75rem;
+    width: 100%;
+  }
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  .back-link {
+    margin-left: 0;
   }
 
 }
+
+/* ===== 480px — smallest phones ===== */
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  nav a {
+    font-size: 0.6rem;
+    padding: 0.6rem 0.7rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.6rem;
+  }
+
+  .status-stage {
+    font-size: 0.8rem;
+  }
+
+  .badge {
+    font-size: 0.62rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .rq-item {
+    grid-template-columns: 1.5rem 1fr;
+    gap: 0.75rem;
+  }
+
+  .step-num {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 0.7rem;
+  }
+
+  .arch-step {
+    grid-template-columns: 2.4rem 1fr;
+  }
+
+  .meta-item {
+    width: 100%;
+  }
+
+  section {
+    padding: 2rem 0;
+  }
+}
+
 </style>
 </head>
 <body>
 
-<div class="page-wrapper">
   <header>
-    <div class="header-inner">
-      <div class="breadcrumb">
-        <a href="https://gracealele.io">gracealele.io</a>
-        <span>/</span>
-        <a href="#">Research</a>
-        <span>/</span>
-        Endometriosis Multimodal AI
-      </div>
-      <nav>
-        <a href="#status">Status</a>
-        <a href="#data">Data Sources</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#questions">Research Questions</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#related">Related Work</a>
-      </nav>
-    </div>
-  </header>
+  <div class="header-inner">
+    <span class="breadcrumb">Endometriosis Multimodal AI</span>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="main-nav">
+      <a href="#status">Status</a>
+      <a href="#data">Data Sources</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#questions">Research Questions</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#related">Related Work</a>
+      <a href="../index.html" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back
+      </a>
+    </nav>
+  </div>
+</header>
 
+<div class="page-wrapper">
   <div class="hero">
     <div class="project-tag">Active Project · 2026–Present</div>
     <h1>Multimodal AI for Early Diagnosis of <em>Reproductive Health Conditions</em> in Low-Resource Settings</h1>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">Researcher</span>
-        <span class="meta-value">Grace Ojemerenvhie Alele</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Contact</span>
-        <span class="meta-value">alelegrace@gmail.com</span>
+        <span class="meta-value">Alele, G.O.*, Odelola, S.T., Agboola M., Bamilosi D., & Oko-odion T.</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Current Stage</span>
@@ -690,7 +920,8 @@ footer a:hover { text-decoration: underline; }
       </div>
     </div>
     <p class="hero-desc">
-      Investigating how uncertainty-aware multimodal AI can support early, non-invasive diagnosis of endometriosis across geographically diverse clinical settings — with a particular focus on African patient populations currently underrepresented in diagnostic AI research.
+      Investigating how uncertainty-aware multimodal AI can support early, non-invasive diagnosis of endometriosis across geographically 
+      diverse clinical settings, with a particular focus on African patient populations currently underrepresented in diagnostic AI research.
     </p>
     <div class="updated-note">
       <span class="updated-dot"></span>
@@ -751,7 +982,7 @@ footer a:hover { text-decoration: underline; }
   <p>
     A core research aim is to address the underrepresentation of African patient data in existing diagnostic AI repositories. Active outreach to clinical partners in Nigeria is ongoing.
   </p>
-  <div class="data-table-wrapper"></div>
+  <div class="data-table-wrapper">
     <table class="data-table">
       <thead>
         <tr>
@@ -888,11 +1119,25 @@ footer a:hover { text-decoration: underline; }
 
 
   </main>
-
-  <footer>
-    <span>Grace Ojemerenvhie Alele · gracealele.io</span>
-    <a href="mailto:alelegrace@gmail.com">alelegrace@gmail.com</a>
-  </footer>
 </div>
+  <footer class="footer">
+    <p><span class="copyright-name">Grace Alele</span> © 2026</p>
+  </footer>
+<script>
+function toggleNav() {
+  const nav = document.getElementById('main-nav');
+  const btn = document.querySelector('.nav-toggle');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+// Close nav when any link is clicked
+document.querySelectorAll('#main-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('main-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').classList.remove('open');
+  });
+});
+</script>
 </body>
 </html>
