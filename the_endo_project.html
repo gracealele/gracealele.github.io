@@ -1,13 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Multimodal AI for Reproductive Health — Grace Alele</title>
+  <!-- Basics -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace Alele''s Website | Data Science & Computational Biology</title>
+    <title>Multimodal AI for Reproductive Health — Grace Alele</title>
+
+
+  <!-- SEO -->
+  <meta name="description" content="Grace Alele is a data scientist and computational biology researcher working at the intersection of Data Science, Machine Learning, Artificial Intelligence, disease discovery, disease prevention, early diagnosis, data analysis, and women's reproductive health. Based in the United states and Nigeria.">
+  <meta name="keywords" content="Grace Alele, Computer Science Graduate, Data Scientist, Early Researcher, Robotics Enthusiast, Research Publications, Research Contributor">
+
+  <meta name="author" content="Grace Alele">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (Social Sharing) -->
+  <meta property="og:title" content="Grace Alele | Data Science & AI for Medicine">
+  <meta property="og:description" content="Visit the Research-focused portfolio of Grace Alele – showcasing AI tools, Research projects, and published article exploring machine learning, computational biology, and endometriosis research.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gracealele.github.io">
+  <meta property="og:image" content="https://gracealele.github.io/data/profile.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Verification -->
+  <meta name="google-site-verification" content="vUeO3cwD3be3PmDm2dfVVdqx_RfFM7uI-MIA0Md9Zbo" />
+
+  <!-- Fonts (performance-optimized) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./data/favicon/favicon.ico">
+  
+  <script>
+    // Simple theme toggle script
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // On page load, set theme from localStorage or system preference
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
+    });
+  </script>  
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, 
+  *::before, 
+  *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+  }
 
 :root {
   --bg: #f7f4ef;
@@ -23,7 +84,9 @@
   --sans: 'Instrument Sans', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+}
 
 body {
   background: var(--bg);
@@ -34,6 +97,13 @@ body {
   min-height: 100vh;
 }
 
+.page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.1rem;
+      width: 100%;
+
+  }
 /* HEADER */
 header {
   border-bottom: 1px solid var(--rule);
@@ -534,17 +604,57 @@ footer a:hover { text-decoration: underline; }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-  .related-grid { grid-template-columns: 1fr; }
-  .timeline-row { grid-template-columns: 1fr; }
-  .tl-date { border-right: none; border-bottom: 1px solid var(--rule); }
-  nav a { font-size: 0.65rem; padding: 0.75rem 0.8rem 0.65rem; }
-  h1 { font-size: 1.8rem; }
-}
+  .related-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .timeline-row { 
+    grid-template-columns: 1fr; 
+  }
+  .tl-date { 
+    border-right: none; 
+    border-bottom: 1px solid var(--rule); 
+  }
+  nav a { 
+    font-size: 0.65rem; 
+    padding: 0.75rem 0.8rem 0.65rem; 
+  }
+  h1 { 
+    font-size: 1.8rem; 
+  }
 
-  </style>
+  nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hero {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  main {
+    padding: 2rem 1.5rem;  /* ← gives breathing room on all sides */
+    width: 100%;           /* ← takes full available width up to max-width */ 
+  }
+  
+
+  .header-inner {
+  padding: 1.5rem;
+}
+  .arch-step {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+  }
+  footer { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding: 1.5rem 1.25rem; 
+  }
+
+}
+</style>
 </head>
 <body>
 
+<div class="page-wrapper">
   <header>
     <div class="header-inner">
       <div class="breadcrumb">
@@ -644,42 +754,44 @@ footer a:hover { text-decoration: underline; }
   <p>
     A core research aim is to address the underrepresentation of African patient data in existing diagnostic AI repositories. Active outreach to clinical partners in Nigeria is ongoing.
   </p>
-  <table class="data-table">
-    <thead>
-      <tr>
-        <th>Source</th>
-        <th>Data Type</th>
-        <th>Geographic Coverage</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>The Cancer Imaging Archive (TCIA)</td>
-        <td>MRI, Ultrasound</td>
-        <td><span class="tag-geo">Primarily Western</span></td>
-        <td>Public; limited African representation</td>
-      </tr>
-      <tr>
-        <td>UK Biobank</td>
-        <td>Multimodal clinical</td>
-        <td><span class="tag-geo">UK population</span></td>
-        <td>Large scale; geographic limitation</td>
-      </tr>
-      <tr>
-        <td>Nigerian hospital partner (TBD)</td>
-        <td>MRI, clinical records</td>
-        <td><span class="tag-geo">Nigerian population</span></td>
-        <td>Under outreach; IRB pending</td>
-      </tr>
-      <tr>
-        <td>Endometriosis Foundation datasets</td>
-        <td>Symptom / clinical</td>
-        <td><span class="tag-geo">Mixed</span></td>
-        <td>Screening layer development</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="data-table-wrapper"></div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Data Type</th>
+          <th>Geographic Coverage</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The Cancer Imaging Archive (TCIA)</td>
+          <td>MRI, Ultrasound</td>
+          <td><span class="tag-geo">Primarily Western</span></td>
+          <td>Public; limited African representation</td>
+        </tr>
+        <tr>
+          <td>UK Biobank</td>
+          <td>Multimodal clinical</td>
+          <td><span class="tag-geo">UK population</span></td>
+          <td>Large scale; geographic limitation</td>
+        </tr>
+        <tr>
+          <td>Nigerian hospital partner (TBD)</td>
+          <td>MRI, clinical records</td>
+          <td><span class="tag-geo">Nigerian population</span></td>
+          <td>Under outreach; IRB pending</td>
+        </tr>
+        <tr>
+          <td>Endometriosis Foundation datasets</td>
+          <td>Symptom / clinical</td>
+          <td><span class="tag-geo">Mixed</span></td>
+          <td>Screening layer development</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- ARCHITECTURE -->
@@ -784,6 +896,6 @@ footer a:hover { text-decoration: underline; }
     <span>Grace Ojemerenvhie Alele · gracealele.io</span>
     <a href="mailto:alelegrace@gmail.com">alelegrace@gmail.com</a>
   </footer>
-
+</div>
 </body>
 </html>
