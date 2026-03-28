@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimodal AI for Reproductive Health — Grace Alele</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Grace Alele is a data scientist and computational biology researcher investigating multimodal AI for non-invasive diagnosis of endometriosis and reproductive health conditions in low-resource settings.">
+  <meta name="keywords" content="Grace Alele, Endometriosis AI, Multimodal Diagnosis, Computational Biology, Reproductive Health, Low-Resource Settings, Africa">
+  <meta name="author" content="Grace Alele">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Multimodal AI for Reproductive Health — Grace Alele">
+  <meta property="og:description" content="Investigating how uncertainty-aware multimodal AI can support early, non-invasive diagnosis of endometriosis across geographically diverse clinical settings.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gracealele.io">
+  <meta property="og:image" content="https://gracealele.io/data/profile.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Verification -->
+  <meta name="google-site-verification" content="vUeO3cwD3be3PmDm2dfVVdqx_RfFM7uI-MIA0Md9Zbo" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./data/favicon/favicon.ico">
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      const btn = document.getElementById('theme-btn');
+      if (btn) btn.innerHTML = next === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme');
+      const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      const btn = document.getElementById('theme-btn');
+      if (btn) btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    });
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f3ee;
+      --bg-alt: #efe9e1;
+      --rule: #d6cec5;      
+      --accent-soft: #f0e0d8;
+      --muted: #7a6f65;      
+      --text-muted: #705858;
+      --inks:rgb(45, 37, 30)2;
+      --ink: #1a1612;      
+      --accent-light: #d4633a;
+      --accent: #b5451b;
+      --amber: #b8820a;
+      --green: #3a7a5c;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Instrument Sans', sans-serif;      
+      --font-display: 'Playfair Display SC', serif;
+    }
+
+
+ [data-theme="dark"] {
+      --bg: #1a1612;
+      --bg-alt: #241f1a;
+      --ink: #f0ebe4;
+      --inks:rgb(45, 37, 30)2;
+      --text-muted: #705858;
+      --muted: #9a8f85;
+      --accent: #d4633a;
+      --accent-light: #e07a52;
+      --accent-soft: rgba(181,69,27,0.15);
+      --rule: #2e2820;
+      --green: #5aaa7c;
+      --amber: #d8a22a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 52px;
+    }
+
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .breadcrumb:hover { color: var(--accent); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0 1.1rem;
+      height: 52px;
+      border-left: 1px solid var(--rule);
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    
+    nav a:first-child {
+      border-left: none;
+    }
+
+    nav a:hover { color: var(--accent); background: var(--accent-soft); }
+
+    .theme-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-left: 1px solid var(--rule);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: color 0.2s, background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .theme-btn:hover { color: var(--accent); background: var(--accent-soft); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 2.5rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 2.875rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+
+    .meta-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta-value {
+      font-size: 0.88rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .updated-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .updated-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-cell {
+      padding: 2rem 2rem;
+      border-right: 1px solid var(--rule);
+      transition: background 0.2s;
+    }
+
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell:hover { background: var(--accent-soft); }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── MAIN ── */
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2.5rem 6rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.55s ease forwards;
+    }
+
+    section:nth-child(1) { animation-delay: 0.05s; }
+    section:nth-child(2) { animation-delay: 0.15s; }
+    section:nth-child(3) { animation-delay: 0.25s; }
+    section:nth-child(4) { animation-delay: 0.35s; }
+    section:nth-child(5) { animation-delay: 0.45s; }
+    section:nth-child(6) { animation-delay: 0.55s; }
+    section:nth-child(7) { animation-delay: 0.65s; }
+    section:nth-child(8) { animation-delay: 0.75s; }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 36px;
+      background: var(--rule);
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+
+    p strong { color: var(--ink); font-weight: 600; }
+
+    /* ── PROBLEM CALLOUT ── */
+    .callout {
+      border-left: 2px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      background: var(--accent-soft);
+      margin: 1.5rem 0;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .callout p {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── STATUS GRID ── */
+    .status-grid {
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 0.8rem 1.25rem;
+      border-bottom: 1px solid var(--rule);
+      gap: 1rem;
+      transition: background 0.15s;
+    }
+
+    .status-row:last-child { border-bottom: none; }
+    .status-row:hover { background: var(--accent-soft); }
+
+    .status-stage {
+      font-size: 0.86rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      padding: 0.22rem 0.65rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .badge-done { background: #e8f5ee; color: var(--green); }
+    .badge-active { background: #fff8e6; color: var(--amber); }
+    .badge-planned { background: var(--bg-alt); color: var(--muted); }
+
+    [data-theme="dark"] .badge-done { background: rgba(58,122,92,0.2); }
+    [data-theme="dark"] .badge-active { background: rgba(184,130,10,0.2); }
+    [data-theme="dark"] .badge-planned { background: rgba(255,255,255,0.06); }
+
+    /* ── DATA TABLE ── */
+    .data-table-wrapper { overflow-x: auto; margin-top: 1.5rem; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    .data-table th {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 0.6rem 1rem;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .data-table td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--accent-soft); }
+    .data-table td:last-child { color: var(--muted); font-size: 0.8rem; }
+
+    .tag-geo {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* ── ARCHITECTURE ── */
+    .arch-steps {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .arch-step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.5rem;
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    .arch-step:last-child { padding-bottom: 0; }
+
+    .arch-step::before {
+      content: '';
+      position: absolute;
+      left: 1.45rem;
+      top: 2.8rem;
+      bottom: 0;
+      width: 1px;
+      background: var(--rule);
+    }
+
+    .arch-step:last-child::before { display: none; }
+
+    .step-num {
+      width: 2.9rem;
+      height: 2.9rem;
+      border-radius: 50%;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--bg);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .arch-step:hover .step-num {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .step-content h3 {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .step-content p { font-size: 0.86rem; margin-bottom: 0; }
+
+    /* ── RESEARCH QUESTIONS ── */
+    .rq-list {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .rq-item {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem 1.25rem 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .rq-item:last-child { border-bottom: none; }
+
+    .rq-num {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      padding-top: 0.1rem;
+      letter-spacing: 0.06em;
+    }
+
+    .rq-text {
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      margin-top: 1.5rem;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.15s;
+    }
+
+    .timeline-row:last-child { border-bottom: none; }
+    .timeline-row:hover { background: var(--accent-soft); }
+
+    .tl-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding: 0.85rem 1.25rem;
+      border-right: 1px solid var(--rule);
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+    }
+
+    .tl-milestone {
+      font-size: 0.86rem;
+      padding: 0.85rem 1.25rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── RELATED WORK ── */
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .related-card {
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .related-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .related-tag {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .related-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+
+    .related-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    /* ── VISION SECTION ── */
+    .vision-section {
+      background: var(--ink);
+      padding: 5rem 2.5rem;
+    }
+
+    .vision-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .vision-section .section-label { color: var(--accent-light); }
+    .vision-section .section-label::after { background: rgba(255,255,255,0.15); }
+    .vision-section h2 { color: #f0ebe4; }
+    .vision-section p { color: rgba(240,235,228,0.6); }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 2.5rem;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .vision-cell {
+      background: var(--ink);
+      padding: 2rem 1.75rem;
+      transition: background 0.2s;
+    }
+
+    [data-theme="dark"] .vision-cell { background: #1a1612; }
+
+    .vision-cell:hover { background: #241f1a; }
+
+    .vision-icon {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--accent-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .vision-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #f0ebe4;
+      margin-bottom: 0.6rem;
+    }
+
+    .vision-text {
+      font-size: 0.78rem;
+      color: rgba(240,235,228,0.5);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .vision-quote {
+      margin-top: 3rem;
+      padding: 2.5rem 3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .vision-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -1.5rem;
+      left: 2rem;
+      font-family: var(--serif);
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .vision-quote p {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 300;
+      color: #f0ebe4;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-transform:uppercase;
+      word-spacing: 0.1em;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--inks);
+      padding: 0.3rem;
+      text-transform: capitalize;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .stat-cell:nth-child(3) { border-top: 1px solid var(--rule); }
+      .vision-grid { grid-template-columns: 1fr; }
+      nav a { font-size: 0.65rem; padding: 0 0.85rem; }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 1.5rem; }
+      .hero { padding: 3.5rem 1.5rem 2.5rem; }
+      .page-wrapper { padding: 0 1.5rem 5rem; }
+      .hero-meta { flex-direction: column; gap: 1rem; }
+      .related-grid { grid-template-columns: 1fr; }
+      .timeline-row { grid-template-columns: 110px 1fr; }
+      footer { flex-direction: column; gap: 1.25rem; text-align: center; }
+      .vision-section { padding: 4rem 1.5rem; }
+      .vision-quote { padding: 2rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.75rem 1.25rem;
+        gap: 0;
+      }
+
+      .nav-toggle { display: flex; }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid var(--rule);
+        background: var(--bg);
+        order: 3;
+      }
+
+      nav.open { display: flex; }
+
+      nav a {
+        height: auto;
+        padding: 0.8rem 0;
+        border-left: none;
+        border-bottom: 1px solid var(--rule);
+        width: 100%;
+        font-size: 0.72rem;
+      }
+
+      nav a:last-child { border-bottom: none; }
+
+      .theme-btn { border-left: none; margin-left: auto; }
+
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+
+      .hero { padding: 2.5rem 1.25rem 2rem; }
+      .page-wrapper { padding: 0 1.25rem 4rem; }
+
+      .timeline-row { grid-template-columns: 1fr; }
+      .tl-date { border-right: none; border-bottom: 1px solid var(--rule); }
+
+      .arch-step { grid-template-columns: 2.5rem 1fr; gap: 1rem; }
+      .step-num { width: 2.4rem; height: 2.4rem; font-size: 0.68rem; }
+
+      h2 { font-size: 1.4rem; }
+      .hero-title { font-size: 1.75rem; }
+
+      .vision-grid { grid-template-columns: 1fr; }
+      .vision-quote::before { font-size: 3.5rem; top: -1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-cell { border-right: none !important; border-top: 1px solid var(--rule); }
+      .stat-cell:first-child { border-top: none; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="breadcrumb">Endometriosis Multimodal AI</a>
+      <div class="header-right">
+        <nav id="main-nav">
+          <a href="#problem">Problem</a>
+          <a href="#questions">RQs</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#data">Data</a>
+          <a href="#status">Status</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#related">Related</a>
+          <a href="../index.html"><i class="fa-solid fa-arrow-left" style="margin-right:0.4rem"></i>Back</a>
+        </nav>
+        <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="project-tag">Active Project · 2026–Present</div>
+    <h1 class="hero-title">
+      Multimodal AI for <em>Non-Invasive</em> Diagnosis of Reproductive Health Conditions in Low-Resource Settings
+    </h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Researchers</span>
+        <span class="meta-value">Alele, G.O.*, Odelola, S.T., Agboola M., Bamilosi D., &amp; Oko-odion T.</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Current Stage</span>
+        <span class="meta-value">Data Gathering</span>
+      </div>
+      <!--<div class="meta-item">
+        <span class="meta-label">Domain</span>
+        <span class="meta-value">Computational Biology · Medical Imaging · Clinical AI Safety</span>
+      </div>-->
+    </div>
+    <p class="hero-desc">
+      Investigating whether AI-supported non-invasive assessment — integrating symptom screening and imaging analysis — can achieve 
+      diagnostic accuracy comparable to laparoscopy, the current gold standard, while remaining accessible in low-resource and geographically underserved clinical settings.
+    </p>
+    <div class="updated-note">
+      <span class="updated-dot"></span>
+      Last updated: March 2026
+    </div>
+  </div>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div class="stat-cell">
+        <div class="stat-number">1 in 9</div>
+        <div class="stat-label">Women affected by endometriosis globally</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">6–10 yrs</div>
+        <div class="stat-label">Average time from first symptoms to diagnosis</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">Gold Std.</div>
+        <div class="stat-label">Laparoscopy — invasive, inaccessible, inequitable</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Interconnected research directions in this program</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper">
+
+    <!-- PROBLEM -->
+    <section id="problem">
+      <div class="section-label">00 · Problem</div>
+      <h2>The Diagnostic Barrier</h2>
+      <p>
+        Reproductive health conditions disproportionately affect women in low-resource settings, where diagnostic infrastructure is limited, specialist expertise is scarce, and patient data is systematically underrepresented in global AI research. Endometriosis alone affects 1 in 9 women of reproductive age, yet the average diagnostic delay is 6 to 10 years — driven not only by biological complexity and symptom non-specificity, but <strong>fundamentally by the diagnostic gold standard itself: laparoscopy</strong>, a minimally invasive surgical procedure requiring specialized training, operating theatre infrastructure, and significant financial resources.
+      </p>
+      <p>
+        In high-resource settings, laparoscopy is inaccessible to many. In low-resource settings, it is often unavailable entirely. Surgeons may hesitate to perform it due to its invasive nature and associated risks. This creates a diagnostic paradox: <strong>the procedure most likely to confirm endometriosis is precisely the barrier preventing diagnosis.</strong>
+      </p>
+      <div class="callout">
+        <p>The consequence extends beyond delayed care — prolonged diagnostic uncertainty drives psychological distress, allows disease progression unchecked, and frequently results in unnecessary procedures for misdiagnosed conditions.</p>
+      </div>
+      <p>
+        Beyond endometriosis, conditions such as postpartum psychosis remain severely underdiagnosed globally, with disproportionate impact in African clinical settings where psychiatric and specialist infrastructure is limited. These reproductive health conditions share a common vulnerability: they depend on diagnostic pathways inaccessible to the populations that need them most.
+      </p>
+    </section>
+
+    <!-- RESEARCH QUESTIONS -->
+    <section id="questions">
+      <div class="section-label">04 · Research Questions</div>
+      <h2>What this project is trying to answer</h2>
+      <div class="rq-list">
+        <div class="rq-item">
+          <span class="rq-num">RQ1</span>
+          <p class="rq-text">Can AI-supported non-invasive assessment — integrating symptom screening and imaging analysis — achieve diagnostic accuracy comparable to laparoscopy in endometriosis, particularly in low-resource settings where surgical procedures are often unavailable or unaffordable?</p>
+        </div>
+        <div class="rq-item">
+          <span class="rq-num">RQ2</span>
+          <p class="rq-text">Can a symptom-text screening layer serve as a viable first-stage triage tool in settings where imaging access is delayed or cost-prohibitive, meaningfully reducing time-to-flag for at-risk patients?</p>
+        </div>
+        <div class="rq-item">
+          <span class="rq-num">RQ3</span>
+          <p class="rq-text">Do models trained on Western endometriosis imaging data maintain diagnostic reliability when applied to African clinical populations, and how does uncertainty quantification behave under geographic distribution shift?</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ARCHITECTURE -->
+    <section id="architecture">
+      <div class="section-label">03 · Proposed Architecture</div>
+      <h2>A three-stage diagnostic pipeline</h2>
+      <p>
+        The system is designed to be deployable in settings where specialist imaging access is delayed or cost-prohibitive. Each stage is independently useful; together they form a full non-invasive diagnostic pathway as an alternative to laparoscopy.
+      </p>
+      <div class="arch-steps">
+        <div class="arch-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Symptom-text screening layer</h3>
+            <p>A lightweight NLP classifier processing structured symptom and clinical history input as a first-stage triage tool, flagging at-risk patients before imaging is required. Particularly relevant in settings where imaging access is delayed or financially prohibitive — early symptom-based triage prioritizes resources toward patients most likely to benefit.</p>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Multimodal fusion module</h3>
+            <p>An uncertainty-aware transformer integrating MRI and ultrasound imaging with structured clinical data. Architectural choices are informed by attention-based fusion literature. Uncertainty quantification is a core design requirement — not an afterthought — enabling the model to signal when it is operating outside its training distribution.</p>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Geographic generalization evaluation</h3>
+            <p>A systematic evaluation framework testing diagnostic reliability across Western and African patient subpopulations. Draws on distribution shift methodology developed in the AfricaBench collaboration to surface performance gaps that aggregate metrics would otherwise obscure. Validation against African patient data is a core design requirement, not an afterthought.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA SOURCES -->
+    <section id="data">
+      <div class="section-label">02 · Data Sources</div>
+      <h2>Data sources under consideration</h2>
+      <p>
+        A core research aim is to address the underrepresentation of African patient data in existing diagnostic AI repositories. Active outreach to clinical partners in Nigeria is ongoing.
+      </p>
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Data Type</th>
+              <th>Geographic Coverage</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>UK Biobank</td>
+              <td>Multimodal clinical</td>
+              <td><span class="tag-geo">UK population</span></td>
+              <td>Large scale; geographic limitation</td>
+            </tr>
+            <tr>
+              <td>Nigerian hospital partner (TBD)</td>
+              <td>MRI, clinical records</td>
+              <td><span class="tag-geo">Nigerian population</span></td>
+              <td>Under outreach; IRB pending</td>
+            </tr>
+            <tr>
+              <td>Endometriosis Foundation datasets</td>
+              <td>Symptom / clinical</td>
+              <td><span class="tag-geo">Mixed</span></td>
+              <td>Screening layer development</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section id="status">
+      <div class="section-label">01 · Current Status</div>
+      <h2>Where this project stands</h2>
+      <p>
+        Research design is complete. Candidate data sources have been identified and outreach to clinical partners in Nigeria is ongoing. Architectural planning is underway in parallel with data collection.
+      </p>
+      <div class="status-grid">
+        <div class="status-row">
+          <span class="status-stage">Problem formulation</span>
+          <span class="badge badge-done">✓ Complete</span>
+        </div>
+        <div class="status-row">
+          <span class="status-stage">Literature review</span>
+          <span class="badge badge-done">✓ Complete</span>
+        </div>
+        <div class="status-row">
+          <span class="status-stage">Data requirements design</span>
+          <span class="badge badge-done">✓ Complete</span>
+        </div>
+        <div class="status-row">
+          <span class="status-stage">Data source identification</span>
+          <span class="badge badge-done">✓ Complete</span>
+        </div>
+        <div class="status-row">
+          <span class="status-stage">Data collection</span>
+          <span class="badge badge-active">⟳ In progress</span>
+        </div>
+        <div class="status-row">
+          <span class="status-stage">Architecture design</span>
+          <span class="badge badge-active">⟳ In progress</span>
+        </div>
+        <div class="status-row">
+          <span class="status-stage">Model development</span>
+          <span class="badge badge-planned">Planned</span>
+        </div>
+        <div class="status-row">
+          <span class="status-stage">Validation &amp; benchmarking</span>
+          <span class="badge badge-planned">Planned</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+      <div class="section-label">05 · Planned Timeline</div>
+      <h2>Milestones</h2>
+      <div class="timeline">
+        <div class="timeline-row">
+          <span class="tl-date">Q1 2026</span>
+          <span class="tl-milestone">Data collection complete; clinical partnerships confirmed</span>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-date">Q2 2026</span>
+          <span class="tl-milestone">Baseline model trained; symptom screening layer prototype</span>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-date">Q2 2026</span>
+          <span class="tl-milestone">Geographic generalization experiments; distribution shift analysis</span>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-date">Q3 2026</span>
+          <span class="tl-milestone">Manuscript submission</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED WORK -->
+    <section id="related">
+      <div class="section-label">06 · Related Work</div>
+      <h2>Connected projects</h2>
+      <p>This project sits within a broader research program. The methodological foundations developed in these projects directly inform the design choices made here.</p>
+      <div class="related-grid">
+        <a class="related-card" href="#">
+          <div class="related-tag">2025 · Complete</div>
+          <div class="related-title">NeuroRepro-Seq</div>
+          <p class="related-desc">Lightweight RNA-seq pipeline for PPP molecular subtype discovery, optimised for low-resource environments (&lt;400 MB RAM, n&lt;25 cohorts). Resource-conscious design principles are directly extensible to endometriosis-associated neuroinflammation.</p>
+        </a>
+        <a class="related-card" href="#">
+          <div class="related-tag">2026–Present · Active</div>
+          <div class="related-title">AfricaBench</div>
+          <p class="related-desc">African-focused tabular ML benchmark investigating geographic representation bias across healthcare, finance, agriculture, and sports domains. Distribution shift methodology developed here is being extended to clinical imaging contexts in this project.</p>
+        </a>
+      </div>
+    </section>
+
+  </div><!-- end page-wrapper -->
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Grace Ojemerenvhie Alele<span class="footer-copy">© 2026</span></span>
+    <div class="footer-right">
+      <div class="footer-links">
+        <a href="mailto:alelegrace@gmail.com">Email</a>
+        <a href="https://gracealele.io">Website</a>
+        <a href="../index.html">Back to Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav toggle
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('open');
+      this.classList.toggle('open');
+    });
+
+    // Close nav on link click
+    document.querySelectorAll('#main-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('main-nav').classList.remove('open');
+        document.getElementById('nav-toggle').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
