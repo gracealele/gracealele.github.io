@@ -31,7 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Favicon -->
@@ -61,8 +62,9 @@
       --accent-warm: #d4456a;
       --gold-highlight: #d4a574;
       --border: #222222;
+      
       --border-hover: #333333;
-
+      --mono: 'DM Mono', monospace;
       --font-display: 'Playfair Display SC', serif;
       --font-cursive: 'Pacifico', cursive;
       --font-nav: 'Cantarell', sans-serif;
@@ -1292,6 +1294,13 @@
       color: var(--text-secondary);
       font-size: 0.85rem;
     }
+    
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--inks);
+    }
+
 
     /* Scrollbar */
     ::-webkit-scrollbar {
@@ -2025,7 +2034,7 @@
     
   <!-- Footer -->
   <footer class="footer">
-    <p><span class="copyright-name">Grace Ojemerenvhie Alele</span> © 2026</p>
+    <p><span class="copyright-name">Grace Ojemerenvhie Alele</span> © <span class="footer-copy">2026</span></p>
   </footer>
    
 <script>
