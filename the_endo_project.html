@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multimodal AI for Reproductive Health | Grace Ojemerenvhie Alele</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f7f3ee;
+      --rule: #d6cec5;
+      --accent-soft: #f0e0d8;
+      --sand: #e8e0d5;
+      --border: #d6cec5;
+      --rule: #d6cec5;
+      --bg: #f7f3ee;
+      --bg-alt: #efe9e1;          
+      --muted: #7a6f65;
+      --text-muted: #705858;
+      --accent: #b5451b;
+      --accent-light: #d4633a;
+      --inks:rgb(45, 37, 30)2;
+      --ink: #1a1612;
+      --green: #3a7a5c;
+      --amber: #b8820a;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Instrument Sans', sans-serif;
+      --font-display: 'Playfair Display SC', serif;
+
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.1rem;
+      padding-bottom: 2rem;
+    }
+     /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 52px;
+    }
+
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .breadcrumb:hover { color: var(--accent); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0 1.1rem;
+      height: 52px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    nav a:hover { color: var(--accent); background: var(--accent-soft); }
+
+    .theme-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-left: 1px solid var(--rule);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: color 0.2s, background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .theme-btn:hover { color: var(--accent); background: var(--accent-soft); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+    /* ── NAV ── 
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(247, 243, 238, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-logo:hover { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s, background 0.2s;    
+      font-family: var(--mono);
+    }
+
+    .nav-links a:hover { 
+      color: var(--accent); 
+      background: var(--accent-soft); 
+      }*/
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 3rem 5rem 3rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .hero-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      font-size: 0.82rem;
+      max-width: 420px;
+      line-height: 1.9;
+      margin-bottom: 3rem;
+      
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-item::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem 3rem;
+      background: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      padding-top: 0.3rem;
+      content: 'Endometriosis';
+      position: absolute;
+      top: 1rem;
+      right: -1rem;
+      font-family: var(--serif);
+      font-size: 7.2rem;
+      font-weight: 300;
+      color: rgba(181, 69, 27, 0.06);
+      line-height: 1;
+      writing-mode: vertical-rl;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .stat-cell {
+      background: var(--sand);
+      padding: 2rem 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .stat-cell:hover { background: var(--cream); }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 5rem 0 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child {
+      border: none;
+    }
+
+     .section-label {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.17rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    
+    .section-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 36px;
+      background: var(--rule);
+    }
+
+     h2 {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+
+    /*p:lastchild {
+      margin-bottom:0rem;
+    }*/
+
+    /* ── PROBLEM ── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .problem-text p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.95;
+      font-family: var(--serif);
+    }
+
+    .problem-text p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .callout {
+      border-left: 2px solid var(--accent);
+      padding: 1.5rem 2rem;
+      background: var(--sand);
+      margin-top: 2rem;
+    }
+
+    .callout-text {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+
+    /* ── ARCHITECTURE ── */
+    .arch-steps {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .arch-step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.5rem;
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    .arch-step:last-child { padding-bottom: 0; }
+
+    .arch-step::before {
+      content: '';
+      position: absolute;
+      left: 1.45rem;
+      top: 2.8rem;
+      bottom: 0;
+      width: 1px;
+      background: var(--rule);
+    }
+
+    .arch-step:last-child::before { display: none; }
+
+    .step-num {
+      width: 2.9rem;
+      height: 2.9rem;
+      border-radius: 50%;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--bg);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .arch-step:hover .step-num {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .step-content h3 {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .step-content p { font-size: 0.86rem; margin-bottom: 0; }
+
+    /* ── RESEARCH QUESTIONS ── */
+    .rq-list {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .rq-item {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem 1.25rem 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .rq-item:last-child { border-bottom: none; }
+
+    .rq-num {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      padding-top: 0.1rem;
+      letter-spacing: 0.06em;
+    }
+
+    .rq-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ── RESEARCH DIRECTIONS ── */
+    #directions {
+      padding-bottom: 2rem;
+    }
+    
+    .directions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--sand); 
+    }
+
+    .direction-item {
+      border: 1px solid var(--border);
+      border-bottom: none;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      transition: background 0.2s;
+    }
+
+    .direction-item:last-child { border-bottom: 1px solid var(--border); }
+    .direction-item:hover { background: var(--bg); }
+
+    .direction-number {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+      border-right: 1px solid var(--border);
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: 0.4;
+    }
+
+    .direction-content {
+      padding: 2.5rem 2.5rem;
+    }
+
+    .direction-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .direction-title {
+      font-family:  var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .direction-body {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .direction-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .status-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      background: var(--cream);
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .status-dot.complete { background: #5a8a5a; }
+    .status-dot.active { background: var(--accent); animation: pulse 2s infinite; }
+
+    .status-dot.complete:a { 
+      text-decoration: none;
+      color: var(--accent-light);
+    }
+
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── VISION ── */
+    .vision-section {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 6rem 3rem;
+    }
+
+    .vision-section .section-label { color: var(--accent-light); }
+    .vision-section h2 { color: var(--cream); }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 3rem;
+    }
+
+    .vision-cell {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+      transition: background 0.2s;
+    }
+
+    .vision-cell:hover { background: #241f1a; }
+
+    .vision-cell-icon {
+      font-family:  var(--serif);
+      font-size: 2rem;
+      color: var(--accent-light);
+      margin-bottom: 1rem;
+    }
+
+    .vision-cell-title {
+      font-family:  var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .vision-cell-text {
+      font-size: 0.75rem;
+      color: rgba(247, 243, 238, 0.5);
+      line-height: 1.85;
+    }
+
+    .vision-quote {
+      margin-top: 4rem;
+      padding: 3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+    }
+
+    .vision-quote::before {
+      content: '"';
+      position: absolute;
+      top: -1.5rem;
+      left: 2rem;
+      font-family:  var(--serif);
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .vision-quote-text {
+      font-family:  var(--serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      letter-spacing: 0.05em;
+    }  
+   
+    .footer .copyright-name {
+      font-family: var(--font-display);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--inks);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.25s; }
+    .fade-in:nth-child(3) { animation-delay: 0.4s; }
+    .fade-in:nth-child(4) { animation-delay: 0.55s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { border-right: none; border-bottom: 1px solid var(--border); padding: 4rem 1.5rem 3rem; }
+      .hero-right { padding: 3rem 1.5rem; }
+      .section { padding: 4rem 1.5rem; }
+      .problem-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .vision-grid { grid-template-columns: 1fr; }
+      .direction-item { grid-template-columns: 50px 1fr; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .vision-section { padding: 4rem 1.5rem; }
+      .vision-quote { padding: 2rem 1.5rem; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .stat-cell:nth-child(3) { border-top: 1px solid var(--rule); }
+      .vision-grid { grid-template-columns: 1fr; }
+      nav a { font-size: 0.65rem; padding: 0 0.85rem; }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 1.5rem; }
+      .hero { padding: 3.5rem 1.5rem 2.5rem; }
+      .page-wrapper { padding: 0 1.5rem 5rem; }
+      .hero-meta { flex-direction: column; gap: 1rem; }
+      .related-grid { grid-template-columns: 1fr; }
+      .timeline-row { grid-template-columns: 110px 1fr; }
+      footer { flex-direction: column; gap: 1.25rem; text-align: center; }
+      .vision-section { padding: 4rem 1.5rem; }
+      .vision-quote { padding: 2rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.75rem 1.25rem;
+        gap: 0;
+      }
+
+      .nav-toggle { display: flex; }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid var(--rule);
+        background: var(--bg);
+        order: 3;
+      }
+
+      nav.open { display: flex; }
+
+      nav a {
+        height: auto;
+        padding: 0.8rem 0;
+        border-left: none;
+        border-bottom: 1px solid var(--rule);
+        width: 100%;
+        font-size: 0.72rem;
+      }
+
+      nav a:last-child { border-bottom: none; }
+
+      .theme-btn { border-left: none; margin-left: auto; }
+
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+
+      .hero { padding: 2.5rem 1.25rem 2rem; }
+      .page-wrapper { padding: 0 1.25rem 4rem; }
+
+      .timeline-row { grid-template-columns: 1fr; }
+      .tl-date { border-right: none; border-bottom: 1px solid var(--rule); }
+
+      .arch-step { grid-template-columns: 2.5rem 1fr; gap: 1rem; }
+      .step-num { width: 2.4rem; height: 2.4rem; font-size: 0.68rem; }
+
+      h2 { font-size: 1.4rem; }
+      .hero-title { font-size: 1.75rem; }
+
+      .vision-grid { grid-template-columns: 1fr; }
+      .vision-quote::before { font-size: 3.5rem; top: -1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-cell { border-right: none !important; border-top: 1px solid var(--rule); }
+      .stat-cell:first-child { border-top: none; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV --
+  <nav>
+    <a href="/" class="nav-logo">Endometriosis Multimodal AI</a>
+    <ul class="nav-links">
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#questions">QRS</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#directions">Directions</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#status">Status</a></li>
+      <li><a href="#vision">Vision</a></li>
+    </ul>
+  </nav>-->
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="breadcrumb">Endometriosis Multimodal AI</a>
+      <div class="header-right">
+        <nav id="main-nav">
+          <a href="../index.html">Home</a>
+          <a href="#problem">Problem</a>
+          <a href="#questions">RQS</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#directions">Directions</a>
+          <a href="#vision">Vision</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-tag fade-in">Research Project · Computational Biology & Clinical AI</p>
+      <h1 class="hero-title fade-in">
+        Multimodal AI for<br/>
+        <em>Non-Invasive</em><br/>
+        Reproductive Health<br/>
+        Diagnosis
+      </h1>
+      <p class="hero-desc fade-in">
+        Developing AI systems that reduce reliance on invasive surgical procedures as a prerequisite for diagnosis, 
+        making early, accurate detection accessible in low-resource and geographically underserved clinical settings.
+      </p>
+      <div class="hero-meta fade-in">
+        <span class="hero-meta-item">Endometriosis · Postpartum Psychosis</span>
+        <span class="hero-meta-item">Computational Biology · Medical Imaging · Clinical AI Safety</span>
+        <span class="hero-meta-item">Low-Resource Settings · African Clinical Contexts</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-number">1 in 9</div>
+          <div class="stat-label">Women affected by endometriosis globally</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">6–10</div>
+          <div class="stat-label">Average years to diagnosis</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">Gold<br/>Standard</div>
+          <div class="stat-label">Laparoscopy — invasive, inaccessible, inequitable</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Interconnected research directions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+  <!-- PROBLEM -->
+  <section class="section" id="problem">
+    <div class="section-label">00 · Problem</div>
+    <h2>The Diagnostic Barrier</h2>
+    <div class="problem-grid">
+      <div class="problem-text">
+        <p>
+          Reproductive health conditions disproportionately affect women in low-resource settings, where diagnostic infrastructure 
+          is limited, specialist expertise is scarce, and patient data is systematically underrepresented in global AI research.
+        </p>
+        <p>
+          Endometriosis alone affects 1 in 9 women of reproductive age, yet the average diagnostic delay is 6 to 10 years, driven 
+          not only by biological complexity and symptom non-specificity, but <strong>fundamentally by the diagnostic gold standard 
+            itself: laparoscopy</strong>, a minimally invasive surgical procedure requiring specialized training, operating theatre 
+            infrastructure, and significant financial resources.
+        </p>
+        <p>
+          In high-resource settings, laparoscopy is inaccessible to many. In low-resource settings, it is often unavailable entirely. 
+          This creates a diagnostic paradox: <strong>the procedure most likely to confirm endometriosis is precisely the barrier 
+            preventing diagnosis.</strong>
+        </p>
+        <p>
+          Beyond endometriosis, conditions such as postpartum psychosis remain severely underdiagnosed globally, with disproportionate 
+          impact in African clinical settings where psychiatric and specialist infrastructure is limited.
+        </p>
+      </div>
+      <div>
+        <div class="callout">
+          <p class="callout-text">
+            "The consequence extends beyond delayed care, prolonged diagnostic uncertainty drives psychological distress, allows disease progression unchecked, and frequently results in unnecessary procedures for misdiagnosed conditions."
+          </p>
+        </div>
+        <div class="callout" style="margin-top: 1.5rem; border-left-color: var(--muted);">
+          <p class="callout-text" style="font-size: 1.1rem; color: var(--muted);">
+            These reproductive health conditions share a common vulnerability: they depend on diagnostic pathways inaccessible to the populations that need them most.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH QUESTIONS -->
+  <section class="section" id="questions">
+    <div class="section-label">01 · Research Questions</div>
+    <h2>What this project is trying to answer</h2>
+    <div class="rq-list">
+      <div class="rq-item">
+        <span class="rq-num">RQ1</span>
+        <p class="rq-text">Can AI-supported non-invasive assessment — integrating symptom screening and imaging analysis — achieve diagnostic accuracy comparable to laparoscopy in endometriosis, particularly in low-resource settings where surgical procedures are often unavailable or unaffordable?</p>
+      </div>
+      <div class="rq-item">
+        <span class="rq-num">RQ2</span>
+        <p class="rq-text">Can a symptom-text screening layer serve as a viable first-stage triage tool in settings where imaging access is delayed or cost-prohibitive, meaningfully reducing time-to-flag for at-risk patients?</p>
+      </div>
+      <div class="rq-item">
+        <span class="rq-num">RQ3</span>
+        <p class="rq-text">Do models trained on Western endometriosis imaging data maintain diagnostic reliability when applied to African clinical populations, and how does uncertainty quantification behave under geographic distribution shift?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+    <section class="section" id="architecture">
+      <div class="section-label">02 · Proposed Architecture</div>
+      <h2>A three-stage diagnostic pipeline</h2>
+      <p>
+        The system is designed to be deployable in settings where specialist imaging access is delayed or cost-prohibitive. 
+        Each stage is independently useful; together they form a full non-invasive diagnostic pathway as an alternative to 
+        laparoscopy.
+      </p>
+      <div class="arch-steps">
+        <div class="arch-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Symptom-text screening layer</h3>
+            <p>
+              A lightweight NLP classifier processing structured symptom and clinical history input as a first-stage triage 
+              tool, flagging at-risk patients before imaging is required. Particularly relevant in settings where imaging access 
+              is delayed or financially prohibitive, early symptom-based triage prioritizes resources toward patients most 
+              likely to benefit.
+            </p>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Multimodal fusion module</h3>
+            <p>
+              An uncertainty-aware transformer integrating MRI and ultrasound imaging with structured clinical data. 
+              Architectural choices are informed by attention-based fusion literature. Uncertainty quantification is a core 
+              design requirement (not an afterthought) enabling the model to signal when it is operating outside its training 
+              distribution.
+            </p>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Geographic generalization evaluation</h3>
+            <p>
+              A systematic evaluation framework testing diagnostic reliability across Western and African patient subpopulations. 
+              Draws on distribution shift methodology developed in the AfricaBench collaboration to surface performance gaps that 
+              aggregate metrics would otherwise obscure. Validation against African patient data is a core design requirement, not 
+              an afterthought.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- RESEARCH DIRECTIONS -->
+  <section class="section" id="directions">
+    <div  class="section-label">03 · Research</div>
+    <h2>Three Research Directions</h2>
+    <div class="directions-list">
+
+      <!-- Direction 1 -->
+      <div class="direction-item">
+        <div class="direction-number">1</div>
+        <div class="direction-content">
+          <p class="direction-tag">Clinical · Medical Imaging · NLP</p>
+          <h3 class="direction-title">Non-Invasive Multimodal Diagnosis of Endometriosis</h3>
+          <p class="direction-body">
+            This project develops an uncertainty-aware multimodal diagnostic system that integrates structured symptom and clinical history 
+            data with MRI and ultrasound imaging analysis. The central research question is whether <strong>AI-supported non-invasive 
+            assessment can achieve diagnostic accuracy comparable to laparoscopy</strong> while remaining accessible in low-resource 
+            settings where invasive procedures are often unavailable or financially prohibitive.
+          </p>
+          <p class="direction-body">
+            A symptom-text screening layer functions as first-stage triage, enabling at-risk patients to be flagged and risk-stratified 
+            before reaching imaging resources. The system is designed to reduce unnecessary specialist referrals for low-probability cases, 
+            and prioritize diagnostic resources toward patients most likely to benefit. Validation against African patient data is a core 
+            design requirement, not an afterthought.
+          </p>
+          <span class="status-line">
+            <span class="status-dot active"></span>
+            Data gathering stage · March 2026 · Research design complete
+          </span>
+        </div>
+      </div>
+
+      <!-- Direction 2 -->
+      <div class="direction-item">
+        <div class="direction-number">2</div>
+        <div class="direction-content">
+          <p class="direction-tag">Computational Biology · RNA-seq · Molecular Subtyping</p>
+          <h3 class="direction-title">NeuroRepro-Seq: Lightweight Pipeline for Molecular Disease Subtyping</h3>
+          <p class="direction-body">
+            My undergraduate honours thesis developed a computationally efficient RNA-seq pipeline for molecular subtype discovery 
+            in postpartum psychosis, a reproductive neuroimmune condition that remains critically underdiagnosed in low-resource 
+            settings. The pipeline incorporates bootstrap ARI stability validation, Mann-Whitney marker identification, 
+            and literature-curated gene signatures across neuroinflammatory, HPA/hormonal, and dopaminergic pathways.
+          </p>
+          <p class="direction-body">
+            Crucially, the pipeline is optimized for <strong>small clinical cohorts (n &lt; 25) and low-memory environments (&lt; 400 MB RAM)</strong>, 
+            making meaningful molecular disease discovery achievable without high-performance computing infrastructure. HDLSS-aware, 
+            resource-conscious pipeline design is not a compromise, it is a deliberate methodological choice that expands access to molecular 
+            diagnostics in the settings that need them most.
+          </p>
+          <span class="status-line">
+            <span class="status-dot complete"></span>
+            Completed &amp; benchmarked · 2025 · Codebase available on<a href="https://github.com/gracealele/NeuroRepro-Seq">github</a>
+          </span>
+        </div>
+      </div>
+
+      <!-- Direction 3 -->
+      <div class="direction-item">
+        <div class="direction-number">3</div>
+        <div class="direction-content">
+          <p class="direction-tag">Benchmark Infrastructure · Fairness · Tabular ML</p>
+          <h3 class="direction-title">AfricaBench: Benchmark Infrastructure for African Health Data</h3>
+          <p class="direction-body">
+            A recurring barrier to deploying AI in African clinical settings is the absence of representative benchmarks for evaluating 
+            model performance and fairness. As part of the AfricaBench collaboration — building the first African-focused benchmark for 
+            tabular machine learning spanning healthcare, finance, agriculture, and sports domains — this work investigates geographic 
+            representation bias in existing ML benchmarks and develops evaluation frameworks that surface fairness and performance gaps 
+            between classical models and LLMs on African datasets.
+          </p>
+          <p class="direction-body">
+            Before deploying any clinical model in a new geographic context, <strong>rigorous benchmarking against locally representative 
+              data is not optional.</strong> AfricaBench contributes to building that foundation systematically. A related investigation 
+              into geographic distribution shift in clinical LLMs is currently under peer review.
+          </p>
+          <span class="status-line">
+            <span class="status-dot active"></span>
+            Active collaboration · 2026–present · In progress
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- VISION -->
+<section class="vision-section" id="vision">
+  <div class="section-label">04 . Vision</div>
+  <h2>Beyond Publication</h2>
+  <div class="vision-grid">
+    <div class="vision-cell">
+      <div class="vision-cell-icon">⬡</div>
+      <h4 class="vision-cell-title">Deployment</h4>
+      <p class="vision-cell-text">
+        Following clinical validation and regulatory approval, the endometriosis diagnostic system will be 
+        implemented through a privacy-protecting web application and mobile platform, giving women direct 
+        access to symptom assessment without requiring a hospital visit as a first step.
+      </p>
+    </div>
+    <div class="vision-cell">
+      <div class="vision-cell-icon">⬡</div>
+      <h4 class="vision-cell-title">Infrastructure</h4>
+      <p class="vision-cell-text">
+        Working with the Federal Ministry of Health of Nigeria to build reproductive health 
+        data infrastructure that does not currently exist, creating the foundation for future 
+        diagnostic AI development rooted in African clinical realities.
+      </p>
+    </div>
+    <div class="vision-cell">
+      <div class="vision-cell-icon">⬡</div>
+      <h4 class="vision-cell-title">Education</h4>
+      <p class="vision-cell-text">
+        Advocating for reproductive health education to be embedded in secondary school curricula alongside existing 
+        sex education, because the culture of normalizing pain does not end with better diagnostic tools alone.
+      </p>
+    </div>
+  </div>
+  <div class="vision-quote">
+    <p class="vision-quote-text">
+      It ends when the next generation of girls grow up knowing that their symptoms have names, that diagnosis is possible, 
+      and that they deserve care. The research is the foundation. The infrastructure, the policy work, and the education 
+      are how it reaches the people who need it most.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+  <footer class="footer">
+    <p><span class="copyright-name">Grace Ojemerenvhie Alele</span>©<span class="footer-copy">2026</span></p>
+  </footer>
+</body>
+</html>
