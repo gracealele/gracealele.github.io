@@ -54,6 +54,7 @@
       --text-primary: #ffffff;
       --text-secondary: #b0a0a0;
       --text-tet: #c9b7b7;
+      --text-text: #927979;
       --text-muted: #705858;
       --accent: #c41e3a;
       --accent-bright: #e63950;
@@ -491,6 +492,11 @@
       border: none;
     }
 
+    .section-toggle.toggle-btn.continue{
+      color: var(--text-text);
+      font-size: 13px;
+    }
+    
     /* === ESSAY NAV === */
     .essay-nav {
       display: flex;
@@ -1415,8 +1421,8 @@
       </div>
       <div class="hero-bio" id="min">
         <p>
-          I am a clinical AI researcher focused on three intersecting problems: making medical AI safe and interpretable, building 
-          diagnostic tools for under-resourced settings, and closing the geographic fairness gap in biomedical machine learning.
+          I am a clinical AI researcher focused on three intersecting problems: Building diagnostic tools for under-resourced 
+          setting, making medical AI safe and interpretable, and closing the geographic fairness gap in biomedical machine learning.
         </p>
         <p>
           My current work includes developing an uncertainty-aware multimodal transformer for early endometriosis detection, and 
@@ -1441,26 +1447,26 @@
             <div class="about-text">
               <!-- Always visible -->
               <p>
-                I hold a BSc in Computer Science (CGPA 3.81/5.0, Top 5%, Ambrose Alli University) and am an independent researcher at 
-                the <a href="https://mlcollective.org/">Machine Learning Collective (MLC)</a> and a research collaborator at <a href=
+                I hold a BSc in Computer Science with a final CGPA of 3.81/5.0 from Ambrose Alli University. I am 
+                a researcher at <a href="https://mlcollective.org/">ML Collective</a> and a research collaborator at <a href=
                 "https://huggingface.co/science"> HuggingFace Science</a>, where I co-led model development for longitudinal 
-                microbiome analysis. My translational work bridges computation and clinical practice through collaboration 
-                with the <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at 
-                <a href="https://www.abuad.edu.ng/">ABUAD</a>
+                microbiome analysis. <br>
+                
+                My translational research bridges computational modeling and clinical practice through close collaboration with 
+                the <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at <a 
+                href="https://www.abuad.edu.ng/"> Afe Babalola University.</a>
               </p>
             
               <!-- Hidden by default -->
               <div id="extra-content">
                 <p class="extra">
-                  I am also investigating representation bias in African clinical datasets, building infrastructure to evaluate how classical 
-                  models and LLMs perform across populations they were never trained on. I am currently seeking a PhD position to deepen this work at scale.
-                </p>
+                  I am currently investigating representation bias in African clinical datasets, building infrastructure to evaluate how classical 
+                  models and LLMs perform across populations they were never trained on.</p>
 
                 <p class="extra">
-                  I care deeply about teaching and community. I currently work as a Coding and Robotics Instructor for primary 
-                  and secondary school students through <a href="https://edupoint.org.ng/">EduPoint Ltd.</a> and have taught AI 
-                  and data structures at university level, because I believe every student deserves early, 
-                  quality access to the kind of computational thinking that took me years to find.
+                  I care deeply about impact and community, because I believe every student deserves early, quality access to the kind of computational 
+                  thinking and resources that took me years to find. I teach Coding and Robotics at primary and secondary schools through <a href=
+                  "https://edupoint.org.ng/">EduPoint Ltd.</a> At the university level, I taught Artificial Intelligence, Data structure and Algorithm, and so on.
                 </p>
 
                 <p class="extra">
@@ -1470,7 +1476,7 @@
                 </p>
               </div>
               
-              <button class="section-toggle toggle-btn" id="toggle-btn" onclick="toggleContent()">
+              <button class="section-toggle toggle-btn continue" id="toggle-btn" onclick="toggleContent()">
                 continue reading 
                 <span></span>
                 <i class="fa-solid fa-chevron-down"></i>
@@ -1588,43 +1594,50 @@
             <div class="news-list">
               <div class="news-item">
                 <span class="news-date">April 2026</span>
-                <span class="news-text">Got selected as a poster Reviewer for <a href="https://indabaxng.github.io/about-us.html">IndabaX</a></span>
+                <span class="news-text">Got selected as a poster reviewer for <a href="https://indabaxng.github.io/about-us.html">IndabaX.</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">Jan. 2026</span>
-                <span class="news-text">Starting a project (Medical imaging Segmentation) at MLC</span>
+                <span class="news-text">Joined ML Collective.</span>
               </div>
               <div class="news-item">
                 <span class="news-date">Dec. 2025</span>
                 <span class="news-text">
-                  Volunteering at <a href="https://www.group/epic/">RetinaCare</a>, to build Africa's AI-powered vision system
+                  Volunteering at <a href="https://www.group/epic/">RetinaCare</a>, to build Africa's AI-powered vision systems.
                 </span>
               </div>
               <div class="news-item">
                 <span class="news-date">Dec. 2025</span>
-                <span class="news-text">Presented posters at <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/">ABUAD-CMHS Scientific Conference</a></span>
+                <span class="news-text">Presented posters at <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/">ABUAD-CMHS Scientific Conference.</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">Nov. 2025</span>
-                <span class="news-text">I will be attending ICAIR Unilag (November 2025)</span>
+                <span class="news-text">I will be attending <a href="https://icair.unilag.edu.ng/">ICAIR Unilag.</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">Sept. 2025</span>
-                <span class="news-text">I am starting as a research assistant at <a href="https://huggingface.co/science">HuggingFace Science</a></span>
+                <span class="news-text">I am starting as a research assistant at <a href="https://huggingface.co/science">HuggingFace Science.</a></span>
               </div>
               <div class="news-item">
                 <span class="news-date">July 2025</span>
-                <span class="news-text">Visa Denied! </span>
+                <span class="news-text">Visa denied! </span>
               </div>                
               <div class="news-item">
                 <span class="news-date">May 2025</span>
                 <span class="news-text">
-                  Fulfilled all requirements for my bachelor's degree and graduated at the top 5% of my class at Ambrose Alli University</span>
+                  Fulfilled all requirements for my bachelor's degree and graduated at the top 5% of my class!</span>
               </div>               
               <div class="news-item">
                 <span class="news-date">Feb 2025</span>
                 <span class="news-text">
-                  Excited to share that I’ve been admitted to Emory, Tufts, and the University of Michigan for my master’s; I’ll be attending Michigan starting Fall 2025!
+                  Excited to share that I’ve been admitted to 
+                  <a href="https://www.jhu.edu/">Johns Hopkins</a>, 
+                  <a href="https://www.pitt.edu/">UPitt</a>, 
+                  <a href="https://washu.edu/">WashU</a>, 
+                  <a href="https://umbc.edu/">UMBC</a>, 
+                  <a href="https://www.emory.edu/">Emory</a>, 
+                  <a href="https://www.tufts.edu/">Tufts</a>, and 
+                  <a href="https://umich.edu/">UMich</a> for my masters; I’ll be attending The University Michigan starting fall 2025!
                 </span>
               </div>       
             </div>
