@@ -15,6 +15,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
+    --accent-glow: rgba(154, 20, 40, 0.12);
     --ink: #1a1714;
     --ink-mid: #3d3830;
     --ink-light: #7a7268;      
@@ -228,28 +229,38 @@
 
   .pull-quote {
     font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-style: italic;
     font-weight: 400;
     line-height: 1.65;
-    color: var(--ink);
-    border-left: 2px solid var(--accent);
-    padding: 1rem 0 1rem 1.8rem;
+    color: #1f1f1fc0;
+    background: var(--accent-glow);
+    border-radius: 4px;
+    padding: 2rem 1rem 2rem 2rem;
     margin: 2.5rem 0;
     position: relative;
   }
 
   .pull-quote::before {
-    content: '\201C';
-    font-family: 'Playfair Display', serif;
+    content: '"';
+    font-family: Georgia, serif;
     font-size: 4rem;
     line-height: 1;
-    color: var(--accent-light);
+    color: var(--accent);
     opacity: 0.4;
     position: absolute;
-    top: -0.5rem;
+    top: 1.2rem;
     left: 0.8rem;
   }
+
+
+    .quote{
+      display: flex;
+      color: var(--text-secondary);
+      letter-spacing: 0.08rem;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
 
   .final-rule {
     width: 48px;
@@ -318,16 +329,16 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink-light);
-    border: 1px solid var(--rule);
+    border: 1px solid #d6d5d5;
     padding: 0.3rem 0.7rem;
     border-radius: 2px;
     background: var(--paper-card);
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.5s, border-color 0.5s;
   }
 
   .tag:hover {
-    background-color: var(--inks);
-    border: 1px solid var(--accent-light);
+    background-color: #cd5a5a27;
+    border: 1px solid #d6d5d5;
   }
 
   .toc {
@@ -432,24 +443,28 @@
 <div class="content-wrap">
   <article>
 
-    <p id="intro">The world, it turns out, was not built for learners. It was built for experts. Opportunities are structured around 
+    <p id="intro">
+      The world, it turns out, was not built for learners. It was built for experts. Opportunities are structured around 
       demonstrated mastery: job listings require years of experience, research positions demand publication records, 
-      collaborations form between established names. The learner — genuinely curious, recently graduated, standing at 
-      the threshold — finds that the very act of not yet knowing is treated as a liability rather than a beginning.
+      collaborations form between established names. The learner, genuinely curious, recently graduated, standing at 
+      the threshold, finds that the very act of not yet knowing is treated as a liability rather than a beginning.
     </p>
 
-    <p>To understand why this feels so personal, we must examine interest — not merely as a financial concept, but as the 
+    <p>
+      To understand why this feels so personal, we must examine interest, not merely as a financial concept, but as the 
       mechanism through which modern institutions convert the state of learning into a form of deficit. The learner borrows 
       time, energy, and identity on the promise of future expertise. But unlike a loan that can be repaid, the interest 
       compounds silently: every year spent learning without credentials is a year counted against you, not for you.
     </p>
 
     <div class="pull-quote">
-      The guilt of curiosity is not accidental. It is structural — produced by systems that can only recognize knowledge once it has been certified, published, or made legible as expertise.
+      The guilt of curiosity is not accidental. It is structural, produced by systems that can only recognize knowledge once it 
+      has been certified, published, or made legible as expertise.
     </div>
 
-    <p>This operates through three interlocking pressures. First, lane assignment: upon graduating, one is implicitly 
-      handed a jurisdiction — the field of one's degree, the subject of one's thesis, the domain of one's first job. 
+    <p>
+      This operates through three interlocking pressures. First, lane assignment: upon graduating, one is implicitly 
+      handed a jurisdiction, the field of one's degree, the subject of one's thesis, the domain of one's first job. 
       To wander outside it is to risk credibility. Curiosity about adjacent fields, tangential ideas, or questions that 
       cross disciplinary borders is not celebrated; it is quietly penalized. The learner who asks too many kinds of 
       questions is seen as unfocused. The one who stays narrow accumulates the depth that systems reward.
@@ -462,8 +477,9 @@
 
     <h2 class="section-title reveal">Lane assignment as moral discipline</h2>
 
-    <p class="reveal">Lane assignment is not merely professional advice; it is internalized as moral discipline. When you 
-      find yourself reading outside your area, a particular guilt sets in — not the guilt of wasting time, but something 
+    <p class="reveal">
+      Lane assignment is not merely professional advice; it is internalized as moral discipline. When you 
+      find yourself reading outside your area, a particular guilt sets in, not the guilt of wasting time, but something 
       stranger: the guilt of disloyalty. As if curiosity itself were a form of betrayal against the self you were supposed 
       to become. This guilt is not natural. It is cultivated by systems that price focus over breadth, that reward those 
       who go deep and penalize those who go wide before they have been given permission.
@@ -476,8 +492,9 @@
 
     <h2 class="section-title reveal">The geometry of access</h2>
 
-    <p class="reveal">Expertise in contemporary institutional life functions less as a destination and more as a gate. 
-      Opportunities — grants, positions, collaborations, even conversations — are filtered by credentials that signal 
+    <p class="reveal">
+      Expertise in contemporary institutional life functions less as a destination and more as a gate. 
+      Opportunities (grants, positions, collaborations, even conversations) are filtered by credentials that signal 
       prior expertise. The learner, by definition, has not yet accumulated what the gate requires. This is the cruelest 
       geometry of knowledge: you need the opportunities to build expertise, but you need expertise to access the opportunities. 
       The learner stands outside this loop, pressing their face against the glass.
@@ -490,20 +507,26 @@
 
     <h2 class="section-title reveal">Compounding disadvantage</h2>
 
-    <p class="reveal">Recognition in research and knowledge work compounds asymmetrically, much like financial interest. 
+    <p class="reveal">
+      Recognition in research and knowledge work compounds asymmetrically, much like financial interest. 
       Early recognition generates visibility; visibility attracts mentors; mentors open doors; open doors produce output; 
-      output generates more recognition. Those who enter late — or who spent their early years learning broadly rather 
-      than building a legible track record — begin at a structural disadvantage that grows, not shrinks, over time. 
-      The learner is not just behind. They are falling further behind while standing still.</p>
+      output generates more recognition. Those who enter late, or who spent their early years learning broadly rather 
+      than building a legible track record, begin at a structural disadvantage that grows, not shrinks, over time. 
+      The learner is not just behind. They are falling further behind while standing still.
+    </p>
 
-    <p class="reveal">What this produces is a particular existential posture: the recent graduate who has entered research 
+    <p class="reveal">
+      What this produces is a particular existential posture: the recent graduate who has entered research 
       not with ambition but with authentic curiosity, who finds that curiosity is not, by itself, a currency. That wanting 
-      to understand is insufficient. That the question "what do you work on?" is not an invitation to wonder aloud — it is a 
-      demand for taxonomy, for a fixed address in the landscape of knowledge.</p>
+      to understand is insufficient. That the question "what do you work on?" is not an invitation to wonder aloud, it is a 
+      demand for taxonomy, for a fixed address in the landscape of knowledge.
+    </p>
 
-    <p class="reveal">Interest, in the financial sense, is what makes time work against the borrower. Learning interest 
+    <p class="reveal">
+      Interest, in the financial sense, is what makes time work against the borrower. Learning interest 
       operates the same way: every year you spend as a learner rather than an expert is a year the gap between you and the 
-      credentialed widens. The system does not pause while you figure out what you truly want to pursue. It accrues.</p>
+      credentialed widens. The system does not pause while you figure out what you truly want to pursue. It accrues.
+    </p>
 
     <div class="pull-quote reveal">
       The guilt of wandering, the anxiety of not yet being an expert, the loneliness of being a learner in a world of 
@@ -511,10 +534,12 @@
       architecture.
     </div>
 
-    <p id="closing" class="reveal">The world was not built for learners. But learners are the only ones who built anything worth 
-      understanding. The tension between these two facts does not resolve cleanly. It simply must be held — with rigor, 
+    <p id="closing" class="reveal">
+      The world was not built for learners. But learners are the only ones who built anything worth 
+      understanding. The tension between these two facts does not resolve cleanly. It simply must be held, with rigor, 
       with patience, and with the quiet conviction that the act of not yet knowing is not a failure of discipline, but 
-      the very beginning of thought.</p>
+      the very beginning of thought.
+    </p>
 
     <div class="final-rule reveal"></div>
     <div class="closing-note reveal">2025 &nbsp;&mdash;&nbsp; Personal Essay</div>
@@ -553,10 +578,6 @@
   </aside>
 </div>
 
-<!-- FOOTER -->
-  <footer class="footer">
-    <p><span class="copyright-name">Grace Ojemerenvhie Alele &nbsp;</span>©<span class="footer-copy">2026</span></p>
-  </footer>
 
 <script>
   const reveals = document.querySelectorAll('.reveal');

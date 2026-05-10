@@ -32,7 +32,9 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Pacifico&family=Playfair+Display+SC:wght@900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Favicon -->
@@ -47,8 +49,11 @@
   
   <style>
     :root {
+      --role: #7f7a7a;
+      --bg-2: #000000;
+      --border-2: #88808038;
       --ink-faint: #b5a4a4;
-      --bg-primary: #0a0a0a;
+      --bg-primary: #0b0b0b;
       --bg-secondary: #0f0f0f;
       --bg-card: #141414;
       --bg-card-hover: #1a1a1a;
@@ -64,6 +69,7 @@
       --accent-warm: #d4456a;
       --gold-highlight: #d4a574;
       --border: #222222;
+      --border-hovers: #555555;
       --border-hover: #333333;
       --mono: 'DM Mono', monospace;
       --font-display: 'Playfair Display SC', serif;
@@ -81,6 +87,7 @@
     }
 
     html[data-theme="light"] {
+      --bg-2: #fdf6f6;
       --bg-dark: #211e1e;
       --bg-primary: #ffffff;
       --bg-secondary: #f7f2f2;
@@ -96,6 +103,7 @@
       --accent-warm: #c43858;
       --border: #d4c0c0;
       --border-hover: #b89898;
+      --border-hovers: #b89898;
     }
 
     * {
@@ -382,7 +390,8 @@
 
     /* === MAIN GRID === */
     .main-content {
-      padding: 2rem 0 4rem;
+      margin-bottom: 4rem;
+      padding: 2.5rem 0 4rem;
     }
 
     .organic-grid {
@@ -432,6 +441,9 @@
       border: none;
       cursor: pointer;
       display: flex;
+      justify-content: flex-end;
+      overflow: hidden;
+
       align-items: center;
       gap: 0.4rem;
       padding: 0.3rem 0.6rem;
@@ -467,12 +479,11 @@
       color: var(--text-secondary);
       line-height: 1.8;
     }
-
-    .about-text p {
-      margin-bottom: 1rem;
-    }
-
     
+    /*.about-text p{
+      margin-bottom: 0rem;
+    }*/
+
     /* Hidden paragraphs */
     .extra {
       display: none;
@@ -487,16 +498,20 @@
  
     /* Continue reading button */
     #toggle-btn {
-      padding-left: 0;
+      float:left;
       background: none;
+      float: right;
       border: none;
-    }
-
-    .section-toggle.toggle-btn.continue{
       color: var(--text-text);
       font-size: 13px;
+      padding: 0.6rem 0;
     }
-    
+
+    #toggle-btn:hover {
+      color: var(--accent);
+    }
+
+        
     /* === ESSAY NAV === */
     .essay-nav {
       display: flex;
@@ -848,13 +863,21 @@
       color: var(--accent);
     }
     
-    /* ===TEACHING SECTION STYLES=== */    
+    /* ===TEACHING SECTION STYLES=== */
+    .teaching-section.main-content{
+      margin: 0 6.5rem;
+    }
+    
+    .sec-alt {
+      background-color: var(--bg-2);
+    }
+
     .teaching-section .section-title {
-      font-size: 2rem;
+      font-size: 2.3rem;
       text-align: center;
       margin-bottom: 3rem;
       color: var(--text-primary);
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .section-title {
@@ -895,79 +918,119 @@
     }
 
     .course-item {
-      padding: 15px;    
-      border-top-right-radius: 6px;
-      border-bottom-right-radius: 6px;
-      border-left: 4px solid var(--accent);
-      transition: transform 0.3s ease, box-shadow 0.2s ease;
-      box-shadow: 0 5px 10px rgba(255, 103, 103, 0.1);
-      
-    }
-    
-    .course-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      background: var(--accent-glow); 
-      border-color: transparent;
-      border-left: 2px solid var(--accent-bright);
+      padding: 1.8rem;    
+      background-color: var(--bg-primary);
+      border-radius: 10px;
+      border: 1px solid var(--border-2);
     }
     
     .course-code {
       font-size: 0.9rem;
+      color: var(--accent);      
+      font-family: 'Courier New', Courier, monospace;;
+      letter-spacing: .04em;
       font-weight: 550;
-      color: var(--text-primary);
-      font-family: 'Courier New', Courier, monospace;
     }
 
-    .course-name {
-      margin: 4px 0;
-      font-weight: 550;
-      color: var(--text-tet);
-      font-size: 0.8rem;
+    .program-uni {
+      color: var(--bg-dark);
+      font-family: var(--mono);
+      font-size: 0.7rem;
     }
 
     .course-description{
       margin: 6px 0;
-      color: var(--text-secondary);
-      font-size: 0.7rem;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+      border-bottom: var(--border-2) 1px dashed;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
 
     .term {
       color: var(--accent);     
     }
 
-    .term-span {
-      font-size: 0.7rem;
-      padding: 5px 9px; 
-      border-radius: 3px;
-      margin: 2px;
-      color: var(--text-muted);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
+    .card-date {
+      padding-top: 0.5rem;
+      font-family: var(--mono);
+      letter-spacing: .02em;
+      font-size: 10px; 
+      color: var(--role);
+    }
+
+    .card-date span + span::before { 
+      content: ' · '; 
     }
 
     .course-item-span{
-      display: flex;
-      justify-content: space-between;
+      display: flex; 
+      align-items: baseline; 
+      flex-wrap: wrap;  
+      justify-content:space-between;
     }   
      
-    .course-span{
-      font-size: 0.7rem;
-      border-radius: 12px;
-      padding: 3px 10px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      color: var(--accent);
+    .role{
+      font-size: .65em;
+      padding: 2px 7px;
+      border-radius: 3px;
+      border: 0.5px solid var(--border-2);
+      text-transform: uppercase;
+      letter-spacing: .05em;       
+      font-family: 'Space Mono', monospace; 
+      color: var(--role); 
     }  
-   
-    .mentoring-text{
-      color: var(--text-secondary);
-      line-height: 1.8;
-      justify-self: center;
-      margin-top: 4rem;
-      font-size: 0.95rem;
-    }
+  
 
+/* ── CARDS GRID ── */
+.card-org {
+  border-bottom: var(--border-2) 1px dashed;
+  padding-bottom: 0.8rem;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--role);
+  letter-spacing: .03em;
+  text-transform: uppercase; 
+  margin-bottom: 7px;
+}
+
+.role.accent {
+  color: var(--accent);
+  background: rgba(166, 42, 42, 0.08); 
+  font-weight: 510;
+  letter-spacing: .07em;       
+}
+
+.card-title {
+  background-color: var(--bg-primary);
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 0.5rem; 
+}
+
+.card-header-row { 
+  display: flex; 
+  align-items: baseline; 
+  flex-wrap: wrap;  
+  justify-content:space-between;
+}
+
+.card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;  
+}
+.card-tag {
+  font-family: var(--mono); font-size: 11px;
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 3px 8px; color: var(--muted);
+}
+.card-num {
+  font-family: var(--mono); font-size: 12px; color: var(--teal);
+  letter-spacing: .06em; margin-bottom: 4px;
+}
     /* Pulse animation */
     @keyframes fadeInUp {
       from {
@@ -1023,7 +1086,6 @@
     .slider-wrapper {
       overflow-x: hidden;
       width: 100%;
-      padding-bottom: 15px; /* gives the box-shadow space at the bottom */
     }
 
     /* Mobile header - hide CV only, keep toggle */      
@@ -1055,7 +1117,7 @@
         /* Each card takes up 1/3 of the 300% track = 100vw equivalent */
         width: calc(100% / 3);
         flex-shrink: 0 !important;
-        padding: 0 4px 15px 4px;
+        padding: 0 8px 0 4px;
       }
 
       .course-item {
@@ -1063,14 +1125,6 @@
         min-width: calc(100% / 3) !important; /* ensures consistent width */
         width: 100%;
       }
-
-      .course-item:hover {
-        box-shadow: none;
-        background: var(--accent-glow); 
-        border-color: transparent;
-        border-radius: 0;
-        border-left: 2px solid var(--accent-bright);
-    }
     }
 
     @media (max-width: 900px) {
@@ -1180,14 +1234,9 @@
       .section-title.scroll-up { 
         font-size: 1.5rem; 
       }
-      .course-name {
+      .program-uni {
         font-size: 0.8rem;
-      }
-      .mentoring-text {
-        font-size: 0.9rem; 
-        margin-top: 2rem;
-      }
-      
+      }      
       .teaching-section.main-content{
         margin: 0rem 2rem;
       }
@@ -1224,10 +1273,10 @@
       .pub-title,
       .con-title,
       .project-title {
-        font-size: 0.8;
+        font-size: 0.8rem;
         margin-bottom: 0;
       }    
-      .course-name {
+      .program-uni {
         font-size: 0.75rem;
       }
       .section-title {
@@ -1277,9 +1326,6 @@
       .project-title {
         margin-bottom: 0;
         font-size: 0.7rem;
-      }    
-      .mentoring-text {
-        font-size: 0.75rem; 
       }
     }
 
@@ -1299,7 +1345,7 @@
     .footer .copyright-name {
       font-family: var(--font-display);
       font-size: 0.85rem;
-      color: var(--ink-faint);
+      color: var(--inks);
     }
     
     .footer-copy {
@@ -1447,16 +1493,12 @@
             <div class="about-text">
               <!-- Always visible -->
               <p>
-                I hold a BSc in Computer Science with a final CGPA of 3.81/5.0 from Ambrose Alli University. I am 
-                a researcher at <a href="https://mlcollective.org/">ML Collective</a> and a research collaborator at <a href=
-                "https://huggingface.co/science"> HuggingFace Science</a>, where I co-led model development for longitudinal 
-                microbiome analysis. <br>
-                
-                My translational research bridges computational modeling and clinical practice through close collaboration with 
-                the <a href="https://vc.abuad.edu.ng/tag/college-of-medicine-health-sciences/"> CMHS research group</a> at <a 
-                href="https://www.abuad.edu.ng/"> Afe Babalola University.</a>
+                I hold a BSc in Computer Science and I am a researcher at <a href="https://mlcollective.org/"> ML Collective</a>, building multimodal AI
+                systems that integrate symptom triage, medical imaging analysis, multi-omics data, and uncertainty quantification for early disease diagnosis 
+                in low-resource settings. In collaboration with clinicians at <a href="https://www.abuad.edu.ng/"> Afe Babalola University </a> I develop
+                clinically interpretable tools deployable across underserved African populations.
               </p>
-            
+              
               <!-- Hidden by default -->
               <div id="extra-content">
                 <p class="extra">
@@ -1476,8 +1518,8 @@
                 </p>
               </div>
               
-              <button class="section-toggle toggle-btn continue" id="toggle-btn" onclick="toggleContent()">
-                continue reading 
+              <button class="section-toggle" id="toggle-btn" onclick="toggleContent()">
+                continue reading
                 <span></span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
@@ -1633,9 +1675,12 @@
                   Excited to share that I’ve been admitted to 
                   <a href="https://www.jhu.edu/">Johns Hopkins</a>, 
                   <a href="https://www.pitt.edu/">UPitt</a>, 
-                  <a href="https://washu.edu/">WashU</a>, 
-                  <a href="https://umbc.edu/">UMBC</a>, 
+                  <a href="https://www.washu.edu/">WashU</a>, 
+                  <a href="https://www.umbc.edu/">UMBC</a>, 
+                  <a href="https://www.gvsu.edu/">GVSU</a>, 
                   <a href="https://www.emory.edu/">Emory</a>, 
+                  <a href="https://www.wpi.edu/">WPI</a>, 
+                  <a href="https://www.virginia.edu/">UVA</a>, 
                   <a href="https://www.tufts.edu/">Tufts</a>, and 
                   <a href="https://umich.edu/">UMich</a> for my masters; I’ll be attending The University Michigan (UMich) starting fall 2025!
                 </span>
@@ -1780,7 +1825,7 @@
           <!-- Conferences -->
           <div class="section">
             <div class="section-header">
-              <div class="section-label">Conferences</div>
+              <div class="section-label">Poster Presentation</div>
               <button class="section-toggle toggle-btn" id="con-toggle" onclick="toggleCon()">
                 <span>all</span>
                 <i class="fa-solid fa-chevron-down"></i>
@@ -1963,108 +2008,105 @@
           </div>
         </div>
       </div>  
-    </main>
+    </main>    
+  </div>
 
-    <!-- Teaching Assistant Section -->
+  <!-- Teaching Assistant Section -->
+  <section class="sec-alt">
+    <div class="card-divider"></div>
+
     <section class="teaching-section main-content">
-      <h2 class="section-title scroll-up">Teaching &amp; Mentoring</h2>
+      <h2 class="section-title scroll-up">Teaching &amp; Mentoring.</h2>
       
       <!-- Teaching Assistant Roles -->
       <div>
         <h3 class="section-label teaching-role">TEACHING ASSISTANT</h3>
         
         <!-- FIX 4: overflow wrapper wraps the sliding track -->
-      <div class="slider-wrapper">
-        <div class="course-list">
+        <div class="slider-wrapper">
+          <div class="course-list">
 
-          <div class="course-item-wrapper">
-            <div class="course-item">
-              <div class="course-item-span">
-                <span class="course-code">
-                  CSC308
-                </span>
-                <span class="course-span">
-                    Teaching Assistant
-                </span>
+            <div class="course-item-wrapper">
+              <div class="course-item">
+                <div class="course-item-span">
+                  <span class="course-code">
+                    CSC308
+                  </span>
+                  <span class="role">
+                      Teaching Assistant
+                  </span>
+                </div>
+              
+                <div class="program-uni">CSC &#215 AAUE</div>
+                <div class="course-description">
+                  Operations Research
+                </div>
+                <div class="card-date">
+                  <span>Fall 2025</span>
+                </div>
               </div>
-            
-              <p class="course-name">Operations Research</p>
-              <p class="course-description">
-                  Guided undergraduate students in optimization methods, mathematical modeling, and quantitative decision-making techniques.
-              </p>
-              <div class="term">
-                <span class="term-span">
-                  Fall 2025
-                </span>
-              </div>
-            </div>
-          </div>       
+            </div>  
 
-          <div class="course-item-wrapper">
-            <div class="course-item">
-              <div class="course-item-span">
-                <span class="course-code">
-                    CSC305
-                </span>
-                <span class="course-span">
-                  Lab Assistant
-                </span>
+            <div class="course-item-wrapper">
+              <div class="course-item">
+                <div class="course-item-span">
+                  <span class="course-code">
+                      CSC305
+                  </span>
+                  <span class="role">
+                    Lab Assistant
+                  </span>
+                </div>
+                <div class="program-uni">CSC &#215 AAUE</div>
+                <div class="course-description">
+                  Artificial Intelligence
+                </div>
+                <div class="card-date">
+                  <span>Winter 2024</span><span>Winter 2025</span>
+                </div>
               </div>
-              <p class="course-name">Artificial Intelligence</p>
-              <p class="course-description">
-                Facilitated undergraduate learning through tutorials, coding guidance, and discussions on core 
-                artificial intelligence concepts and algorithms.
-              </p>              
-              <div class="term">
-                <span class="term-span">
-                  Winter 2024
-                </span>
-                <span class="term-span">
-                  Winter 2025
-                </span>
+            </div>          
+
+            <div class="course-item-wrapper">
+              <div class="course-item">
+                <div class="course-item-span">
+                  <span class="course-code">
+                      CSC211
+                  </span>
+                  <span class="role">
+                    Lead Teaching Assistant
+                  </span>
+                </div>
+              
+                <div class="program-uni">CSC &#215 AAUE</div>
+                <div class="course-description">
+                  Data Structure and Algorithm
+                </div>
+                <div class="card-date">
+                  <span>Fall 2023</span><span>Fall 2024</span><span>Fall 2025</span>
+                </div>
               </div>
-            </div>
-          </div>          
-          
-          <div class="course-item-wrapper">
-            <div class="course-item">
-              <div class="course-item-span">
-                <span class="course-code">
-                    CSC211
-                </span>
-                <span class="course-span">
-                  Lead Teaching Assistant
-                </span>
-              </div>
-            
-              <p class="course-name">Data Structure and Algorthm</p>
-              <p class="course-description">
-                Taught tutorials and mentored undergraduate students on fundamental algorithms, data structures, and computational problem-solving
-              </p>
-              <div class="term">
-                <span class="term-span">
-                  Fall 2023
-                </span>
-                <span class="term-span">
-                  Fall 2024
-                </span>
-                <span class="term-span">
-                  Fall 2025
-                </span>
-              </div>
-            </div>
-          </div> 
+            </div> 
+          </div>
         </div>
-      </div>
-    
+      
     
       <!-- (Optional) Student Mentoring -->
-      <div class="teaching-role teach">
-          <h3 class="section-label">STUDENT MENTORING</h3>
-          <p class="mentoring-text">Currently building my mentoring portfolio.</p>
+      <div class="teach">
+          <h3 class="section-label teaching-role">STUDENT MENTORING</h3>
+      
+      <div style="max-width:500px;">
+        <div class="course-item">
+          <div class="card-header-row">
+            <h3 class="card-title" style="margin:0;">Mmesoma Nzeribe</h3>
+            <span class="role accent">Undergraduate</span>
+          </div>
+          <div class="card-org">University of Nigeria</div>
+          <div class="card-date">2025 — Present</div>
+        </div>
       </div>
     </section>
-  </div>
+  </section>
     
   <!-- Footer -->
   <footer class="footer">
